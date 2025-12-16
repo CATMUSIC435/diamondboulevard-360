@@ -15,6 +15,7 @@ import { Suspense, useState } from "react";
 import { Loader } from "./components/atoms/loader";
 import { Hotspot } from "./components/atoms/hotspot";
 import { SceneTransition } from "./components/atoms/scene-transition";
+import { CameraController } from "./components/molecules/camera-controller";
 
 const scenes = {
   cruncher: [
@@ -43,20 +44,27 @@ const scenes = {
   ]
 };
 
-function App() {
-  const [currentScene, setScene] = useState(scenes.cruncher);
-  const [isChanging, setIsChanging] = useState(false);
+const SCENE_KEYS = {
+  CRUNCHER: 'cruncher',
+  MOBICAM: 'mobicam',
+  EDGE: 'edge'
+};
 
-  const changeScene = (newScenePaths) => {
-    setIsChanging(true); // Bắt đầu tối màn hình
+function App() {
+  const [activeScene, setActiveScene] = useState(SCENE_KEYS.CRUNCHER);
+  const [isZooming, setIsZooming] = useState(false);
+  // const [isChanging, setIsChanging] = useState(false);
+
+const changeScene = (sceneKey) => {
+    setIsZooming(true); // Bắt đầu zoom
     
+    // Sau 800ms zoom thì mới đổi cảnh
     setTimeout(() => {
-      setScene(newScenePaths); // Đổi cảnh khi màn hình đã tối đen
-      
-      // Đợi một chút để texture mới kịp render rồi mới mở màn hình
-      setTimeout(() => setIsChanging(false), 500); 
-    }, 700); // Khớp với duration-700 của CSS
+      setActiveScene(sceneKey);
+      setIsZooming(false); // Trả FOV camera về bình thường
+    }, 200);
   };
+
   return (
     <div className="w-full h-screen bg-gray-400">
       <Canvas
@@ -71,43 +79,38 @@ function App() {
           toneMappingExposure: 1.1,
         }}
       >
-        <Suspense fallback={<Loader />}>
-        <PanoramaBox texturePaths={currentScene}/>
-        <SceneTransition isChanging={isChanging} />
-        {/* <PanoramaHotspot/> */}
-          <Hotspot 
-          position={[300, 0, -200]} 
-            text="Đi đến cruncher" 
-            nextSceneImages={scenes.cruncher}
-          onClick={() => changeScene(scenes.cruncher)} 
-        />
-        </Suspense>
+        <CameraController isZooming={isZooming} />
+        <PanoramaZoom />
         
-        <group>
-          {/* <Hotspot 
-          position={[300, 0, -200]} 
-            text="Đi đến cruncher" 
-            nextSceneImages={scenes.cruncher}
-          onClick={() => changeScene(scenes.cruncher)} 
-        /> */}
-         {/* <Hotspot 
-          position={[400, 0, -200]} 
-          text="Đi đến MobiCAM" 
-            nextSceneImages={scenes.mobicam}
-          onClick={() => changeScene(scenes.mobicam)} 
-        />
-         <Hotspot
-          position={[500, 0, -200]} 
-          text="Đi đến Edge" 
-            nextSceneImages={scenes.edge}
-          onClick={() => changeScene(scenes.edge)} 
-        /> */}
-        </group>
+        <Suspense fallback={<Loader />}>
+        <PanoramaBox texturePaths={scenes.mobicam}
+        isActive={activeScene === SCENE_KEYS.MOBICAM}/>
+        <PanoramaBox texturePaths={scenes.edge}
+        isActive={activeScene === SCENE_KEYS.EDGE}/>
+        <PanoramaBox texturePaths={scenes.cruncher}
+        isActive={activeScene === SCENE_KEYS.CRUNCHER}/>
+        
+        {activeScene === SCENE_KEYS.CRUNCHER && (
+          <Hotspot 
+            position={[300, 0, -200]} 
+            text="Qua dự án MobiCAM" 
+            onClick={() => changeScene(SCENE_KEYS.MOBICAM)} 
+          />
+        )}
+        
+        {activeScene === SCENE_KEYS.MOBICAM && (
+          <Hotspot 
+            position={[-300, 0, 100]} 
+            text="Về dự án Edge" 
+            onClick={() => changeScene(SCENE_KEYS.EDGE)} 
+          />
+        )}
+        </Suspense>
         <EffectComposer>
           <BrightnessContrast BrightnessContrast={-0.05} contrast={0.05} />
           <HueSaturation saturation={0.15} />
         </EffectComposer>
-        <PanoramaZoom />
+        {/* <PanoramaZoom /> */}
         <OrbitControls
           enablePan={false}
           enableDamping

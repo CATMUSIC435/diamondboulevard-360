@@ -1,7 +1,7 @@
 import { useTexture } from "@react-three/drei";
 import { BackSide, SRGBColorSpace } from "three";
 
-export function PanoramaBox({texturePaths}) {
+export function PanoramaBox({texturePaths, isActive}) {
   const textures = useTexture(texturePaths);
 
   textures.forEach((tex) => {
@@ -28,6 +28,7 @@ export function PanoramaBox({texturePaths}) {
           toneMapped={false}
           color="#f0f0f0"
           attach={`material-${i}`}
+          opacity={isActive ? 1 : 0}
         />
       ))}
     </mesh>
