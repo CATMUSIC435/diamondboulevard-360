@@ -12,7 +12,7 @@ import {
 } from "@react-three/postprocessing";
 import { PanoramaZoom } from "../../components/molecules/panorama-zoom";
 
-export const PanoramaView = memo(({ scene, isActive, children }) => {
+export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = false }) => {
   const [showEffects, setShowEffects] = useState(false);
 
   useEffect(() => {
@@ -28,15 +28,16 @@ export const PanoramaView = memo(({ scene, isActive, children }) => {
   return (
     <div className="w-full h-screen bg-gray-400 cursor-pointer">
       <Canvas
-        frameloop={isActive ? "always" : "never"}
+        frameloop="demand"
         camera={{
           fov: 75,
           near: 0.1,
           far: 3000,
           position: [0, 0, 0.001],
         }}
+        dpr={lowPerformance ? [1, 1.5] : [1, 2]}
         gl={{
-          antialias: true,
+          antialias: !lowPerformance,
           powerPreference: "high-performance",
           outputColorSpace: SRGBColorSpace,
           toneMappingExposure: 1.1,
@@ -64,7 +65,7 @@ export const PanoramaView = memo(({ scene, isActive, children }) => {
           enablePan={false}
           enableDamping
           dampingFactor={0.05}
-          rotateSpeed={-0.4}
+          rotateSpeed={lowPerformance ? -0.6 : -0.4}
           enableZoom={false}
         />
       </Canvas>
