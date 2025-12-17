@@ -11,7 +11,7 @@ export function HotspotDirection({ position, title, imageUrl, onClick }) {
         onPointerOver={() => setHover(true)}
         onPointerOut={() => setHover(false)}
       >
-        <sphereGeometry args={[8, 16, 16]} />
+        <sphereGeometry args={[12, 16, 16]} />
         <meshBasicMaterial
           color={"#fff"}
           transparent
