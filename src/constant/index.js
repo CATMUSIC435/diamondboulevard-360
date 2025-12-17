@@ -16,16 +16,18 @@ export const SCENES = {
     "/images/cube-map/nz.png"],
   hotspot: [
     {
+      key: 1,
       position: [-10, -50, -50],
       title: '',
       imageUrl: "/images/360-image.png",
-      key: SCENE_KEYS.MOBICAM
+      key: SCENE_KEYS.v2
     },
      {
+      key: 2,
       position: [60, 0, 90],
       title: '',
       imageUrl: "/images/360-image.png",
-      key: SCENE_KEYS.EDGE
+      key: SCENE_KEYS.v3
     }
   ]
   },
@@ -39,16 +41,18 @@ export const SCENES = {
     "/images/cube-map-1/nz.png"],
  hotspot: [
     {
+      key: 3,
       position: [-10, 10, 40],
       title: '',
       imageUrl: "/images/360-image.png",
-      key: SCENE_KEYS.CRUNCHER
+      key: SCENE_KEYS.v1
     },
      {
+      key: 4,
       position: [25, 0, 80],
       title: '',
       imageUrl: "/images/360-image.png",
-      key: SCENE_KEYS.EDGE
+      key: SCENE_KEYS.v3
     }
   ]
   },
@@ -62,16 +66,18 @@ export const SCENES = {
     "/images/cube-map-2/nz.png"],
   hotspot: [
         {
+          key: 5,
       position: [0, 15, 90],
       title: '',
       imageUrl: "/images/360-image.png",
-      key: SCENE_KEYS.CRUNCHER
+      key: SCENE_KEYS.v1
     },
      {
+      key: 6,
       position: [-20, 10, 100],
       title: '',
       imageUrl: "/images/360-image.png",
-      key: SCENE_KEYS.MOBICAM
+      key: SCENE_KEYS.v2
     },
     //  {
     //   position: [-10, -50, -50],

@@ -30,6 +30,7 @@ function App() {
               SCENES[key].hotspot.map((item) => 
 
                 <HotspotDirection
+                  key={item.key}
                   position={item.position}
                   title={item.title}
                   imageUrl={item.imageUrl}
