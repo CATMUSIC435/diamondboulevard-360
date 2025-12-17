@@ -8,19 +8,16 @@ export function PanoramaBox({texturePaths, isActive}) {
   useMemo(() => {
   textures.forEach((tex) => {
     tex.colorSpace = SRGBColorSpace;
-
-    // Lật ngang ảnh để chữ không bị ngược khi dùng BackSide
+    
     tex.repeat.set(-1, 1);
-    tex.offset.set(1, 0); // Quan trọng: Đẩy ảnh lại vị trí cũ sau khi lật
-
-    tex.anisotropy = 16; // Giúp chữ sắc nét hơn
+    tex.offset.set(1, 0); 
+    tex.anisotropy = 16;
     tex.needsUpdate = true;
   });
   }, [textures]);
 
   return (
     <mesh>
-      {/* Box lớn hơn → zoom mượt */}
       <boxGeometry args={[1000, 1000, 1000]} />
 
       {textures.map((tex, i) => (

@@ -1,5 +1,7 @@
 "use client";
+import { memo, Suspense, useEffect, useState } from "react";
 import * as THREE from 'three';
+import { SRGBColorSpace } from "three";
 import { Canvas } from "@react-three/fiber";
 import { PanoramaBox } from "../panorama-box/index";
 import { OrbitControls } from "@react-three/drei";
@@ -9,16 +11,13 @@ import {
   HueSaturation,
 } from "@react-three/postprocessing";
 import { PanoramaZoom } from "../../components/molecules/panorama-zoom";
-import { SRGBColorSpace } from "three";
-import { memo, Suspense, useEffect, useState } from "react";
 
-export const PanoramaView = memo(({ scene, isActive }) => {
+export const PanoramaView = memo(({ scene, isActive, children }) => {
   const [showEffects, setShowEffects] = useState(false);
 
   useEffect(() => {
     let timer;
     if (isActive) {
-      // Đợi hiệu ứng fade 1s xong mới bật Effect cho nhẹ
       timer = setTimeout(() => setShowEffects(true), 1000);
     } else {
       setShowEffects(false);
@@ -45,27 +44,11 @@ export const PanoramaView = memo(({ scene, isActive }) => {
           depth: false,
         }}
       >
-        {/* <CameraController isZooming={isZooming} /> */}
         <PanoramaZoom />
 
         <Suspense fallback={null}>
           <PanoramaBox texturePaths={scene} isActive={isActive} />
-
-          {/* <Hotspot 
-            position={[300, 0, -300]} 
-            text="Qua dự án MobiCAM" 
-            onClick={() => changeScene(SCENE_KEYS.MOBICAM)} 
-          />
-          <Hotspot 
-            position={[300, 0, -200]} 
-            text="Qua dự án MobiCAM" 
-            onClick={() => changeScene(SCENE_KEYS.MOBICAM)} 
-          />
-          <Hotspot 
-            position={[-300, 0, 100]} 
-            text="Về dự án Edge" 
-            onClick={() => changeScene(SCENE_KEYS.EDGE)} 
-          /> */}
+          {children && children}
         </Suspense>
        {isActive && showEffects && (
           <EffectComposer 
@@ -76,7 +59,7 @@ export const PanoramaView = memo(({ scene, isActive }) => {
             <HueSaturation saturation={0.15} />
           </EffectComposer>
         )}
-        {/* <PanoramaZoom /> */}
+        
         <OrbitControls
           enablePan={false}
           enableDamping
