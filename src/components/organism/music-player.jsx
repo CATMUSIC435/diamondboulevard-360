@@ -38,7 +38,7 @@ useEffect(() => {
 }, [currentTrackIndex]);
 
   return (
-    <div className="fixed top-8 right-8 z-[60] flex flex-col items-end gap-2">
+    <div className="fixed top-4 right-4 z-[60] flex flex-col items-end gap-2">
       <div 
         onClick={() => !isExpanded && setIsExpanded(true)}
         className={`relative flex items-center gap-4 overflow-hidden rounded-full p-1.5 transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)] ${
