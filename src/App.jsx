@@ -62,7 +62,7 @@ function App() {
               <TabsTrigger
                 key={key}
                 value={key}
-                className="rounded-sm px-2 py-4 bg-gray-400/20 backdrop-blur-xl data-[state=active]:bg-indigo -600 data-[state=active]:text-white font-bold uppercase text-[10px] tracking-[0.2em] transition-all"
+                className="rounded-sm px-2 py-4 bg-gray-400/20 backdrop-blur-xl data-[state=active]:bg-indigo-600 data-[state=active]:text-white font-bold uppercase text-[10px] tracking-[0.2em] transition-all"
               >
                 {key}
               </TabsTrigger>
