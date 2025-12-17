@@ -2,9 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Play, Pause, SkipForward, Music, ChevronLeft, Volume2 } from 'lucide-react';
 
 const PLAYLIST = [
-  { id: 3, title: "Phép màu", artist: "MAYDAYs, Minh Tốc", url: "/musics/phep-mau.mp3" },
-  { id: 1, title: "Mất tích", artist: "Thắng", url: "/musics/matich.mp3" },
-  { id: 2, title: "Khóc đấy", artist: "Thắng", url: "/musics/khocday.mp3" },
+  { id: 3, title: "Phép màu", artist: "MAYDAYs, Minh Tốc", url: "/musics/phep-mau.mp3" }
 ];
 
 export function MusicPlayer() {
