@@ -7,6 +7,7 @@ import { useTexture } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
 import { Tabs, TabsList, TabsTrigger } from "./components/ui/tabs";
 import { HotspotDirection } from "./components/atoms/hotspot-direction";
+import { GlobalCanvasLoader } from "./components/molecules/global-canvas-loader";
 
 function TexturePreloader() {
   useTexture(SCENES.v1.view.textures);
@@ -46,6 +47,7 @@ function App() {
 
   return (
     <div className="w-full h-screen bg-black overflow-hidden relative">
+      <GlobalCanvasLoader />
       <Suspense fallback={null}>
         <Canvas style={{ display: 'none' }} gl={{ antialias: false }}>
           <TexturePreloader />
