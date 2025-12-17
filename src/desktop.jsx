@@ -8,8 +8,8 @@
   import { Tabs, TabsList, TabsTrigger } from "./components/ui/tabs";
   import { HotspotDirection } from "./components/atoms/hotspot-direction";
   import { GlobalCanvasLoader } from "./components/molecules/global-canvas-loader";
-  // import { MusicPlayer } from "./components/organism/music-player";
 import { FullscreenButton } from "./components/atoms/fullscreen-button";
+import { FloatingMenu } from "./features/floating-menu/floating-menu";
 
   function TexturePreloader() {
     useTexture(SCENES.v1.view.textures);
@@ -78,7 +78,7 @@ import { FullscreenButton } from "./components/atoms/fullscreen-button";
           </Tabs>
         </div>
 
-        {/* <MusicPlayer /> */}
+        <FloatingMenu />
       </div>
     );
   }
