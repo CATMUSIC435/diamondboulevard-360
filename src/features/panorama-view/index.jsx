@@ -28,7 +28,7 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
   return (
     <div className="w-full h-screen bg-gray-400 cursor-pointer">
       <Canvas
-        frameloop="demand"
+        frameloop={isActive ? "always" : "never"}
         camera={{
           fov: 75,
           near: 0.1,
@@ -51,7 +51,7 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
           <PanoramaBox texturePaths={scene} isActive={isActive} />
           {children && children}
         </Suspense>
-       {isActive && showEffects && (
+       {isActive && !lowPerformance && showEffects && (
           <EffectComposer 
           disableNormalPass 
           multisampling={4}
