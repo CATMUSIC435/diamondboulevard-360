@@ -10,9 +10,10 @@ import {
   // DialogTitle,
   DialogTrigger,
 } from "../../components/ui/dialog";
-import { Newspaper, Map, Home } from "lucide-react";
+import { Newspaper, Map, Home, Video, Clipboard } from "lucide-react";
 import { Mapbox } from "../map-box";
 import { WebFrame } from "../../components/organism/web-frame";
+import { YoutubeShortsCarousel } from "../../components/organism/youtube-shorts-carousel";
 
 const MENU_ITEMS = [    
   {
@@ -30,8 +31,16 @@ const MENU_ITEMS = [
     content: (
       <Mapbox />
     ),
-  },
+  },  
   {
+    id: "video",
+    label: "Video",
+    icon: <Clipboard size={20} />,
+    content: (
+      <YoutubeShortsCarousel />
+    ),
+  },
+   {
     id: "new",
     label: "New",
     icon: <Newspaper size={20} />,
