@@ -11,11 +11,11 @@ export function HotspotDirection({ position, title, imageUrl, onClick }) {
         onPointerOver={() => setHover(true)}
         onPointerOut={() => setHover(false)}
       >
-        <sphereGeometry args={[4, 16, 16]} />
-        <meshBasicMaterial 
-          color={"#fff"} 
-          transparent 
-          opacity={0} 
+        <sphereGeometry args={[8, 16, 16]} />
+        <meshBasicMaterial
+          color={"#fff"}
+          transparent
+          opacity={0}
         />
       </mesh>
 
@@ -29,15 +29,15 @@ export function HotspotDirection({ position, title, imageUrl, onClick }) {
             transition: "all 0.3s ease-out",
           }}
         >
-          <div 
-            className="flex flex-col overflow-hidden"
+          <div
+            className="flex flex-col"
             style={{ width: "240px" }}
           >
-            <div className="h36 w-full overflow-hidden">
+            <div className="h36 w-full relative">
               <img 
                 src={imageUrl} 
                 alt={title} 
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-110 opacity-80 group-hover:opacity-100 animate-bounce"
               />
             </div>
 
@@ -46,6 +46,12 @@ export function HotspotDirection({ position, title, imageUrl, onClick }) {
                 {title}
               </h3>
             </div>}
+            <style jsx>{`
+  @keyframes sweep {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(200%) rotate(45deg); }
+  }
+`}</style>
           </div>
         </Html>
       </Billboard>

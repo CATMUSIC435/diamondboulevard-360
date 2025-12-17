@@ -126,3 +126,25 @@
     @apply bg-background text-foreground;
   }
 }
+
+@keyframes border-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shine-sweep {
+  0% { left: -100%; transition-timing-function: ease-in; }
+  30% { left: 100%; transition-timing-function: ease-out; }
+  100% { left: 100%; }
+}
+
+.animate-border-flow {
+  background: linear-gradient(90deg, #6366f1, #a855f7, #ec4899, #6366f1);
+  background-size: 300% 300%;
+  animation: border-flow 4s infinite linear;
+}
+
+.animate-shine {
+  animation: shine-sweep 3s infinite;
+}
