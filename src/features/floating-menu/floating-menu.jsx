@@ -10,16 +10,17 @@ import {
   // DialogTitle,
   DialogTrigger,
 } from "../../components/ui/dialog";
-import { HelpCircle, Newspaper, Map } from "lucide-react";
+import { Newspaper, Map, Home } from "lucide-react";
 import { Mapbox } from "../map-box";
+import { WebFrame } from "../../components/organism/web-frame";
 
-const MENU_ITEMS = [
+const MENU_ITEMS = [    
   {
-    id: "new",
-    label: "New",
-    icon: <Newspaper size={20} />,
+    id: "home",
+    label: "Home",
+    icon: <Home size={20} />,
     content: (
-      <PostsCarousel />
+      <WebFrame url="https://diamondboulevard.com.vn/" title="Diamond Boulevard Official" />
     ),
   },
   {
@@ -31,15 +32,11 @@ const MENU_ITEMS = [
     ),
   },
   {
-    id: "help",
-    label: "Help",
-    icon: <HelpCircle size={20} />,
+    id: "new",
+    label: "New",
+    icon: <Newspaper size={20} />,
     content: (
-      <ul className="text-sm space-y-2 list-disc pl-4 text-gray-300">
-        <li>Giữ chuột trái và kéo để xoay góc nhìn.</li>
-        <li>Sử dụng con lăn chuột để phóng to/thu nhỏ.</li>
-        <li>Nhấn vào các Hotspot để chuyển cảnh hoặc xem thông tin.</li>
-      </ul>
+      <PostsCarousel />
     ),
   },
 ];
@@ -59,7 +56,7 @@ export function FloatingMenu() {
               {item.icon}
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-6xl bg-black/20 backdrop-blur-2xl border-white/10 text-white">            
+          <DialogContent className="sm:max-w-6xl bg-black/20 backdrop-blur-2xl border-white/10 text-white p-0">            
             {item.content}
           </DialogContent>
         </Dialog>
