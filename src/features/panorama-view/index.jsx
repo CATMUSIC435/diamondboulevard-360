@@ -1,4 +1,5 @@
 "use client";
+import * as THREE from 'three';
 import { Canvas } from "@react-three/fiber";
 import { PanoramaBox } from "../panorama-box/index";
 import { OrbitControls } from "@react-three/drei";
@@ -9,13 +10,26 @@ import {
 } from "@react-three/postprocessing";
 import { PanoramaZoom } from "../../components/molecules/panorama-zoom";
 import { SRGBColorSpace } from "three";
-import { memo, Suspense } from "react";
-import { Loader } from "../../components/atoms/loader";
+import { memo, Suspense, useEffect, useState } from "react";
 
-export const PanoramaView = memo(({ scene }) => {
+export const PanoramaView = memo(({ scene, isActive }) => {
+  const [showEffects, setShowEffects] = useState(false);
+
+  useEffect(() => {
+    let timer;
+    if (isActive) {
+      // Đợi hiệu ứng fade 1s xong mới bật Effect cho nhẹ
+      timer = setTimeout(() => setShowEffects(true), 1000);
+    } else {
+      setShowEffects(false);
+    }
+    return () => clearTimeout(timer);
+  }, [isActive]);
+  
   return (
     <div className="w-full h-screen bg-gray-400 cursor-pointer">
       <Canvas
+        frameloop={isActive ? "always" : "never"}
         camera={{
           fov: 75,
           near: 0.1,
@@ -23,16 +37,19 @@ export const PanoramaView = memo(({ scene }) => {
           position: [0, 0, 0.001],
         }}
         gl={{
+          antialias: true,
+          powerPreference: "high-performance",
           outputColorSpace: SRGBColorSpace,
           toneMappingExposure: 1.1,
+          stencil: false,
+          depth: false,
         }}
       >
         {/* <CameraController isZooming={isZooming} /> */}
         <PanoramaZoom />
 
-        <Suspense fallback={<Loader />}>
-          <PanoramaBox texturePaths={scene}
-            isActive={1} />
+        <Suspense fallback={null}>
+          <PanoramaBox texturePaths={scene} isActive={isActive} />
 
           {/* <Hotspot 
             position={[300, 0, -300]} 
@@ -50,16 +67,21 @@ export const PanoramaView = memo(({ scene }) => {
             onClick={() => changeScene(SCENE_KEYS.EDGE)} 
           /> */}
         </Suspense>
-        <EffectComposer>
-          <BrightnessContrast BrightnessContrast={-0.05} contrast={0.05} />
-          <HueSaturation saturation={0.15} />
-        </EffectComposer>
+       {isActive && showEffects && (
+          <EffectComposer 
+          disableNormalPass 
+          multisampling={4}
+          frameBufferType={THREE.HalfFloatType}>
+            <BrightnessContrast contrast={0.05} />
+            <HueSaturation saturation={0.15} />
+          </EffectComposer>
+        )}
         {/* <PanoramaZoom /> */}
         <OrbitControls
           enablePan={false}
           enableDamping
-          dampingFactor={0.08}
-          rotateSpeed={0.4}
+          dampingFactor={0.05}
+          rotateSpeed={-0.4}
           enableZoom={false}
         />
       </Canvas>

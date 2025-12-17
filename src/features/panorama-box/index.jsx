@@ -1,9 +1,11 @@
 import { useTexture } from "@react-three/drei";
+import { useMemo } from "react";
 import { BackSide, SRGBColorSpace } from "three";
 
 export function PanoramaBox({texturePaths, isActive}) {
   const textures = useTexture(texturePaths);
 
+  useMemo(() => {
   textures.forEach((tex) => {
     tex.colorSpace = SRGBColorSpace;
 
@@ -14,6 +16,7 @@ export function PanoramaBox({texturePaths, isActive}) {
     tex.anisotropy = 16; // Giúp chữ sắc nét hơn
     tex.needsUpdate = true;
   });
+  }, [textures]);
 
   return (
     <mesh>
