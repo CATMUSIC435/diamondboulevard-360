@@ -33,7 +33,19 @@ export const SCENES = {
   areas: [
     {
       key: 'A1',
-      position: []
+      position: [-300,-50,-235],
+      text: 'Trung cấp Kỹ thuật & Nghiệp vụ </br> Công đoàn Bình Dương',
+      lineHeight: 50,
+      line: 2,
+      distance: 60
+    },
+        {
+      key: 'A2',
+      position: [-260,-45,-323.6067977499789],
+      text: 'THCS Trần Đại Nghĩa',
+      lineHeight: 20,
+      line: 1,
+      distance: 60
     }
   ] 
   },
@@ -44,7 +56,8 @@ export const SCENES = {
     "/images/cube-map-1/py.png",
     "/images/cube-map-1/ny.png",
     "/images/cube-map-1/pz.png",
-    "/images/cube-map-1/nz.png"],
+    "/images/cube-map-1/nz.png"
+  ],
  hotspot: [
     {
       key: 3,
@@ -60,7 +73,8 @@ export const SCENES = {
       imageUrl: "/images/360-image.png",
       key: SCENE_KEYS.v3
     }
-  ]
+  ],
+  areas: []
   },
   v3: {
     view: [
@@ -84,14 +98,9 @@ export const SCENES = {
       title: '',
       imageUrl: "/images/360-image.png",
       key: SCENE_KEYS.v2
-    },
-    //  {
-    //   position: [-10, -50, -50],
-    //   title: '',
-    //   imageUrl: "/images/360-image.png",
-    //   key: SCENE_KEYS.EDGE
-    // }
-  ]
+    }
+  ],
+  areas: []
   }
 };
 
@@ -120,7 +129,8 @@ export const SCENEMOBILES = {
       imageUrl: "/images/360-image.png",
       key: SCENE_KEYS.v3
     }
-  ]
+  ],
+   areas: []
   },
   v2: {
     view: [
@@ -145,7 +155,8 @@ export const SCENEMOBILES = {
       imageUrl: "/images/360-image.png",
       key: SCENE_KEYS.v3
     }
-  ]
+  ],
+   areas: []
   },
   v3: {
     view: [
@@ -170,6 +181,7 @@ export const SCENEMOBILES = {
       imageUrl: "/images/360-image.png",
       key: SCENE_KEYS.v2
     }
-  ]
+  ],
+   areas: []
   }
 };

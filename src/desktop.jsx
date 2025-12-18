@@ -6,7 +6,7 @@
   import { useTexture } from "@react-three/drei";
   import { Canvas } from "@react-three/fiber";
   // import { Tabs, TabsList, TabsTrigger } from "./components/ui/tabs";
-  import { HotspotDirection } from "./components/atoms/hotspot-direction";
+  // import { HotspotDirection } from "./components/atoms/hotspot-direction";
   import { GlobalCanvasLoader } from "./components/molecules/global-canvas-loader";
 import { FullscreenButton } from "./components/atoms/fullscreen-button";
 import { FloatingMenu } from "./features/floating-menu/floating-menu";
@@ -34,7 +34,7 @@ import { PointHotspot } from "./features/point-hotspot";
           <PanoramaView scene={SCENES[key].view} isActive={activeScene === key} >
            <group>
               <PointHotspot hotspot={SCENES[key].hotspot} setActiveScene={setActiveScene}/>
-              <PanoramaHotspot />
+              {SCENES[key].areas.length ? <PanoramaHotspot areas={SCENES[key].areas}/> : null}
             </group>
       </PanoramaView> 
       </div>

@@ -1,7 +1,7 @@
 import { Hotspot } from "../../components/atoms/hotspot";
 import { usePanorama } from "../../contexts/panorama-context";
 
-export function PanoramaHotspot() {
+export function PanoramaHotspot({areas}) {
   const { sceneReady } = usePanorama();
 
   if (!sceneReady) return null;
@@ -23,14 +23,17 @@ export function PanoramaHotspot() {
 
   return (
     <group>
-      {hotspots.map((spot) => (
+      {/* {hotspots.map((spot) => (
         <Hotspot 
           key={spot.id} 
           position={spot.position} 
           text={spot.text} 
           onClick={() => console.log(`Clicked ${spot.text}`)}
         />
-      ))}
+      ))} */}
+      {
+        areas.map((spot) => (<Hotspot {...spot} />))
+      }
     </group>
   );
 }

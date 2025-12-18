@@ -33,7 +33,7 @@ import { PanoramaHotspot } from "./features/panorama-hotspot";
           <PanoramaView scene={SCENEMOBILES[key].view} isActive={activeScene === key} lowPerformance={true}>
           <group>
               <PointHotspot hotspot={SCENEMOBILES[key].hotspot} setActiveScene={setActiveScene}/>
-              <PanoramaHotspot />
+              {SCENEMOBILES[key].areas.length ? <PanoramaHotspot areas={SCENES[key].areas}/> : null}
             </group>
       </PanoramaView> 
       </div>
