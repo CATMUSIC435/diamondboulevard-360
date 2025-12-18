@@ -5,7 +5,7 @@ export function SidebarUI() {
   const { isOpen, data, closeSidebar } = useSidebar();
 
   return (
-    <Sheet open={isOpen} onOpenChange={(val) => !val && closeSidebar()}>
+    <Sheet open={isOpen} onOpenChange={(val) => !val && closeSidebar()} className='text-black'>
       <SheetContent side="right" className="bg-white backdrop-blur-2xl border-white/10 text-white w-[400px]">
         {data && (
           <div className="space-y-6">

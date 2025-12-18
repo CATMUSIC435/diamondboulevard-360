@@ -877,59 +877,9 @@ export const SCENEMOBILES = {
         line: 1,
         distance: 50
       }
-    ]
-  },
-  v2: {
-    view: [
-      "/images/cube-map-1/nx.png",
-      "/images/cube-map-1/px.png",
-      "/images/cube-map-1/py.png",
-      "/images/cube-map-1/ny.png",
-      "/images/cube-map-1/pz.png",
-      "/images/cube-map-1/nz.png"],
-    hotspot: [
-      {
-        key: 3,
-        position: [-10, 10, 40],
-        title: '',
-        imageUrl: "/images/360-image.png",
-        key: SCENE_KEYS.v1
-      },
-      {
-        key: 4,
-        position: [25, 0, 80],
-        title: '',
-        imageUrl: "/images/360-image.png",
-        key: SCENE_KEYS.v3
-      }
     ],
-    areas: []
-  },
-  v3: {
-    view: [
-      "/images/cube-map-2/nx.png",
-      "/images/cube-map-2/px.png",
-      "/images/cube-map-2/py.png",
-      "/images/cube-map-2/ny.png",
-      "/images/cube-map-2/pz.png",
-      "/images/cube-map-2/nz.png"],
-    hotspot: [
-      {
-        key: 5,
-        position: [0, 15, 90],
-        title: '',
-        imageUrl: "/images/360-image.png",
-        key: SCENE_KEYS.v1
-      },
-      {
-        key: 6,
-        position: [-20, 10, 100],
-        title: '',
-        imageUrl: "/images/360-image.png",
-        key: SCENE_KEYS.v2
-      }
-    ],
-        planes: [
+    
+    planes: [
       {
         key: 'CH-23',
         position: [0.6, -10, -0.2],
@@ -1219,5 +1169,57 @@ export const SCENEMOBILES = {
         }
       }
     ]
+  },
+  v2: {
+    view: [
+      "/images/cube-map-1/nx.png",
+      "/images/cube-map-1/px.png",
+      "/images/cube-map-1/py.png",
+      "/images/cube-map-1/ny.png",
+      "/images/cube-map-1/pz.png",
+      "/images/cube-map-1/nz.png"],
+    hotspot: [
+      {
+        key: 3,
+        position: [-10, 10, 40],
+        title: '',
+        imageUrl: "/images/360-image.png",
+        key: SCENE_KEYS.v1
+      },
+      {
+        key: 4,
+        position: [25, 0, 80],
+        title: '',
+        imageUrl: "/images/360-image.png",
+        key: SCENE_KEYS.v3
+      }
+    ],
+    areas: []
+  },
+  v3: {
+    view: [
+      "/images/cube-map-2/nx.png",
+      "/images/cube-map-2/px.png",
+      "/images/cube-map-2/py.png",
+      "/images/cube-map-2/ny.png",
+      "/images/cube-map-2/pz.png",
+      "/images/cube-map-2/nz.png"],
+    hotspot: [
+      {
+        key: 5,
+        position: [0, 15, 90],
+        title: '',
+        imageUrl: "/images/360-image.png",
+        key: SCENE_KEYS.v1
+      },
+      {
+        key: 6,
+        position: [-20, 10, 100],
+        title: '',
+        imageUrl: "/images/360-image.png",
+        key: SCENE_KEYS.v2
+      }
+    ],
+    areas: []
   }
 };

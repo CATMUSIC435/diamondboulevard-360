@@ -1,12 +1,12 @@
-  "use client";
+"use client";
 
-  import { Suspense, useMemo, useState } from "react";
-  import { SCENE_KEYS, SCENEMOBILES } from "./constant";
-  import { useTexture } from "@react-three/drei";
-  import { Canvas } from "@react-three/fiber";
-  import { Tabs, TabsList, TabsTrigger } from "./components/ui/tabs";
-  // import { HotspotDirection } from "./components/atoms/hotspot-direction";
-  import { GlobalCanvasLoader } from "./components/molecules/global-canvas-loader";
+import { Suspense, useMemo, useState } from "react";
+import { SCENE_KEYS, SCENEMOBILES } from "./constant";
+import { useTexture } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
+import { Tabs, TabsList, TabsTrigger } from "./components/ui/tabs";
+// import { HotspotDirection } from "./components/atoms/hotspot-direction";
+import { GlobalCanvasLoader } from "./components/molecules/global-canvas-loader";
 import { FullscreenButton } from "./components/atoms/fullscreen-button";
 import { PanoramaView } from "./features/panorama-view";
 import { PanoramaProvider } from "./contexts/panorama-context";
@@ -14,68 +14,71 @@ import { PointHotspot } from "./features/point-hotspot";
 import { PanoramaHotspot } from "./features/panorama-hotspot";
 import { Home } from "lucide-react";
 import { SidebarProvider } from "./contexts/sidebar-context";
+import { InteractivePlane } from "./features/interactive-plane";
+import { SidebarUI } from "./components/molecules/sidebar-ui";
 
-  function TexturePreloader() {
-    useTexture(SCENEMOBILES.v1.view.textures);
-    useTexture(SCENEMOBILES.v2.view.textures);
-    useTexture(SCENEMOBILES.v3.view.textures);
-    return null;
-  }
+function TexturePreloader() {
+  useTexture(SCENEMOBILES.v1.view.textures);
+  useTexture(SCENEMOBILES.v2.view.textures);
+  useTexture(SCENEMOBILES.v3.view.textures);
+  return null;
+}
 
-  export function Mobile() {
-    const [activeScene, setActiveScene] = useState(SCENE_KEYS.v1);
-    const sceneElements = useMemo(() => {
-      return Object.entries(SCENEMOBILES).map(([key]) => (
-         <SidebarProvider>
+export function Mobile() {
+  const [activeScene, setActiveScene] = useState(SCENE_KEYS.v1);
+  const sceneElements = useMemo(() => {
+    return Object.entries(SCENEMOBILES).map(([key]) => (
+      <SidebarProvider>
         <PanoramaProvider>
-        <div
-          key={key}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out
+          <div
+            key={key}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out
             ${activeScene === key ? "opacity-100 visible z-10" : "opacity-0 invisible z-0 pointer-events-none"}`}
-        >
-          <PanoramaView scene={SCENEMOBILES[key].view} isActive={activeScene === key} lowPerformance={true}>
-          <group>
-              <PointHotspot hotspot={SCENEMOBILES[key].hotspot} setActiveScene={setActiveScene}/>
-              {SCENEMOBILES[key].areas.length ? <PanoramaHotspot areas={SCENEMOBILES[key].areas}/> : null}
-              {SCENEMOBILES[key]?.planes && <InteractivePlane planes={SCENEMOBILES[key]?.planes} />}
-            </group>
-      </PanoramaView> 
-      </div>
-      </PanoramaProvider>
+          >
+            <PanoramaView scene={SCENEMOBILES[key].view} isActive={activeScene === key} lowPerformance={true}>
+              <group>
+                <PointHotspot hotspot={SCENEMOBILES[key].hotspot} setActiveScene={setActiveScene} />
+                {SCENEMOBILES[key].areas.length ? <PanoramaHotspot areas={SCENEMOBILES[key].areas} /> : null}
+                {SCENEMOBILES[key]?.planes && <InteractivePlane planes={SCENEMOBILES[key]?.planes} />}
+              </group>
+            </PanoramaView>
+            <SidebarUI />
+          </div>
+        </PanoramaProvider>
       </SidebarProvider>
-      ));
-    }, [activeScene]);
-    
+    ));
+  }, [activeScene]);
 
-    return (
-      <div className="w-full h-screen bg-black overflow-hidden relative select-none">
-        <GlobalCanvasLoader />
-        <div className="fixed top-4 left-4 z-[70]">
+
+  return (
+    <div className="w-full h-screen bg-black overflow-hidden relative select-none">
+      <GlobalCanvasLoader />
+      <div className="fixed top-4 left-4 z-[70]">
         <FullscreenButton />
       </div>
-        <Suspense fallback={null}>
-          <Canvas style={{ display: 'none' }} gl={{ antialias: false }}>
-            <TexturePreloader />
-          </Canvas>
-        </Suspense>
-        <div className="w-full h-full relative">
-          {sceneElements}
-        </div>
-
-        <div className="fixed top-1/2 left-2 -translate-y-1/2 z-50">
-          <Tabs value={activeScene} onValueChange={setActiveScene}>
-            <TabsList className="flex flex-col bg-transparent px-2 gap-2 shadow-2xl">
-                <TabsTrigger
-                  value={SCENE_KEYS.v1}
-                  className="rounded-sm px-2 py-4 bg-black/20 backdrop-blur-xl data-[state=active]:bg-indigo-600 data-[state=active]:text-white font-bold uppercase text-[10px] tracking-[0.2em] transition-all"
-                >
-                  <Home />
-                </TabsTrigger>
-            </TabsList>
-          </Tabs>
-        </div>
-
-        {/* <MusicPlayer /> */}
+      <Suspense fallback={null}>
+        <Canvas style={{ display: 'none' }} gl={{ antialias: false }}>
+          <TexturePreloader />
+        </Canvas>
+      </Suspense>
+      <div className="w-full h-full relative">
+        {sceneElements}
       </div>
-    );
-  }
+
+      <div className="fixed top-1/2 left-2 -translate-y-1/2 z-50">
+        <Tabs value={activeScene} onValueChange={setActiveScene}>
+          <TabsList className="flex flex-col bg-transparent px-2 gap-2 shadow-2xl">
+            <TabsTrigger
+              value={SCENE_KEYS.v1}
+              className="rounded-sm px-2 py-4 bg-black/20 backdrop-blur-xl data-[state=active]:bg-indigo-600 data-[state=active]:text-white font-bold uppercase text-[10px] tracking-[0.2em] transition-all"
+            >
+              <Home />
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
+      </div>
+
+      {/* <MusicPlayer /> */}
+    </div>
+  );
+}
