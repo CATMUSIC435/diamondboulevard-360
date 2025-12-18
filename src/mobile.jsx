@@ -37,7 +37,7 @@ import { SidebarProvider } from "./contexts/sidebar-context";
           <group>
               <PointHotspot hotspot={SCENEMOBILES[key].hotspot} setActiveScene={setActiveScene}/>
               {SCENEMOBILES[key].areas.length ? <PanoramaHotspot areas={SCENEMOBILES[key].areas}/> : null}
-              {SCENES[key]?.planes && <InteractivePlane planes={SCENES[key]?.planes} />}
+              {SCENEMOBILES[key]?.planes && <InteractivePlane planes={SCENEMOBILES[key]?.planes} />}
             </group>
       </PanoramaView> 
       </div>
