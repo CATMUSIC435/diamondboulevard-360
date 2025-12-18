@@ -16,14 +16,14 @@ import { WebFrame } from "../../components/organism/web-frame";
 import { YoutubeShortsCarousel } from "../../components/organism/youtube-shorts-carousel";
 
 const MENU_ITEMS = [    
-  {
-    id: "home",
-    label: "Home",
-    icon: <Home size={20} />,
-    content: (
-      <WebFrame url="https://diamondboulevard.com.vn/" title="Diamond Boulevard Official" />
-    ),
-  },
+  // {
+  //   id: "home",
+  //   label: "Home",
+  //   icon: <Home size={20} />,
+  //   content: (
+  //     <WebFrame url="https://diamondboulevard.com.vn/" title="Diamond Boulevard Official" />
+  //   ),
+  // },
   {
     id: "Map",
     label: "Map",

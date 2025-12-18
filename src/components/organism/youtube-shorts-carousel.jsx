@@ -13,6 +13,8 @@ import { Play } from "lucide-react";
 
 const SHORTS = [
   "https://www.youtube.com/shorts/Nf2cr8iBEb0",
+  "https://www.youtube.com/shorts/Nf2cr8iBEb0",
+  "https://www.youtube.com/shorts/Nf2cr8iBEb0",
 ];
 
 
@@ -46,11 +48,11 @@ export function YoutubeShortsCarousel() {
   };
 
   return (
-    <div className="mx-auto max-w-sm">
+    <div className="mx-auto w-full">
       <Carousel opts={{ align: "center" }} className="w-full">
         <CarouselContent>
           {SHORTS.map((src, index) => (
-            <CarouselItem key={index} className="basis-full">
+            <CarouselItem key={index} className="basis-full md:basis-1/2 lg:basis-1/3">
               <Card className="relative overflow-hidden rounded-2xl border-white/10 bg-black aspect-[9/16]">
                 <iframe
                   ref={(el) => (iframeRefs.current[index] = el)}

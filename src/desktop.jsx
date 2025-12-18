@@ -5,7 +5,7 @@
   import { PanoramaView } from "./features/panorama-view/index";
   import { useTexture } from "@react-three/drei";
   import { Canvas } from "@react-three/fiber";
-  import { Tabs, TabsList, TabsTrigger } from "./components/ui/tabs";
+  // import { Tabs, TabsList, TabsTrigger } from "./components/ui/tabs";
   import { HotspotDirection } from "./components/atoms/hotspot-direction";
   import { GlobalCanvasLoader } from "./components/molecules/global-canvas-loader";
 import { FullscreenButton } from "./components/atoms/fullscreen-button";
@@ -62,7 +62,7 @@ import { FloatingMenu } from "./features/floating-menu/floating-menu";
           {sceneElements}
         </div>
 
-        <div className="fixed top-1/2 left-2 -translate-y-1/2 z-50">
+        {/* <div className="fixed top-1/2 left-2 -translate-y-1/2 z-50">
           <Tabs value={activeScene} onValueChange={setActiveScene}>
             <TabsList className="flex flex-col bg-transparent px-2 gap-2 shadow-2xl">
               {Object.values(SCENE_KEYS).map((key) => (
@@ -76,7 +76,7 @@ import { FloatingMenu } from "./features/floating-menu/floating-menu";
               ))}
             </TabsList>
           </Tabs>
-        </div>
+        </div> */}
 
         <FloatingMenu />
       </div>
