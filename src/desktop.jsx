@@ -32,7 +32,6 @@ export function Desktop() {
     return Object.entries(SCENES).map(([key]) => (
 
       <SidebarProvider>
-        <div className="h-screen w-full relative">
           <PanoramaProvider>
             <div
               key={key}
@@ -49,7 +48,6 @@ export function Desktop() {
               <SidebarUI />
             </div>
           </PanoramaProvider>
-        </div>
       </SidebarProvider>
     ));
   }, [activeScene]);

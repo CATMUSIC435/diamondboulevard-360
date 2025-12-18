@@ -13,6 +13,7 @@ import { PanoramaProvider } from "./contexts/panorama-context";
 import { PointHotspot } from "./features/point-hotspot";
 import { PanoramaHotspot } from "./features/panorama-hotspot";
 import { Home } from "lucide-react";
+import { SidebarProvider } from "./contexts/sidebar-context";
 
   function TexturePreloader() {
     useTexture(SCENEMOBILES.v1.view.textures);
@@ -25,6 +26,7 @@ import { Home } from "lucide-react";
     const [activeScene, setActiveScene] = useState(SCENE_KEYS.v1);
     const sceneElements = useMemo(() => {
       return Object.entries(SCENEMOBILES).map(([key]) => (
+         <SidebarProvider>
         <PanoramaProvider>
         <div
           key={key}
@@ -35,10 +37,12 @@ import { Home } from "lucide-react";
           <group>
               <PointHotspot hotspot={SCENEMOBILES[key].hotspot} setActiveScene={setActiveScene}/>
               {SCENEMOBILES[key].areas.length ? <PanoramaHotspot areas={SCENEMOBILES[key].areas}/> : null}
+              {SCENES[key]?.planes && <InteractivePlane planes={SCENES[key]?.planes} />}
             </group>
       </PanoramaView> 
       </div>
       </PanoramaProvider>
+      </SidebarProvider>
       ));
     }, [activeScene]);
     

@@ -556,7 +556,7 @@ export const SCENES = {
         info: {
           img: "/images/planes/DH-03.png"
         }
-      },
+      }
     ]
   },
   v2: {
@@ -929,6 +929,295 @@ export const SCENEMOBILES = {
         key: SCENE_KEYS.v2
       }
     ],
-    areas: []
+        planes: [
+      {
+        key: 'CH-23',
+        position: [0.6, -10, -0.2],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.2, 1.4],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-06.png"
+        }
+      },
+      {
+        key: 'CH-24',
+        position: [-0.6, -10, -0.2],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.2, 1.4],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-05.png"
+        }
+      },
+      {
+        key: 'CH-22',
+        position: [-2.1, -10, -0.9],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.4, 1],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-10.png"
+        }
+      },
+      {
+        key: 'CH-21',
+        position: [-2, -10, -2.25],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1, 1.6],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-09.png"
+        }
+      },
+      {
+        key: 'CH-20',
+        position: [-3.1, -10, -2.3],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.2, 1.4],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-08.png"
+        }
+      },
+      {
+        key: 'CH-19',
+        position: [-4.2, -10, -2.3],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.2, 1.4],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-08.png"
+        }
+      },
+      {
+        key: 'CH-18',
+        position: [-5.55, -10, -2.1],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.4, 1.6],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-11.png"
+        }
+      },
+         {
+        key: 'CH-01',
+        position: [2.1, -10, -0.8],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 1.2],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-02.png"
+        }
+      },
+      {
+        key: 'CH-02',
+        position: [2.15, -10, -2.2],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.2, 1.5],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-03.png"
+        }
+      },
+      {
+        key: 'CH-03',
+        position: [3.3, -10, -2.3],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.2, 1.3],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-04.png"
+        }
+      },
+      {
+        key: 'CH-04',
+        position: [4.6, -10, -2],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.4, 1.6],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-11.png"
+        }
+      },
+      {
+        key: 'CH-10',
+        position: [0.6, -10, 1.45],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.2, 1.35],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-06.png"
+        }
+      },
+      {
+        key: 'CH-09',
+        position: [-0.6, -10, 1.45],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.2, 1.35],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-05.png"
+        }
+      },
+      {
+        key: 'CH-17',
+        position: [-3.8, -10, -0.75],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 1.1],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-08.png"
+        }
+      },
+      {
+        key: 'CH-16',
+        position: [-3.75, -10, 0.4],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 1.1],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-08.png"
+        }
+      },
+      {
+        key: 'CH-15',
+        position: [-3.7, -10, 1.55],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 1.1],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-08.png"
+        }
+      },
+      {
+        key: 'CH-14',
+        position: [-3.65, -10, 2.55],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 0.8],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-03.png"
+        }
+      },
+      {
+        key: 'CH-13',
+        position: [-3.65, -10, 3.65],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 1.25],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-07.png"
+        }
+      },
+      {
+        key: 'CH-12',
+        position: [-2, -10, 3.05],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 0.95],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-03.png"
+        }
+      },
+      {
+        key: 'CH-11',
+        position: [-2.05, -10, 2.25],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 0.6],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-01.png"
+        }
+      },
+      {
+        key: 'CH-05',
+        position: [3.75, -10, -0.5],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.35, 1.3],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-05.png"
+        }
+      },
+      {
+        key: 'CH-06',
+        position: [3.75, -10, 0.85],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.35, 1.3],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-06.png"
+        }
+      },
+      {
+        key: 'CH-07',
+        position: [3.75, -10, 2.15],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 1.3],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-06.png"
+        }
+      },
+        {
+        key: 'CH-08',
+        position: [2.1, -10, 2.35],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 1.3],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-03.png"
+        }
+      }
+    ]
   }
 };

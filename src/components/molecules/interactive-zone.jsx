@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { DoubleSide } from 'three';
 import { useSidebar } from '../../contexts/sidebar-context';
 
@@ -17,13 +17,10 @@ function InteractiveZone({
 }) {
   const meshRef = useRef();
   const { openSidebar } = useSidebar();
-  const [hovered, setHover] = useState(false);
 
   const handleClick = (event) => {
     event.stopPropagation();
-    const { point, uv } = event;
-    openSidebar(info);
-    console.log('Chạm vào vùng ẩn tại:', { world: point, uv });
+    if(info) openSidebar(info);
   };
 
   return (
@@ -34,12 +31,10 @@ function InteractiveZone({
       scale={scale}
       onClick={handleClick}
       onPointerOver={(e) => { 
-        e.stopPropagation(); 
-        setHover(true); 
+        e.stopPropagation();
         document.body.style.cursor = 'pointer'; 
       }}
-      onPointerOut={() => { 
-        setHover(false); 
+      onPointerOut={() => {
         document.body.style.cursor = 'auto'; 
       }}
     >
