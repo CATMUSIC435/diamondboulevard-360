@@ -33,7 +33,7 @@ export const SCENES = {
     areas: [
       {
         key: 'A1',
-        position: [-300, -50, -235],
+        position: [-350, -55, -235],
         text: 'Trung cấp Kỹ thuật & Nghiệp vụ </br> Công đoàn Bình Dương',
         lineHeight: 50,
         line: 2,
@@ -41,7 +41,7 @@ export const SCENES = {
       },
       {
         key: 'A2',
-        position: [-260, -45, -323.6067977499789],
+        position: [-265, -50, -323.6067977499789],
         text: 'THCS Trần Đại Nghĩa',
         lineHeight: 90,
         line: 1,
@@ -49,7 +49,7 @@ export const SCENES = {
       },
       {
         key: 'A3',
-        position: [-235.1141009169893, -40, -323.6067977499789],
+        position: [-235.1141009169893, -45, -323.6067977499789],
         text: 'Cao Đẳng Việt Nam – Singapore CS2',
         lineHeight: 120,
         line: 1,
@@ -131,7 +131,7 @@ export const SCENES = {
         key: 'B5',
         position: [-380.4226065180614, -42, -123.6067977499791],
         text: 'TIỂU HỌC LƯƠNG THẾ VINH',
-        lineHeight: 160,
+        lineHeight: 130,
         line: 1,
         distance: 65
       },
@@ -209,7 +209,7 @@ export const SCENES = {
       },
       {
         key: 'C9',
-        position: [50, -10, 380.4226065180614],
+        position: [50, -12, 380.4226065180614],
         text: 'THPT Nguyễn Trãi',
         lineHeight: 80,
         line: 1,
@@ -225,9 +225,9 @@ export const SCENES = {
       },
       {
         key: 'C11',
-        position: [2.4492935982947064e-14, -10, 400],
+        position: [2.4492935982947064e-14, -30, 400],
         text: 'SÂN GOLF SÔNG BÉ',
-        lineHeight: 180,
+        lineHeight: 40,
         line: 1,
         distance: 65
       },
@@ -241,7 +241,7 @@ export const SCENES = {
       },
       {
         key: 'D2',
-        position: [260, -40, -123.60679774997907],
+        position: [260, -35, -123.60679774997907],
         text: 'THPT TRẦN VĂN ƠN',
         lineHeight: 90,
         line: 1,
@@ -249,7 +249,7 @@ export const SCENES = {
       },
       {
         key: 'D3',
-        position: [360, -20, 10],
+        position: [370, -28, 5],
         text: 'KDC VIETSING ',
         lineHeight: 90,
         line: 1,
@@ -257,7 +257,7 @@ export const SCENES = {
       },
       {
         key: 'D4',
-        position: [320, -15, 30],
+        position: [320, -18, 30],
         text: 'CHỢ VIETSING',
         lineHeight: 100,
         line: 1,
@@ -502,7 +502,7 @@ export const SCENES = {
         color: "#ffffff",
         baseOpacity: 1,
         info: {
-          img: "/images/planes/DH-05.png"
+          img: "/images/planes/DH-01.png"
         }
       },
       {
@@ -538,7 +538,7 @@ export const SCENES = {
         color: "#ffffff",
         baseOpacity: 1,
         info: {
-          img: "/images/planes/DH-01.png"
+          img: "/images/planes/DH-06.png"
         }
       },
         {
@@ -635,11 +635,11 @@ export const SCENEMOBILES = {
         imageUrl: "/images/360-image.png",
         key: SCENE_KEYS.v3
       }
-    ],
+    ], 
     areas: [
       {
         key: 'A1',
-        position: [-300, -50, -235],
+        position: [-350, -55, -235],
         text: 'Trung cấp Kỹ thuật & Nghiệp vụ </br> Công đoàn Bình Dương',
         lineHeight: 50,
         line: 2,
@@ -647,7 +647,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'A2',
-        position: [-260, -45, -323.6067977499789],
+        position: [-265, -50, -323.6067977499789],
         text: 'THCS Trần Đại Nghĩa',
         lineHeight: 90,
         line: 1,
@@ -655,7 +655,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'A3',
-        position: [-235.1141009169893, -40, -323.6067977499789],
+        position: [-235.1141009169893, -45, -323.6067977499789],
         text: 'Cao Đẳng Việt Nam – Singapore CS2',
         lineHeight: 120,
         line: 1,
@@ -737,7 +737,7 @@ export const SCENEMOBILES = {
         key: 'B5',
         position: [-380.4226065180614, -42, -123.6067977499791],
         text: 'TIỂU HỌC LƯƠNG THẾ VINH',
-        lineHeight: 160,
+        lineHeight: 130,
         line: 1,
         distance: 65
       },
@@ -815,7 +815,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'C9',
-        position: [50, -10, 380.4226065180614],
+        position: [50, -12, 380.4226065180614],
         text: 'THPT Nguyễn Trãi',
         lineHeight: 80,
         line: 1,
@@ -831,9 +831,9 @@ export const SCENEMOBILES = {
       },
       {
         key: 'C11',
-        position: [2.4492935982947064e-14, -10, 400],
+        position: [2.4492935982947064e-14, -30, 400],
         text: 'SÂN GOLF SÔNG BÉ',
-        lineHeight: 180,
+        lineHeight: 40,
         line: 1,
         distance: 65
       },
@@ -847,7 +847,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'D2',
-        position: [260, -40, -123.60679774997907],
+        position: [260, -35, -123.60679774997907],
         text: 'THPT TRẦN VĂN ƠN',
         lineHeight: 90,
         line: 1,
@@ -855,7 +855,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'D3',
-        position: [360, -20, 10],
+        position: [370, -28, 5],
         text: 'KDC VIETSING ',
         lineHeight: 90,
         line: 1,
@@ -863,7 +863,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'D4',
-        position: [320, -15, 30],
+        position: [320, -18, 30],
         text: 'CHỢ VIETSING',
         lineHeight: 100,
         line: 1,

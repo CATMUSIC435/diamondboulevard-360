@@ -42,7 +42,7 @@ export function Hotspot({ position, text, distance = 60, lineHeight = 50, line =
             className={cn(`flex flex-col items-center transition-all duration-300 pointer-events-none`, line === 1 ? 'pb-24' : 'pb-48')}
           >
             <div 
-              className={`bg-[#002d4d]/40 backdrop-blur-xl border-4 border-[#002d4d]/20 shadow-2xl rounded-full px-24 py-18 text-center font-sans whitespace-nowrap font-bold mb-4 text-shadow text-8xl ${hovered ? "text-white/90" : "text-white"}`}  dangerouslySetInnerHTML={{__html: text}}>
+              className={`bg-[#002d4d]/60 backdrop-blur-xl border-4 border-[#002d4d]/20 shadow-2xl rounded-full px-24 py-18 text-center font-sans whitespace-nowrap font-bold mb-4 text-shadow text-8xl ${hovered ? "text-white/90" : "text-white"}`}  dangerouslySetInnerHTML={{__html: text}}>
               
             </div>
           </div>
