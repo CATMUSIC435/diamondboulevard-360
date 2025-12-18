@@ -14,10 +14,10 @@ export function PanoramaHotspot() {
       id: i,
       position: [
         Math.cos(angle) * RADIUS, 
-        0,
+        -10,
         Math.sin(angle) * RADIUS
       ],
-      text: `Dự án ${i + 1}`
+      text: `Lorem ipsum, <br />dolor sit amet<br /> adipisicing elit.`
     };
   });
 

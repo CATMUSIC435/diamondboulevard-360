@@ -27,7 +27,7 @@ export function Hotspot({ position, text, image, nextSceneImages, onClick, lineH
         console.log(position, text, image, nextSceneImages, onClick, lineHeight);
         
       }}>
-        <sphereGeometry args={[2, 16, 16]} />
+        <sphereGeometry args={[1, 16, 16]} />
         <meshBasicMaterial 
           color={hovered ? "#ff0000" : "#ffffff"} 
           transparent 
@@ -49,22 +49,13 @@ export function Hotspot({ position, text, image, nextSceneImages, onClick, lineH
       <Billboard position={endPoint}>
         <Html center distanceFactor={60}>
           <div 
-            className={`flex flex-col items-center transition-all duration-300 pointer-events-none pb-56`}
+            className={`flex flex-col items-center transition-all duration-300 pointer-events-none pb-20`}
             style={{ transform: hovered ? 'scale(1.1)' : 'scale(1)' }}
           >
             {/* Văn bản dự án */}
             <div 
-              className={`whitespace-nowrap font-bold mb-4 text-shadow text-6xl ${hovered ? "text-red-500" : "text-black"}`}>
-              {text}
-            </div>
-
-            {/* Hình ảnh dự án (Hiện khi hover hoặc luôn hiện tùy bạn) */}
-            <div className="overflow-hidden rounded-lg w-[280px] h-60">
-              <img 
-                src={image || "/images/default-project.jpg"} 
-                alt={text}
-                className="w-full h-full object-cover"
-              />
+              className={`w-96 font-sans whitespace-nowrap font-bold mb-4 text-shadow text-6xl ${hovered ? "text-red-500" : "text-black"}`}  dangerouslySetInnerHTML={{__html: text}}>
+              
             </div>
           </div>
         </Html>

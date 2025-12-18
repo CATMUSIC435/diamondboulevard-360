@@ -11,6 +11,7 @@ import { FullscreenButton } from "./components/atoms/fullscreen-button";
 import { PanoramaView } from "./features/panorama-view";
 import { PanoramaProvider } from "./contexts/panorama-context";
 import { PointHotspot } from "./features/point-hotspot";
+import { PanoramaHotspot } from "./features/panorama-hotspot";
 
   function TexturePreloader() {
     useTexture(SCENEMOBILES.v1.view.textures);
@@ -31,7 +32,8 @@ import { PointHotspot } from "./features/point-hotspot";
         >
           <PanoramaView scene={SCENEMOBILES[key].view} isActive={activeScene === key} lowPerformance={true}>
           <group>
-              <PointHotspot hotspot={SCENES[key].hotspot} setActiveScene={setActiveScene}/>
+              <PointHotspot hotspot={SCENEMOBILES[key].hotspot} setActiveScene={setActiveScene}/>
+              <PanoramaHotspot />
             </group>
       </PanoramaView> 
       </div>
