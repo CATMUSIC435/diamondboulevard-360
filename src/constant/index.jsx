@@ -45,7 +45,7 @@ export const SCENES = {
         text: 'THCS Trần Đại Nghĩa',
         lineHeight: 90,
         line: 1,
-        distance: 70
+        distance: 65
       },
       {
         key: 'A3',
@@ -53,7 +53,7 @@ export const SCENES = {
         text: 'Cao Đẳng Việt Nam – Singapore CS2',
         lineHeight: 120,
         line: 1,
-        distance: 70
+        distance: 65
       },
       {
         key: 'A4',
@@ -61,7 +61,7 @@ export const SCENES = {
         text: 'MM MEGA MARIET',
         lineHeight: 160,
         line: 1,
-        distance: 65
+        distance: 60
       },
       {
         key: 'A5',
@@ -69,7 +69,8 @@ export const SCENES = {
         text: 'Ga C7 Metro TDM',
         lineHeight: 160,
         line: 1,
-        distance: 70
+        distance: 70,
+        bg: '#f47700'
       },
       {
         key: 'A6',
@@ -133,7 +134,7 @@ export const SCENES = {
         text: 'TIỂU HỌC LƯƠNG THẾ VINH',
         lineHeight: 130,
         line: 1,
-        distance: 65
+        distance: 60
       },
       {
         key: 'B6',
@@ -141,7 +142,7 @@ export const SCENES = {
         text: 'THCS TRỊNH HOÀI ĐỨC',
         lineHeight: 80,
         line: 1,
-        distance: 55
+        distance: 50
       },
       {
         key: 'C1',
@@ -157,7 +158,8 @@ export const SCENES = {
         text: 'KCN VIỆT HƯƠNG',
         lineHeight: 200,
         line: 1,
-        distance: 65
+        distance: 60,
+        bg: '#f47700'
       },
       {
         key: 'C3',
@@ -173,7 +175,8 @@ export const SCENES = {
         text: 'AEON MALL',
         lineHeight: 60,
         line: 1,
-        distance: 65
+        distance: 60,
+        bg: '#f47700'
       },
       {
         key: 'C5',
@@ -181,7 +184,8 @@ export const SCENES = {
         text: 'KCN VSIP 1',
         lineHeight: 100,
         line: 1,
-        distance: 65
+        distance: 60,
+        bg: '#f47700'
       },
       {
         key: 'C6',
@@ -189,7 +193,7 @@ export const SCENES = {
         text: 'TRUNG TÂM TP.HCM ',
         lineHeight: 160,
         line: 1,
-        distance: 65
+        distance: 60
       },
       {
         key: 'C7',
@@ -197,7 +201,7 @@ export const SCENES = {
         text: 'BVQT BECAMEX',
         lineHeight: 100,
         line: 1,
-        distance: 60
+        distance: 55
       },
       {
         key: 'C8',
@@ -205,7 +209,7 @@ export const SCENES = {
         text: 'LOTTE MART',
         lineHeight: 40,
         line: 1,
-        distance: 60
+        distance: 55
       },
       {
         key: 'C9',
@@ -219,7 +223,7 @@ export const SCENES = {
         key: 'C10',
         position: [45, -12, 380.4226065180614],
         text: 'Trường THCS Nguyễn Văn Tiết',
-        lineHeight: 140,
+        lineHeight: 135,
         line: 1,
         distance: 60
       },
@@ -651,7 +655,7 @@ export const SCENEMOBILES = {
         text: 'THCS Trần Đại Nghĩa',
         lineHeight: 90,
         line: 1,
-        distance: 70
+        distance: 65
       },
       {
         key: 'A3',
@@ -659,7 +663,7 @@ export const SCENEMOBILES = {
         text: 'Cao Đẳng Việt Nam – Singapore CS2',
         lineHeight: 120,
         line: 1,
-        distance: 70
+        distance: 65
       },
       {
         key: 'A4',
@@ -667,7 +671,7 @@ export const SCENEMOBILES = {
         text: 'MM MEGA MARIET',
         lineHeight: 160,
         line: 1,
-        distance: 65
+        distance: 60
       },
       {
         key: 'A5',
@@ -675,7 +679,8 @@ export const SCENEMOBILES = {
         text: 'Ga C7 Metro TDM',
         lineHeight: 160,
         line: 1,
-        distance: 70
+        distance: 70,
+        bg: '#f47700'
       },
       {
         key: 'A6',
@@ -739,7 +744,7 @@ export const SCENEMOBILES = {
         text: 'TIỂU HỌC LƯƠNG THẾ VINH',
         lineHeight: 130,
         line: 1,
-        distance: 65
+        distance: 60
       },
       {
         key: 'B6',
@@ -747,7 +752,7 @@ export const SCENEMOBILES = {
         text: 'THCS TRỊNH HOÀI ĐỨC',
         lineHeight: 80,
         line: 1,
-        distance: 55
+        distance: 50
       },
       {
         key: 'C1',
@@ -763,7 +768,8 @@ export const SCENEMOBILES = {
         text: 'KCN VIỆT HƯƠNG',
         lineHeight: 200,
         line: 1,
-        distance: 65
+        distance: 60,
+        bg: '#f47700'
       },
       {
         key: 'C3',
@@ -779,7 +785,8 @@ export const SCENEMOBILES = {
         text: 'AEON MALL',
         lineHeight: 60,
         line: 1,
-        distance: 65
+        distance: 60,
+        bg: '#f47700'
       },
       {
         key: 'C5',
@@ -787,7 +794,8 @@ export const SCENEMOBILES = {
         text: 'KCN VSIP 1',
         lineHeight: 100,
         line: 1,
-        distance: 65
+        distance: 60,
+        bg: '#f47700'
       },
       {
         key: 'C6',
@@ -795,7 +803,7 @@ export const SCENEMOBILES = {
         text: 'TRUNG TÂM TP.HCM ',
         lineHeight: 160,
         line: 1,
-        distance: 65
+        distance: 60
       },
       {
         key: 'C7',
@@ -803,7 +811,7 @@ export const SCENEMOBILES = {
         text: 'BVQT BECAMEX',
         lineHeight: 100,
         line: 1,
-        distance: 60
+        distance: 55
       },
       {
         key: 'C8',
@@ -811,7 +819,7 @@ export const SCENEMOBILES = {
         text: 'LOTTE MART',
         lineHeight: 40,
         line: 1,
-        distance: 60
+        distance: 55
       },
       {
         key: 'C9',
@@ -825,7 +833,7 @@ export const SCENEMOBILES = {
         key: 'C10',
         position: [45, -12, 380.4226065180614],
         text: 'Trường THCS Nguyễn Văn Tiết',
-        lineHeight: 140,
+        lineHeight: 135,
         line: 1,
         distance: 60
       },
