@@ -24,7 +24,7 @@ export const SCENES = {
       },
       {
         key: 2,
-        position: [60, 0, 90],
+        position: [60, -35, 90],
         title: '',
         imageUrl: "/images/360-image.png",
         key: SCENE_KEYS.v3
@@ -195,7 +195,7 @@ export const SCENES = {
         key: 'C7',
         position: [60,0,380.4226065180614],
         text: 'BVQT BECAMEX',
-        lineHeight: 50,
+        lineHeight: 100,
         line: 1,
         distance: 60
       },
@@ -203,7 +203,7 @@ export const SCENES = {
         key: 'C8',
         position: [60,0,380.4226065180614],
         text: 'LOTTE MART',
-        lineHeight: 80,
+        lineHeight: 40,
         line: 1,
         distance: 60
       },
@@ -211,7 +211,7 @@ export const SCENES = {
         key: 'C9',
         position: [50,-10,380.4226065180614],
         text: 'THPT Nguyễn Trãi',
-        lineHeight: 40,
+        lineHeight: 80,
         line: 1,
         distance: 60
       },
@@ -219,7 +219,7 @@ export const SCENES = {
         key: 'C10',
         position: [45,-12,380.4226065180614],
         text: 'Trường THCS Nguyễn Văn Tiết',
-        lineHeight: 120,
+        lineHeight: 140,
         line: 1,
         distance: 60
       },
@@ -227,7 +227,7 @@ export const SCENES = {
         key: 'C11',
         position: [2.4492935982947064e-14,-10,400],
         text: 'SÂN GOLF SÔNG BÉ',
-        lineHeight: 160,
+        lineHeight: 180,
         line: 1,
         distance: 65
       },
@@ -259,7 +259,7 @@ export const SCENES = {
         key: 'D4',
         position: [320,-15,30],
         text: 'CHỢ VIETSING',
-        lineHeight: 90,
+        lineHeight: 100,
         line: 1,
         distance: 50
       }

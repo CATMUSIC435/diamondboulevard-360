@@ -22,7 +22,7 @@ export function Hotspot({ position, text, onClick, distance = 60, lineHeight = 5
       <mesh>
         <sphereGeometry args={[1, 16, 16]} />
         <meshBasicMaterial 
-          color={hovered ? "#ff0000" : "#ffffff"} 
+          color={hovered ? "#fff" : "#002d4d"} 
           transparent 
           opacity={1}
           side={DoubleSide}
@@ -31,7 +31,7 @@ export function Hotspot({ position, text, onClick, distance = 60, lineHeight = 5
 
       <Line
         points={[startPoint, endPoint]} 
-        color={hovered ? "red" : "white"}
+        color={hovered ? "red" : "#002d4d"}
         lineWidth={1.5}
         transparent
         opacity={0.6}
@@ -42,7 +42,7 @@ export function Hotspot({ position, text, onClick, distance = 60, lineHeight = 5
             className={cn(`flex flex-col items-center transition-all duration-300 pointer-events-none`, line === 1 ? 'pb-24' : 'pb-48')}
           >
             <div 
-              className={`bg-black/10 backdrop-blur-xl border-4 border-white shadow-2xl rounded-full px-24 py-18 text-center font-sans whitespace-nowrap font-bold mb-4 text-shadow text-8xl ${hovered ? "text-white" : "text-black/80"}`}  dangerouslySetInnerHTML={{__html: text}}>
+              className={`bg-[#002d4d]/40 backdrop-blur-xl border-4 border-[#002d4d]/20 shadow-2xl rounded-full px-24 py-18 text-center font-sans whitespace-nowrap font-bold mb-4 text-shadow text-8xl ${hovered ? "text-white/90" : "text-white"}`}  dangerouslySetInnerHTML={{__html: text}}>
               
             </div>
           </div>
