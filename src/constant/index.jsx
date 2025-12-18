@@ -105,7 +105,7 @@ export const SCENES = {
       },
       {
         key: 'B2',
-        position: [-380.4226065180614,-40,123.60679774997901],
+        position: [-380.4226065180614, -40, 123.60679774997901],
         text: 'THCS NGUYỄN TRUNG TRỰC',
         lineHeight: 120,
         line: 1,
@@ -113,7 +113,7 @@ export const SCENES = {
       },
       {
         key: 'B3',
-        position: [-500,-105,110],
+        position: [-500, -105, 110],
         text: 'TRƯỜNG MẦM NON HOA MAI',
         lineHeight: 120,
         line: 1,
@@ -121,7 +121,7 @@ export const SCENES = {
       },
       {
         key: 'B4',
-        position: [-380,-50,-50],
+        position: [-380, -50, -50],
         text: 'CHỢ BÚNG',
         lineHeight: 80,
         line: 1,
@@ -129,7 +129,7 @@ export const SCENES = {
       },
       {
         key: 'B5',
-        position: [-380.4226065180614,-42,-123.6067977499791],
+        position: [-380.4226065180614, -42, -123.6067977499791],
         text: 'TIỂU HỌC LƯƠNG THẾ VINH',
         lineHeight: 160,
         line: 1,
@@ -137,7 +137,7 @@ export const SCENES = {
       },
       {
         key: 'B6',
-        position: [-320.4226065180614,-35,-123.6067977499791],
+        position: [-320.4226065180614, -35, -123.6067977499791],
         text: 'THCS TRỊNH HOÀI ĐỨC',
         lineHeight: 80,
         line: 1,
@@ -145,7 +145,7 @@ export const SCENES = {
       },
       {
         key: 'C1',
-        position: [278,0,323.60679774997897],
+        position: [278, 0, 323.60679774997897],
         text: 'VINCOM PLAZA',
         lineHeight: 80,
         line: 1,
@@ -153,7 +153,7 @@ export const SCENES = {
       },
       {
         key: 'C2',
-        position: [240,-180,323.60679774997897],
+        position: [240, -180, 323.60679774997897],
         text: 'KCN VIỆT HƯƠNG',
         lineHeight: 200,
         line: 1,
@@ -161,7 +161,7 @@ export const SCENES = {
       },
       {
         key: 'C3',
-        position: [200,-10,323.60679774997897],
+        position: [200, -10, 323.60679774997897],
         text: 'KCN ĐỒNG AN 1',
         lineHeight: 110,
         line: 1,
@@ -169,7 +169,7 @@ export const SCENES = {
       },
       {
         key: 'C4',
-        position: [140,-35,380.4226065180614],
+        position: [140, -35, 380.4226065180614],
         text: 'AEON MALL',
         lineHeight: 60,
         line: 1,
@@ -177,7 +177,7 @@ export const SCENES = {
       },
       {
         key: 'C5',
-        position: [123.60679774997898,-30,380.4226065180614],
+        position: [123.60679774997898, -30, 380.4226065180614],
         text: 'KCN VSIP 1',
         lineHeight: 100,
         line: 1,
@@ -185,7 +185,7 @@ export const SCENES = {
       },
       {
         key: 'C6',
-        position: [95,0,380.4226065180614],
+        position: [95, 0, 380.4226065180614],
         text: 'TRUNG TÂM TP.HCM ',
         lineHeight: 160,
         line: 1,
@@ -193,7 +193,7 @@ export const SCENES = {
       },
       {
         key: 'C7',
-        position: [60,0,380.4226065180614],
+        position: [60, 0, 380.4226065180614],
         text: 'BVQT BECAMEX',
         lineHeight: 100,
         line: 1,
@@ -201,7 +201,7 @@ export const SCENES = {
       },
       {
         key: 'C8',
-        position: [60,0,380.4226065180614],
+        position: [60, 0, 380.4226065180614],
         text: 'LOTTE MART',
         lineHeight: 40,
         line: 1,
@@ -209,7 +209,7 @@ export const SCENES = {
       },
       {
         key: 'C9',
-        position: [50,-10,380.4226065180614],
+        position: [50, -10, 380.4226065180614],
         text: 'THPT Nguyễn Trãi',
         lineHeight: 80,
         line: 1,
@@ -217,7 +217,7 @@ export const SCENES = {
       },
       {
         key: 'C10',
-        position: [45,-12,380.4226065180614],
+        position: [45, -12, 380.4226065180614],
         text: 'Trường THCS Nguyễn Văn Tiết',
         lineHeight: 140,
         line: 1,
@@ -225,7 +225,7 @@ export const SCENES = {
       },
       {
         key: 'C11',
-        position: [2.4492935982947064e-14,-10,400],
+        position: [2.4492935982947064e-14, -10, 400],
         text: 'SÂN GOLF SÔNG BÉ',
         lineHeight: 180,
         line: 1,
@@ -233,7 +233,7 @@ export const SCENES = {
       },
       {
         key: 'D1',
-        position: [240,-42,-123.60679774997907],
+        position: [240, -42, -123.60679774997907],
         text: 'CHỢ THUẬN GIAO',
         lineHeight: 60,
         line: 1,
@@ -241,7 +241,7 @@ export const SCENES = {
       },
       {
         key: 'D2',
-        position: [260,-40,-123.60679774997907],
+        position: [260, -40, -123.60679774997907],
         text: 'THPT TRẦN VĂN ƠN',
         lineHeight: 90,
         line: 1,
@@ -249,7 +249,7 @@ export const SCENES = {
       },
       {
         key: 'D3',
-        position: [360,-20,10],
+        position: [360, -20, 10],
         text: 'KDC VIETSING ',
         lineHeight: 90,
         line: 1,
@@ -257,12 +257,302 @@ export const SCENES = {
       },
       {
         key: 'D4',
-        position: [320,-15,30],
+        position: [320, -15, 30],
         text: 'CHỢ VIETSING',
         lineHeight: 100,
         line: 1,
         distance: 50
       }
+    ],
+    planes: [
+      {
+        key: 'CH-23',
+        position: [0.6, -10, -0.2],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.2, 1.4],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-06.png"
+        }
+      },
+      {
+        key: 'CH-24',
+        position: [-0.6, -10, -0.2],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.2, 1.4],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-05.png"
+        }
+      },
+      {
+        key: 'CH-22',
+        position: [-2.1, -10, -0.9],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.4, 1],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-10.png"
+        }
+      },
+      {
+        key: 'CH-21',
+        position: [-2, -10, -2.25],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1, 1.6],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-09.png"
+        }
+      },
+      {
+        key: 'CH-20',
+        position: [-3.1, -10, -2.3],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.2, 1.4],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-08.png"
+        }
+      },
+      {
+        key: 'CH-19',
+        position: [-4.2, -10, -2.3],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.2, 1.4],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-08.png"
+        }
+      },
+      {
+        key: 'CH-18',
+        position: [-5.55, -10, -2.1],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.4, 1.6],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-11.png"
+        }
+      },
+         {
+        key: 'CH-01',
+        position: [2.1, -10, -0.8],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 1.2],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-02.png"
+        }
+      },
+      {
+        key: 'CH-02',
+        position: [2.15, -10, -2.2],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.2, 1.5],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-03.png"
+        }
+      },
+      {
+        key: 'CH-03',
+        position: [3.3, -10, -2.3],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.2, 1.3],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-04.png"
+        }
+      },
+      {
+        key: 'CH-04',
+        position: [4.6, -10, -2],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.4, 1.6],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-11.png"
+        }
+      },
+      {
+        key: 'CH-10',
+        position: [0.6, -10, 1.45],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.2, 1.35],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-06.png"
+        }
+      },
+      {
+        key: 'CH-09',
+        position: [-0.6, -10, 1.45],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.2, 1.35],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-05.png"
+        }
+      },
+      {
+        key: 'CH-17',
+        position: [-3.8, -10, -0.75],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 1.1],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-08.png"
+        }
+      },
+      {
+        key: 'CH-16',
+        position: [-3.75, -10, 0.4],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 1.1],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-08.png"
+        }
+      },
+      {
+        key: 'CH-15',
+        position: [-3.7, -10, 1.55],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 1.1],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-08.png"
+        }
+      },
+      {
+        key: 'CH-14',
+        position: [-3.65, -10, 2.55],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 0.8],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-03.png"
+        }
+      },
+      {
+        key: 'CH-13',
+        position: [-3.65, -10, 3.65],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 1.25],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-07.png"
+        }
+      },
+      {
+        key: 'CH-12',
+        position: [-2, -10, 3.05],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 0.95],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-03.png"
+        }
+      },
+      {
+        key: 'CH-11',
+        position: [-2.05, -10, 2.25],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 0.6],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-05.png"
+        }
+      },
+      {
+        key: 'CH-05',
+        position: [3.75, -10, -0.5],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.35, 1.3],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-05.png"
+        }
+      },
+      {
+        key: 'CH-06',
+        position: [3.75, -10, 0.85],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.35, 1.3],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-06.png"
+        }
+      },
+      {
+        key: 'CH-07',
+        position: [3.75, -10, 2.15],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 1.3],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-01.png"
+        }
+      },
+        {
+        key: 'CH-08',
+        position: [2.1, -10, 2.35],
+        rotation: [-Math.PI / 2, 0.05, 0],
+        scale: [1, 1, 1],
+        args: [1.3, 1.3],
+        color: "#ffffff",
+        baseOpacity: 1,
+        info: {
+          img: "/images/planes/DH-03.png"
+        }
+      },
     ]
   },
   v2: {
@@ -346,7 +636,7 @@ export const SCENEMOBILES = {
         key: SCENE_KEYS.v3
       }
     ],
-        areas: [
+    areas: [
       {
         key: 'A1',
         position: [-300, -50, -235],
@@ -421,7 +711,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'B2',
-        position: [-380.4226065180614,-40,123.60679774997901],
+        position: [-380.4226065180614, -40, 123.60679774997901],
         text: 'THCS NGUYỄN TRUNG TRỰC',
         lineHeight: 120,
         line: 1,
@@ -429,7 +719,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'B3',
-        position: [-500,-105,110],
+        position: [-500, -105, 110],
         text: 'TRƯỜNG MẦM NON HOA MAI',
         lineHeight: 120,
         line: 1,
@@ -437,7 +727,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'B4',
-        position: [-380,-50,-50],
+        position: [-380, -50, -50],
         text: 'CHỢ BÚNG',
         lineHeight: 80,
         line: 1,
@@ -445,7 +735,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'B5',
-        position: [-380.4226065180614,-42,-123.6067977499791],
+        position: [-380.4226065180614, -42, -123.6067977499791],
         text: 'TIỂU HỌC LƯƠNG THẾ VINH',
         lineHeight: 160,
         line: 1,
@@ -453,7 +743,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'B6',
-        position: [-320.4226065180614,-35,-123.6067977499791],
+        position: [-320.4226065180614, -35, -123.6067977499791],
         text: 'THCS TRỊNH HOÀI ĐỨC',
         lineHeight: 80,
         line: 1,
@@ -461,7 +751,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'C1',
-        position: [278,0,323.60679774997897],
+        position: [278, 0, 323.60679774997897],
         text: 'VINCOM PLAZA',
         lineHeight: 80,
         line: 1,
@@ -469,7 +759,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'C2',
-        position: [240,-180,323.60679774997897],
+        position: [240, -180, 323.60679774997897],
         text: 'KCN VIỆT HƯƠNG',
         lineHeight: 200,
         line: 1,
@@ -477,7 +767,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'C3',
-        position: [200,-10,323.60679774997897],
+        position: [200, -10, 323.60679774997897],
         text: 'KCN ĐỒNG AN 1',
         lineHeight: 110,
         line: 1,
@@ -485,7 +775,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'C4',
-        position: [140,-35,380.4226065180614],
+        position: [140, -35, 380.4226065180614],
         text: 'AEON MALL',
         lineHeight: 60,
         line: 1,
@@ -493,7 +783,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'C5',
-        position: [123.60679774997898,-30,380.4226065180614],
+        position: [123.60679774997898, -30, 380.4226065180614],
         text: 'KCN VSIP 1',
         lineHeight: 100,
         line: 1,
@@ -501,7 +791,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'C6',
-        position: [95,0,380.4226065180614],
+        position: [95, 0, 380.4226065180614],
         text: 'TRUNG TÂM TP.HCM ',
         lineHeight: 160,
         line: 1,
@@ -509,7 +799,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'C7',
-        position: [60,0,380.4226065180614],
+        position: [60, 0, 380.4226065180614],
         text: 'BVQT BECAMEX',
         lineHeight: 100,
         line: 1,
@@ -517,7 +807,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'C8',
-        position: [60,0,380.4226065180614],
+        position: [60, 0, 380.4226065180614],
         text: 'LOTTE MART',
         lineHeight: 40,
         line: 1,
@@ -525,7 +815,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'C9',
-        position: [50,-10,380.4226065180614],
+        position: [50, -10, 380.4226065180614],
         text: 'THPT Nguyễn Trãi',
         lineHeight: 80,
         line: 1,
@@ -533,7 +823,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'C10',
-        position: [45,-12,380.4226065180614],
+        position: [45, -12, 380.4226065180614],
         text: 'Trường THCS Nguyễn Văn Tiết',
         lineHeight: 140,
         line: 1,
@@ -541,7 +831,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'C11',
-        position: [2.4492935982947064e-14,-10,400],
+        position: [2.4492935982947064e-14, -10, 400],
         text: 'SÂN GOLF SÔNG BÉ',
         lineHeight: 180,
         line: 1,
@@ -549,7 +839,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'D1',
-        position: [240,-42,-123.60679774997907],
+        position: [240, -42, -123.60679774997907],
         text: 'CHỢ THUẬN GIAO',
         lineHeight: 60,
         line: 1,
@@ -557,7 +847,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'D2',
-        position: [260,-40,-123.60679774997907],
+        position: [260, -40, -123.60679774997907],
         text: 'THPT TRẦN VĂN ƠN',
         lineHeight: 90,
         line: 1,
@@ -565,7 +855,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'D3',
-        position: [360,-20,10],
+        position: [360, -20, 10],
         text: 'KDC VIETSING ',
         lineHeight: 90,
         line: 1,
@@ -573,7 +863,7 @@ export const SCENEMOBILES = {
       },
       {
         key: 'D4',
-        position: [320,-15,30],
+        position: [320, -15, 30],
         text: 'CHỢ VIETSING',
         lineHeight: 100,
         line: 1,
