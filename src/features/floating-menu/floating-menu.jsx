@@ -52,7 +52,7 @@ const MENU_ITEMS = [
 
 export function FloatingMenu() {
   return (
-    <div className="fixed bottom-4 left-[50%] -translate-x-1/2 z-[70] flex gap-2 rounded-full bg-black/20 backdrop-blur-xl border border-white/10 shadow-2xl">
+    <div className="fixed bottom-4 left-[50%] -translate-x-1/2 z-[70] flex gap-2 rounded-full bg-black/20 backdrop-blur-xl border border-white/10 shadow-2xl select-none">
       {MENU_ITEMS.map((item) => (
         <Dialog key={item.id}>
           <DialogTrigger asChild>

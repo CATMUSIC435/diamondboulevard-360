@@ -1,6 +1,10 @@
 import { Hotspot } from "../../components/atoms/hotspot";
+import { usePanorama } from "../../contexts/panorama-context";
 
 export function PanoramaHotspot() {
+  const { sceneReady } = usePanorama();
+
+  if (!sceneReady) return null;
   const RADIUS = 400;
   const TOTAL_HOTSPOTS = 20;
   

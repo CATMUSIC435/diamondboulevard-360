@@ -23,7 +23,10 @@ export function Hotspot({ position, text, image, nextSceneImages, onClick, lineH
   return (
     <group position={position} onPointerOver={handlePointerOver} onPointerOut={() => setHover(false)} onClick={onClick}>
       {/* 1. Điểm neo ẩn/hiện trên mặt ảnh để bắt sự kiện click/hover */}
-      <mesh onClick={onClick}>
+      <mesh onClick={() => {
+        console.log(position, text, image, nextSceneImages, onClick, lineHeight);
+        
+      }}>
         <sphereGeometry args={[2, 16, 16]} />
         <meshBasicMaterial 
           color={hovered ? "#ff0000" : "#ffffff"} 
@@ -46,24 +49,17 @@ export function Hotspot({ position, text, image, nextSceneImages, onClick, lineH
       <Billboard position={endPoint}>
         <Html center distanceFactor={60}>
           <div 
-            className={`flex flex-col items-center transition-all duration-300 pointer-events-none`}
+            className={`flex flex-col items-center transition-all duration-300 pointer-events-none pb-56`}
             style={{ transform: hovered ? 'scale(1.1)' : 'scale(1)' }}
           >
             {/* Văn bản dự án */}
             <div 
-              className={`whitespace-nowrap font-bold ${hovered ? "text-red-500" : "text-white"}`}
-              style={{ 
-                fontSize: '40px', 
-                textShadow: '2px 2px 10px rgba(0,0,0,0.8)',
-                marginBottom: '10px'
-              }}
-            >
+              className={`whitespace-nowrap font-bold mb-4 text-shadow text-6xl ${hovered ? "text-red-500" : "text-black"}`}>
               {text}
             </div>
 
             {/* Hình ảnh dự án (Hiện khi hover hoặc luôn hiện tùy bạn) */}
-            <div className={`overflow-hidden rounded-lg`}
-                 style={{ width: '280px', height: '240px' }}>
+            <div className="overflow-hidden rounded-lg w-[280px] h-60">
               <img 
                 src={image || "/images/default-project.jpg"} 
                 alt={text}

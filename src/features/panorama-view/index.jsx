@@ -11,9 +11,12 @@ import {
   HueSaturation,
 } from "@react-three/postprocessing";
 import { PanoramaZoom } from "../../components/molecules/panorama-zoom";
+import { usePanorama } from "../../contexts/panorama-context";
+import { SceneReady } from "../../hooks/scene-ready";
 
 export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = false }) => {
   const [showEffects, setShowEffects] = useState(false);
+   const { sceneReady } = usePanorama();
 
   useEffect(() => {
     let timer;
@@ -49,9 +52,10 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
 
         <Suspense fallback={null}>
           <PanoramaBox texturePaths={scene} isActive={isActive} />
+          <SceneReady />
           {children && children}
         </Suspense>
-       {isActive && !lowPerformance && showEffects && (
+       {isActive && !lowPerformance &&  showEffects && sceneReady && (
           <EffectComposer 
           disableNormalPass 
           multisampling={4}

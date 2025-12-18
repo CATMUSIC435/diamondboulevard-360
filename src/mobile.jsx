@@ -9,6 +9,8 @@
   import { GlobalCanvasLoader } from "./components/molecules/global-canvas-loader";
 import { FullscreenButton } from "./components/atoms/fullscreen-button";
 import { PanoramaView } from "./features/panorama-view";
+import { PanoramaProvider } from "./contexts/panorama-context";
+import { PointHotspot } from "./features/point-hotspot";
 
   function TexturePreloader() {
     useTexture(SCENEMOBILES.v1.view.textures);
@@ -21,33 +23,25 @@ import { PanoramaView } from "./features/panorama-view";
     const [activeScene, setActiveScene] = useState(SCENE_KEYS.v1);
     const sceneElements = useMemo(() => {
       return Object.entries(SCENEMOBILES).map(([key]) => (
+        <PanoramaProvider>
         <div
           key={key}
           className={`absolute inset-0 transition-opacity duration-1000 ease-in-out
             ${activeScene === key ? "opacity-100 visible z-10" : "opacity-0 invisible z-0 pointer-events-none"}`}
         >
           <PanoramaView scene={SCENEMOBILES[key].view} isActive={activeScene === key} lowPerformance={true}>
-  <group>
-              {
-                SCENEMOBILES[key].hotspot.map((item) =>
-                  <HotspotDirection
-                    key={item.key}
-                    position={item.position}
-                    title={item.title}
-                    imageUrl={item.imageUrl}
-                    onClick={() => setActiveScene(item.key)}
-                  />
-                )
-              }
+          <group>
+              <PointHotspot hotspot={SCENES[key].hotspot} setActiveScene={setActiveScene}/>
             </group>
       </PanoramaView> 
       </div>
+      </PanoramaProvider>
       ));
     }, [activeScene]);
     
 
     return (
-      <div className="w-full h-screen bg-black overflow-hidden relative">
+      <div className="w-full h-screen bg-black overflow-hidden relative select-none">
         <GlobalCanvasLoader />
         <div className="fixed top-4 left-4 z-[70]">
         <FullscreenButton />

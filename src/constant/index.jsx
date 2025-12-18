@@ -29,7 +29,13 @@ export const SCENES = {
       imageUrl: "/images/360-image.png",
       key: SCENE_KEYS.v3
     }
-  ]
+  ],
+  areas: [
+    {
+      key: 'A1',
+      position: []
+    }
+  ] 
   },
   v2: {
     view: [

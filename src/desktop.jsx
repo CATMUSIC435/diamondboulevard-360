@@ -10,6 +10,9 @@
   import { GlobalCanvasLoader } from "./components/molecules/global-canvas-loader";
 import { FullscreenButton } from "./components/atoms/fullscreen-button";
 import { FloatingMenu } from "./features/floating-menu/floating-menu";
+import { PanoramaHotspot } from "./features/panorama-hotspot";
+import { PanoramaProvider } from "./contexts/panorama-context";
+import { PointHotspot } from "./features/point-hotspot";
 
   function TexturePreloader() {
     useTexture(SCENES.v1.view.textures);
@@ -22,33 +25,26 @@ import { FloatingMenu } from "./features/floating-menu/floating-menu";
     const [activeScene, setActiveScene] = useState(SCENE_KEYS.v1);
     const sceneElements = useMemo(() => {
       return Object.entries(SCENES).map(([key]) => (
+        <PanoramaProvider>
         <div
           key={key}
           className={`absolute inset-0 transition-opacity duration-1000 ease-in-out
             ${activeScene === key ? "opacity-100 visible z-10" : "opacity-0 invisible z-0 pointer-events-none"}`}
         >
           <PanoramaView scene={SCENES[key].view} isActive={activeScene === key} >
-  <group>
-              {
-                SCENES[key].hotspot.map((item) =>
-                  <HotspotDirection
-                    key={item.key}
-                    position={item.position}
-                    title={item.title}
-                    imageUrl={item.imageUrl}
-                    onClick={() => setActiveScene(item.key)}
-                  />
-                )
-              }
+           <group>
+              <PointHotspot hotspot={SCENES[key].hotspot} setActiveScene={setActiveScene}/>
+              <PanoramaHotspot />
             </group>
       </PanoramaView> 
       </div>
+      </PanoramaProvider>
       ));
     }, [activeScene]);
     
 
     return (
-      <div className="w-full h-screen bg-black overflow-hidden relative">
+      <div className="w-full h-screen bg-black overflow-hidden relative select-none">
         <GlobalCanvasLoader />
         <div className="fixed top-4 left-4 z-[70]">
         <FullscreenButton />
