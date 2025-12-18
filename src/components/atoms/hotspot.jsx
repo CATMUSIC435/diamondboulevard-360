@@ -39,10 +39,10 @@ export function Hotspot({ position, text, onClick, distance = 60, lineHeight = 5
       <Billboard position={endPoint}>
         <Html center distanceFactor={distance}>
           <div 
-            className={cn(`flex flex-col items-center transition-all duration-300 pointer-events-none`, line === 1 ? 'pb-20' : 'pb-40')}
+            className={cn(`flex flex-col items-center transition-all duration-300 pointer-events-none`, line === 1 ? 'pb-24' : 'pb-48')}
           >
             <div 
-              className={`text-center font-sans whitespace-nowrap font-bold mb-4 text-shadow text-8xl ${hovered ? "text-red-500" : "text-black"}`}  dangerouslySetInnerHTML={{__html: text}}>
+              className={`bg-black/10 backdrop-blur-xl border-4 border-white shadow-2xl rounded-full px-24 py-18 text-center font-sans whitespace-nowrap font-bold mb-4 text-shadow text-8xl ${hovered ? "text-white" : "text-black/80"}`}  dangerouslySetInnerHTML={{__html: text}}>
               
             </div>
           </div>

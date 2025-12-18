@@ -5,21 +5,21 @@ export function PanoramaHotspot({areas}) {
   const { sceneReady } = usePanorama();
 
   if (!sceneReady) return null;
-  const RADIUS = 400;
-  const TOTAL_HOTSPOTS = 20;
+  // const RADIUS = 400;
+  // const TOTAL_HOTSPOTS = 20;
   
-  const hotspots = Array.from({ length: TOTAL_HOTSPOTS }, (_, i) => {
-    const angle = (i / TOTAL_HOTSPOTS) * Math.PI * 2;
-    return {
-      id: i,
-      position: [
-        Math.cos(angle) * RADIUS, 
-        -10,
-        Math.sin(angle) * RADIUS
-      ],
-      text: `Lorem ipsum, <br />dolor sit amet<br /> adipisicing elit.`
-    };
-  });
+  // const hotspots = Array.from({ length: TOTAL_HOTSPOTS }, (_, i) => {
+  //   const angle = (i / TOTAL_HOTSPOTS) * Math.PI * 2;
+  //   return {
+  //     id: i,
+  //     position: [
+  //       Math.cos(angle) * RADIUS, 
+  //       -10,
+  //       Math.sin(angle) * RADIUS
+  //     ],
+  //     text: `Lorem ipsum`
+  //   };
+  // });
 
   return (
     <group>
