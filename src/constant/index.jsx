@@ -34,7 +34,7 @@ export const SCENES = {
       {
         key: 'A1',
         position: [-350, -55, -235],
-        text: 'Trung cấp Kỹ thuật & Nghiệp vụ </br> Công đoàn Bình Dương',
+        text: 'Trung cấp Kỹ thuật & Nghiệp vụ <br> Công đoàn Bình Dương',
         lineHeight: 50,
         line: 2,
         distance: 65
@@ -644,7 +644,7 @@ export const SCENEMOBILES = {
       {
         key: 'A1',
         position: [-350, -55, -235],
-        text: 'Trung cấp Kỹ thuật & Nghiệp vụ </br> Công đoàn Bình Dương',
+        text: 'Trung cấp Kỹ thuật & Nghiệp vụ <br> Công đoàn Bình Dương',
         lineHeight: 50,
         line: 2,
         distance: 65
