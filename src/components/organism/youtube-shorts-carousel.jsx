@@ -48,7 +48,7 @@ export function YoutubeShortsCarousel() {
   };
 
   return (
-    <div className="mx-auto w-full">
+    <div className="max-w-5xl mx-auto w-full">
       <Carousel opts={{ align: "center" }} className="w-full">
         <CarouselContent>
           {SHORTS.map((src, index) => (
