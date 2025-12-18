@@ -11,7 +11,7 @@ export function OptimizedHotspot({ text, bg = "#002d4d" }) {
     const fontSize = 80;
     const fontStyle = `bold ${fontSize}px Inter, Arial`;
     ctx.font = fontStyle;
-
+    
     const lineHeights = fontSize * 1.2;
     let maxTextWidth = 0;
     lines.forEach(line => {
@@ -19,6 +19,7 @@ export function OptimizedHotspot({ text, bg = "#002d4d" }) {
       if (metrics.width > maxTextWidth) maxTextWidth = metrics.width;
     });
 
+    const paddingX = 100;
     const paddingY = 60;
     canvas.width = maxTextWidth + paddingX * 2;
     canvas.height = (lines.length * lineHeights) + paddingY * 2;
