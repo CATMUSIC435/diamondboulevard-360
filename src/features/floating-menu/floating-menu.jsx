@@ -5,14 +5,15 @@ import { Button } from "../../components/ui/button";
 import {
   Dialog,
   DialogContent,
+  DialogTitle,
   // DialogDescription,
   // DialogHeader,
   // DialogTitle,
   DialogTrigger,
 } from "../../components/ui/dialog";
-import { Newspaper, Map, Home, Video, Clipboard } from "lucide-react";
+import { Newspaper, Map,Clipboard } from "lucide-react";
 import { Mapbox } from "../map-box";
-import { WebFrame } from "../../components/organism/web-frame";
+// import { WebFrame } from "../../components/organism/web-frame";
 import { YoutubeShortsCarousel } from "../../components/organism/youtube-shorts-carousel";
 
 const MENU_ITEMS = [    
@@ -65,7 +66,9 @@ export function FloatingMenu() {
               {item.icon}
             </Button>
           </DialogTrigger>
-          <DialogContent className="sm:max-w-6xl bg-black/20 backdrop-blur-2xl border-white/10 text-white p-0">            
+          <DialogContent className="sm:max-w-6xl bg-black/20 backdrop-blur-2xl border-white/10 text-white p-0">        
+          <DialogTitle className="hidden">
+            </DialogTitle>    
             {item.content}
           </DialogContent>
         </Dialog>

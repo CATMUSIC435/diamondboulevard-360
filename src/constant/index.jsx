@@ -56,7 +56,7 @@ export const SCENES = {
         distance: 70
       },
       {
-        key: 'A3',
+        key: 'A4',
         position: [-183, -22, -323.6067977499789],
         text: 'MM MEGA MARIET',
         lineHeight: 160,
@@ -64,7 +64,7 @@ export const SCENES = {
         distance: 65
       },
       {
-        key: 'A4',
+        key: 'A5',
         position: [-45, -105, -380.4226065180614],
         text: 'Ga C7 Metro TDM',
         lineHeight: 160,
@@ -72,7 +72,7 @@ export const SCENES = {
         distance: 70
       },
       {
-        key: 'A5',
+        key: 'A6',
         position: [30, -85, -400],
         text: 'BVQT Comlumbia Asia',
         lineHeight: 100,
@@ -80,7 +80,7 @@ export const SCENES = {
         distance: 70
       },
       {
-        key: 'A6',
+        key: 'A7',
         position: [100, -150, -400],
         text: 'Cao Đẳng Việt Nam – Singapore',
         lineHeight: 200,
@@ -88,7 +88,7 @@ export const SCENES = {
         distance: 70
       },
       {
-        key: 'A7',
+        key: 'A8',
         position: [180, -45, -380.42260651806146],
         text: 'Đại học Kinh tế - Kỹ thuật Bình Dương',
         lineHeight: 160,
@@ -372,7 +372,7 @@ export const SCENEMOBILES = {
         distance: 70
       },
       {
-        key: 'A3',
+        key: 'A4',
         position: [-183, -22, -323.6067977499789],
         text: 'MM MEGA MARIET',
         lineHeight: 160,
@@ -380,7 +380,7 @@ export const SCENEMOBILES = {
         distance: 65
       },
       {
-        key: 'A4',
+        key: 'A5',
         position: [-45, -105, -380.4226065180614],
         text: 'Ga C7 Metro TDM',
         lineHeight: 160,
@@ -388,7 +388,7 @@ export const SCENEMOBILES = {
         distance: 70
       },
       {
-        key: 'A5',
+        key: 'A6',
         position: [30, -85, -400],
         text: 'BVQT Comlumbia Asia',
         lineHeight: 100,
@@ -396,7 +396,7 @@ export const SCENEMOBILES = {
         distance: 70
       },
       {
-        key: 'A6',
+        key: 'A7',
         position: [100, -150, -400],
         text: 'Cao Đẳng Việt Nam – Singapore',
         lineHeight: 200,
@@ -404,7 +404,7 @@ export const SCENEMOBILES = {
         distance: 70
       },
       {
-        key: 'A7',
+        key: 'A8',
         position: [180, -45, -380.42260651806146],
         text: 'Đại học Kinh tế - Kỹ thuật Bình Dương',
         lineHeight: 160,

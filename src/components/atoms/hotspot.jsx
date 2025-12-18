@@ -3,7 +3,7 @@ import { DoubleSide, Vector3 } from "three";
 import { useState, useMemo } from "react";
 import { cn } from "../../lib/utils";
 
-export function Hotspot({ position, text, onClick, distance = 60, lineHeight = 50, line = 1 }) {
+export function Hotspot({ position, text, distance = 60, lineHeight = 50, line = 1 }) {
   const [hovered, setHover] = useState(false);
 
   const handlePointerOver = () => {
