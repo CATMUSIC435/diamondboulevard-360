@@ -35,7 +35,7 @@ export function Mobile() {
   const currentSceneData = useMemo(() => SCENEMOBILES[activeScene], [activeScene]);
 
   return (
-    <div className="w-full h-screen bg-black overflow-hidden relative select-none touch-none">
+    <div className="w-full h-screen bg-black overflow-hidden relative select-none">
       <GlobalCanvasLoader />
       <div 
         className={`fixed inset-0 z-[100] bg-black transition-opacity duration-500 pointer-events-none flex items-center justify-center
@@ -53,7 +53,7 @@ export function Mobile() {
       <SidebarProvider>
         <PanoramaProvider>
           <div className="w-full h-full relative">
-            <div className="absolute inset-0 z-10 touch-none">
+            <div className="absolute inset-0 z-10">
               
               <PanoramaView 
                 key={activeScene} 
