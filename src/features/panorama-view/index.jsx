@@ -13,6 +13,7 @@ import {
 import { PanoramaZoom } from "../../components/molecules/panorama-zoom";
 import { usePanorama } from "../../contexts/panorama-context";
 import { SceneReady } from "../../hooks/scene-ready";
+import { PanoramaZoomMobile } from "../../components/molecules/panorama-zoom-mobile";
 
 export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = false }) => {
   const [showEffects, setShowEffects] = useState(false);
@@ -29,7 +30,7 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
   }, [isActive]);
 
   return (
-    <div className="w-full h-screen bg-gray-400 cursor-pointer">
+    <div className="w-full h-screen bg-gray-400">
       <Canvas
         frameloop={isActive ? "always" : "never"}
         camera={{
@@ -48,7 +49,7 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
           depth: false,
         }}
       >
-        <PanoramaZoom />
+        {lowPerformance ? <PanoramaZoomMobile /> : <PanoramaZoom />}
 
         <Suspense fallback={null}>
           <PanoramaBox texturePaths={scene} isActive={isActive} />
@@ -66,11 +67,11 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
         )}
 
         <OrbitControls
-         enablePan={true}
+         enablePan={false}
           enableDamping
           dampingFactor={0.1}
           rotateSpeed={lowPerformance ? -0.6 : -0.4}
-          enableZoom={true}
+          enableZoom={false}
           minDistance={0.01}
           maxDistance={100}
         />

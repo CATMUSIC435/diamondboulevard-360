@@ -1,40 +1,52 @@
-import { useThree } from "@react-three/fiber";
-import { useEffect } from "react";
+import { useFrame, useThree } from "@react-three/fiber";
+import { useEffect, useRef } from "react";
 
 export function PanoramaZoomMobile() {
   const { camera, gl } = useThree();
+  const targetFov = useRef(75);
+  const lastTouchDistance = useRef(0);
 
   useEffect(() => {
-    let startDistance = 0;
+    const el = gl.domElement;
 
-    const onTouchStart = (e) => {
+    const handleTouchMove = (e) => {
       if (e.touches.length === 2) {
-        const dx = e.touches[0].clientX - e.touches[1].clientX;
-        const dy = e.touches[0].clientY - e.touches[1].clientY;
-        startDistance = Math.sqrt(dx * dx + dy * dy);
-      }
-    };
-
-    const onTouchMove = (e) => {
-      if (e.touches.length === 2) {
-        const dx = e.touches[0].clientX - e.touches[1].clientX;
-        const dy = e.touches[0].clientY - e.touches[1].clientY;
+        e.preventDefault();
+        // Tính khoảng cách giữa 2 ngón tay
+        const dx = e.touches[0].pageX - e.touches[1].pageX;
+        const dy = e.touches[0].pageY - e.touches[1].pageY;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        const delta = startDistance - distance;
-        camera.fov = THREE.MathUtils.clamp(camera.fov + delta * 0.05, 40, 90);
-        camera.updateProjectionMatrix();
+        if (lastTouchDistance.current > 0) {
+          // Nếu khoảng cách tăng -> Phóng to (giảm FOV)
+          // Nếu khoảng cách giảm -> Thu nhỏ (tăng FOV)
+          const delta = distance - lastTouchDistance.current;
+          targetFov.current -= delta * 0.1; // Độ nhạy zoom
+          targetFov.current = Math.max(30, Math.min(100, targetFov.current));
+        }
+        lastTouchDistance.current = distance;
       }
     };
 
-    gl.domElement.addEventListener("touchstart", onTouchStart);
-    gl.domElement.addEventListener("touchmove", onTouchMove);
+    const handleTouchEnd = () => {
+      lastTouchDistance.current = 0;
+    };
+
+    el.addEventListener('touchmove', handleTouchMove, { passive: false });
+    el.addEventListener('touchend', handleTouchEnd);
 
     return () => {
-      gl.domElement.removeEventListener("touchstart", onTouchStart);
-      gl.domElement.removeEventListener("touchmove", onTouchMove);
+      el.removeEventListener('touchmove', handleTouchMove);
+      el.removeEventListener('touchend', handleTouchEnd);
     };
-  }, []);
+  }, [gl]);
+
+  useFrame(() => {
+    if (Math.abs(camera.fov - targetFov.current) > 0.1) {
+      camera.fov = THREE.MathUtils.lerp(camera.fov, targetFov.current, 0.1);
+      camera.updateProjectionMatrix();
+    }
+  });
 
   return null;
 }
