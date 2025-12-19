@@ -647,7 +647,7 @@ export const SCENEMOBILES = {
         text: 'Trung cấp Kỹ thuật & Nghiệp vụ <br> Công đoàn Bình Dương',
         lineHeight: 50,
         line: 2,
-        distance: 65
+        distance: 100
       },
       {
         key: 'A2',
@@ -655,7 +655,7 @@ export const SCENEMOBILES = {
         text: 'THCS Trần Đại Nghĩa',
         lineHeight: 90,
         line: 1,
-        distance: 65
+        distance: 70
       },
       {
         key: 'A3',
@@ -671,7 +671,7 @@ export const SCENEMOBILES = {
         text: 'MM MEGA MARIET',
         lineHeight: 160,
         line: 1,
-        distance: 60
+        distance: 55
       },
       {
         key: 'A5',
@@ -679,7 +679,7 @@ export const SCENEMOBILES = {
         text: 'Ga C7 Metro TDM',
         lineHeight: 160,
         line: 1,
-        distance: 70,
+        distance: 65,
         bg: '#f47700'
       },
       {
@@ -704,7 +704,7 @@ export const SCENEMOBILES = {
         text: 'Đại học Kinh tế - Kỹ thuật Bình Dương',
         lineHeight: 160,
         line: 1,
-        distance: 75
+        distance: 70
       },
       {
         key: 'B1',
@@ -785,7 +785,7 @@ export const SCENEMOBILES = {
         text: 'AEON MALL',
         lineHeight: 60,
         line: 1,
-        distance: 60,
+        distance: 65,
         bg: '#f47700'
       },
       {
@@ -794,7 +794,7 @@ export const SCENEMOBILES = {
         text: 'KCN VSIP 1',
         lineHeight: 100,
         line: 1,
-        distance: 60,
+        distance: 65,
         bg: '#f47700'
       },
       {
@@ -811,7 +811,7 @@ export const SCENEMOBILES = {
         text: 'BVQT BECAMEX',
         lineHeight: 100,
         line: 1,
-        distance: 55
+        distance: 60
       },
       {
         key: 'C8',
@@ -827,7 +827,7 @@ export const SCENEMOBILES = {
         text: 'THPT Nguyễn Trãi',
         lineHeight: 80,
         line: 1,
-        distance: 60
+        distance: 65
       },
       {
         key: 'C10',
@@ -835,7 +835,7 @@ export const SCENEMOBILES = {
         text: 'Trường THCS Nguyễn Văn Tiết',
         lineHeight: 135,
         line: 1,
-        distance: 60
+        distance: 65
       },
       {
         key: 'C11',
@@ -851,7 +851,7 @@ export const SCENEMOBILES = {
         text: 'CHỢ THUẬN GIAO',
         lineHeight: 60,
         line: 1,
-        distance: 40
+        distance: 35
       },
       {
         key: 'D2',
@@ -867,7 +867,7 @@ export const SCENEMOBILES = {
         text: 'KDC VIETSING ',
         lineHeight: 90,
         line: 1,
-        distance: 50
+        distance: 55
       },
       {
         key: 'D4',
@@ -875,10 +875,9 @@ export const SCENEMOBILES = {
         text: 'CHỢ VIETSING',
         lineHeight: 100,
         line: 1,
-        distance: 50
+        distance: 45
       }
-    ],
-    
+    ],    
     planes: [
       {
         key: 'CH-23',
