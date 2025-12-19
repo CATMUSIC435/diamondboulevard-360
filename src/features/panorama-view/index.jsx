@@ -70,7 +70,7 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
           enableDamping
           dampingFactor={0.05}
           rotateSpeed={lowPerformance ? -0.6 : -0.4}
-          enableZoom={false}
+          enableZoom={true}
         />
       </Canvas>
     </div>
