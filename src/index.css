@@ -148,3 +148,9 @@
 .animate-shine {
   animation: shine-sweep 3s infinite;
 }
+
+canvas {
+  touch-action: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
