@@ -33,10 +33,10 @@ export function GlobalCanvasLoader({img = '/images/screen.jpg'}) {
           <div className="absolute inset-2 border-l-2 border-r-2 border-indigo-400/20 rounded-full animate-[spin_2s_linear_reverse_infinite]" />
           
           <div className="text-center">
-            <span className="text-5xl font-thin text-white tracking-tighter block leading-none">
+            <span className="text-5xl md:text-7xl font-bold text-white tracking-tighter block leading-none">
               {Math.round(progress)}
             </span>
-            <span className="text-[10px] text-indigo-400 font-bold tracking-[0.4em] uppercase mt-2 block">
+            <span className="text-sm text-indigo-400 font-bold tracking-[0.4em] uppercase mt-2 block">
               Loading 360
             </span>
           </div>
