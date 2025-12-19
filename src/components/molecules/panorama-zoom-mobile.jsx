@@ -8,41 +8,55 @@ export function PanoramaZoomMobile({ controlsRef }) {
 
   const [{ fovSpring }, api] = useSpring(() => ({
     fovSpring: 75,
-    config: { mass: 1, tension: 170, friction: 26 },
+    config: { 
+      mass: 1,       // Tăng khối lượng để tạo cảm giác nặng khi bắt đầu zoom
+      tension: 250,  // Giảm độ căng lò xo
+      friction: 25   // Tăng mạnh lực cản để zoom đầm và mượt hơn
+    },
   }));
 
   usePinch(
     ({ offset: [d], active }) => {
-      // 1. KHI ĐANG PINCH (active = true), KHÓA XOAY
       if (controlsRef.current) {
         controlsRef.current.enableRotate = !active;
       }
 
-      const val = 75 - d / 5;
-      api.start({ fovSpring: THREE.MathUtils.clamp(val, 30, 100) });
+      const zoomSensitivity = 0.4; 
+    
+      const targetVal = 75 - d * zoomSensitivity;
+      
+      api.start({ 
+        fovSpring: THREE.MathUtils.clamp(targetVal, 5, 140),
+        immediate: false 
+      });
     },
     { 
       target: gl.domElement,
-      eventOptions: { passive: false } 
+      eventOptions: { passive: false },
+      threshold: 2
     }
   );
 
   useWheel(
     ({ offset: [, y] }) => {
-      const val = 75 + y / 10;
-      api.start({ fovSpring: THREE.MathUtils.clamp(val, 30, 100) });
+      const wheelSensitivity = 0.1;
+      const targetVal = 75 + y * wheelSensitivity;
+      api.start({ fovSpring: THREE.MathUtils.clamp(targetVal, 20, 120) });
     },
-    { 
-      target: gl.domElement,
-      eventOptions: { passive: false } 
-    }
+    { target: gl.domElement, eventOptions: { passive: false } }
   );
 
   useFrame(() => {
     const currentFov = fovSpring.get();
-    if (camera.fov !== currentFov) {
+    if (Math.abs(camera.fov - currentFov) > 0.01) {
       camera.fov = currentFov;
       camera.updateProjectionMatrix();
+      
+      if (controlsRef.current) {
+        // Điều chỉnh tốc độ xoay tương ứng với dải zoom mới
+        const factor = THREE.MathUtils.mapLinear(currentFov, 20, 120, 0.1, 0.7);
+        controlsRef.current.rotateSpeed = -factor;
+      }
     }
   });
 
