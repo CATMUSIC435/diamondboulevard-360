@@ -68,9 +68,9 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
         <OrbitControls
          enablePan={true}
           enableDamping
-          dampingFactor={0.05}
+          dampingFactor={0.1}
           rotateSpeed={lowPerformance ? -0.6 : -0.4}
-          enableZoom={false}
+          enableZoom={true}
           minDistance={0.01}
           maxDistance={100}
         />
