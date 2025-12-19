@@ -16,7 +16,7 @@ import { SceneReady } from "../../hooks/scene-ready";
 
 export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = false }) => {
   const [showEffects, setShowEffects] = useState(false);
-   const { sceneReady } = usePanorama();
+  const { sceneReady } = usePanorama();
 
   useEffect(() => {
     let timer;
@@ -27,7 +27,7 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
     }
     return () => clearTimeout(timer);
   }, [isActive]);
-  
+
   return (
     <div className="w-full h-screen bg-gray-400 cursor-pointer">
       <Canvas
@@ -55,22 +55,24 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
           <SceneReady />
           {children && children}
         </Suspense>
-       {isActive && !lowPerformance &&  showEffects && sceneReady && (
-          <EffectComposer 
-          disableNormalPass 
-          multisampling={4}
-          frameBufferType={THREE.HalfFloatType}>
+        {isActive && !lowPerformance && showEffects && sceneReady && (
+          <EffectComposer
+            disableNormalPass
+            multisampling={4}
+            frameBufferType={THREE.HalfFloatType}>
             <BrightnessContrast contrast={0.05} />
             <HueSaturation saturation={0.15} />
           </EffectComposer>
         )}
-        
+
         <OrbitControls
-          enablePan={false}
+         enablePan={false}
           enableDamping
           dampingFactor={0.05}
           rotateSpeed={lowPerformance ? -0.6 : -0.4}
           enableZoom={false}
+          minDistance={0.01}
+          maxDistance={100}
         />
       </Canvas>
     </div>

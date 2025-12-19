@@ -15,21 +15,31 @@ export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "
   const v1 = useMemo(() => new Vector3(), []);
   const v2 = useMemo(() => new Vector3(), []);
   
-  // Tính toán tỷ lệ kích thước dựa trên khoảng cách cơ sở là 60
-  // Nếu distance = 60 -> scale = 1
-  // Nếu distance = 120 -> scale = 2
   const baseScale = useMemo(() => distance / 60, [distance]);
 
   useFrame((state) => {
     if (!groupRef.current || !contentRef.current || !lineRef.current || !baseRef.current) return;
 
+    // 1. Lấy vị trí thế giới và hướng nhìn camera
     groupRef.current.getWorldPosition(v1);
     state.camera.getWorldDirection(v2);
+    
+    // 2. Tính toán Vector hướng từ Camera đến Hotspot
     const dirToSpot = v1.clone().sub(state.camera.position).normalize();
     const dot = v2.dot(dirToSpot);
     
-    const inView = dot > 0.75; 
+    // 3. TÍNH TOÁN NGƯỠNG DOT ĐỘNG THEO FOV
+    // Khi zoom out (fov lớn), ngưỡng dot cần nhỏ đi để hiện hotspot ở rìa
+    // Khi zoom in (fov nhỏ), ngưỡng dot cần lớn hơn (gần 1)
+    const fovRad = (state.camera.fov * Math.PI) / 180;
+    
+    // Ngưỡng xuất hiện dựa trên cosin của nửa góc nhìn. 
+    // Nhân thêm 0.8 để hotspot hiện sớm một chút trước khi vào hẳn khung hình.
+    const threshold = Math.cos(fovRad / 2) * 0.8; 
 
+    const inView = dot > threshold; 
+
+    // 4. Cập nhật Scale cho Content và Base
     const targetScale = inView ? baseScale : 0;
     contentRef.current.scale.lerp(new Vector3(targetScale, targetScale, targetScale), 0.1);
 
@@ -37,6 +47,7 @@ export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "
     const finalBaseScale = (inView ? baseScale : 0) * pulse; 
     baseRef.current.scale.lerp(new Vector3(finalBaseScale, finalBaseScale, finalBaseScale), 0.1);
 
+    // 5. Cập nhật Opacity
     const targetLineOpacity = inView ? 0.6 : 0;
     lineRef.current.material.opacity = MathUtils.lerp(lineRef.current.material.opacity, targetLineOpacity, 0.1);
     
@@ -50,10 +61,9 @@ export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "
     <group 
       ref={groupRef}
       position={position} 
-      onPointerOver={() => setHover(false)}
+      onPointerOver={() => setHover(true)}
       onPointerOut={() => setHover(false)}
     >
-
       <mesh ref={baseRef} scale={[baseScale, baseScale, baseScale]}>
         <sphereGeometry args={[1, 16, 16]} />
         <meshBasicMaterial color={hovered ? "#fff" : "#002d4d"} transparent opacity={0.8} />
@@ -62,7 +72,7 @@ export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "
       <Line
         ref={lineRef}
         points={[startPoint, endPoint]} 
-        color={"#002d4d"}
+        color={hovered ? "red" : "#002d4d"}
         lineWidth={1.5 * baseScale}
         transparent
         opacity={0}

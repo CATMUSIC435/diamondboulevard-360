@@ -1,18 +1,20 @@
 import { useTexture } from "@react-three/drei";
 import { useMemo } from "react";
 import { BackSide, SRGBColorSpace } from "three";
+import * as THREE from "three";
 
 export function PanoramaBox({texturePaths, isActive}) {
   const textures = useTexture(texturePaths);
 
   useMemo(() => {
   textures.forEach((tex) => {
-    tex.colorSpace = SRGBColorSpace;
-    
-    tex.repeat.set(-1, 1);
-    tex.offset.set(1, 0); 
-    tex.anisotropy = 16;
-    tex.needsUpdate = true;
+      tex.colorSpace = SRGBColorSpace;
+      tex.repeat.set(-1, 1);
+      tex.offset.set(1, 0);
+      tex.anisotropy = 2; // Giảm xuống 2 cho mobile mượt hơn nữa
+      tex.minFilter = THREE.LinearFilter;
+      tex.magFilter = THREE.LinearFilter;
+      tex.needsUpdate = true;
   });
   }, [textures]);
 
