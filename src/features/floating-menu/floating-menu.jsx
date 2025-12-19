@@ -11,20 +11,15 @@ import {
   // DialogTitle,
   DialogTrigger,
 } from "../../components/ui/dialog";
-import { Newspaper, Map,Clipboard } from "lucide-react";
+import { Newspaper, Map, GalleryThumbnails, GalleryHorizontalIcon } from "lucide-react";
 import { Mapbox } from "../map-box";
 // import { WebFrame } from "../../components/organism/web-frame";
 import { YoutubeShortsCarousel } from "../../components/organism/youtube-shorts-carousel";
+import { ImageCarousel } from "../../components/organism/image-carousel";
+import { memo } from "react";
+import { MY_IMAGES } from "../../constant";
 
 const MENU_ITEMS = [    
-  // {
-  //   id: "home",
-  //   label: "Home",
-  //   icon: <Home size={20} />,
-  //   content: (
-  //     <WebFrame url="https://diamondboulevard.com.vn/" title="Diamond Boulevard Official" />
-  //   ),
-  // },
   {
     id: "Map",
     label: "Map",
@@ -36,9 +31,17 @@ const MENU_ITEMS = [
   {
     id: "video",
     label: "Video",
-    icon: <Clipboard size={20} />,
+    icon: <GalleryHorizontalIcon size={20} />,
     content: (
       <YoutubeShortsCarousel />
+    ),
+  },  
+  {
+    id: "galery",
+    label: "Galery",
+    icon: <GalleryThumbnails size={20} />,
+    content: (
+      <ImageCarousel images={MY_IMAGES} />
     ),
   },
    {
@@ -51,7 +54,7 @@ const MENU_ITEMS = [
   },
 ];
 
-export function FloatingMenu() {
+export const FloatingMenu = memo(() => {
   return (
     <div className="fixed bottom-4 left-[50%] -translate-x-1/2 z-[70] flex gap-2 rounded-full bg-black/20 backdrop-blur-xl border border-white/10 shadow-2xl select-none">
       {MENU_ITEMS.map((item) => (
@@ -75,4 +78,4 @@ export function FloatingMenu() {
       ))}
     </div>
   );
-}
+})

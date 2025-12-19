@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -11,43 +10,11 @@ import {
 import {Skeleton } from "../ui/skeleton"
 import { PostCard } from "./post-card";
 import { SectionHeader } from "../molecules/section-header";
+import { useFetchPosts } from "../../hooks/use-fetch-posts";
 
 
 const PostsCarousel = () => {
-  const [posts, setPosts] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-useEffect(() => {
-    const controller = new AbortController();
-
-    const fetchPosts = async () => {
-      try {
-        const response = await fetch(
-          "https://diamondboulevard.com.vn/wp-json/wp/v2/posts?per_page=8",
-          { signal: controller.signal }
-        );
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const data = await response.json();
-        setPosts(data);
-      } catch (err) {
-        if (err.name !== 'AbortError') {
-          console.error("Lỗi lấy bài viết:", err.message);
-        }
-      } finally {
-        setTimeout(() => {
-          setLoading(false);
-        }, 1000)
-      }
-    };
-
-    fetchPosts();
-
-    return () => controller.abort(); 
-  }, []);
+const { posts, loading } = useFetchPosts(8);
 
   return (
     <div className="mx-auto w-full max-w-5xl px-6 py-10">

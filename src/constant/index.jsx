@@ -37,7 +37,7 @@ export const SCENES = {
         text: 'Trung cấp Kỹ thuật & Nghiệp vụ <br> Công đoàn Bình Dương',
         lineHeight: 50,
         line: 2,
-        distance: 65
+        distance: 100
       },
       {
         key: 'A2',
@@ -45,7 +45,7 @@ export const SCENES = {
         text: 'THCS Trần Đại Nghĩa',
         lineHeight: 90,
         line: 1,
-        distance: 65
+        distance: 70
       },
       {
         key: 'A3',
@@ -61,7 +61,7 @@ export const SCENES = {
         text: 'MM MEGA MARIET',
         lineHeight: 160,
         line: 1,
-        distance: 60
+        distance: 55
       },
       {
         key: 'A5',
@@ -69,7 +69,7 @@ export const SCENES = {
         text: 'Ga C7 Metro TDM',
         lineHeight: 160,
         line: 1,
-        distance: 70,
+        distance: 65,
         bg: '#f47700'
       },
       {
@@ -94,7 +94,7 @@ export const SCENES = {
         text: 'Đại học Kinh tế - Kỹ thuật Bình Dương',
         lineHeight: 160,
         line: 1,
-        distance: 75
+        distance: 70
       },
       {
         key: 'B1',
@@ -175,7 +175,7 @@ export const SCENES = {
         text: 'AEON MALL',
         lineHeight: 60,
         line: 1,
-        distance: 60,
+        distance: 65,
         bg: '#f47700'
       },
       {
@@ -184,7 +184,7 @@ export const SCENES = {
         text: 'KCN VSIP 1',
         lineHeight: 100,
         line: 1,
-        distance: 60,
+        distance: 65,
         bg: '#f47700'
       },
       {
@@ -201,7 +201,7 @@ export const SCENES = {
         text: 'BVQT BECAMEX',
         lineHeight: 100,
         line: 1,
-        distance: 55
+        distance: 60
       },
       {
         key: 'C8',
@@ -217,7 +217,7 @@ export const SCENES = {
         text: 'THPT Nguyễn Trãi',
         lineHeight: 80,
         line: 1,
-        distance: 60
+        distance: 65
       },
       {
         key: 'C10',
@@ -225,7 +225,7 @@ export const SCENES = {
         text: 'Trường THCS Nguyễn Văn Tiết',
         lineHeight: 135,
         line: 1,
-        distance: 60
+        distance: 65
       },
       {
         key: 'C11',
@@ -241,7 +241,7 @@ export const SCENES = {
         text: 'CHỢ THUẬN GIAO',
         lineHeight: 60,
         line: 1,
-        distance: 40
+        distance: 35
       },
       {
         key: 'D2',
@@ -257,7 +257,7 @@ export const SCENES = {
         text: 'KDC VIETSING ',
         lineHeight: 90,
         line: 1,
-        distance: 50
+        distance: 55
       },
       {
         key: 'D4',
@@ -265,7 +265,7 @@ export const SCENES = {
         text: 'CHỢ VIETSING',
         lineHeight: 100,
         line: 1,
-        distance: 50
+        distance: 45
       }
     ],
     planes: [
@@ -1223,3 +1223,12 @@ export const SCENEMOBILES = {
     areas: []
   }
 };
+
+export const MY_IMAGES = [
+  "/images/3d/in.jpg",
+  "/images/3d/in-two.jpg",
+  "/images/3d/quest.jpg",
+  "/images/3d/shopp-house.jpg",
+  "/images/3d/diamond-boulevard.jpg",
+  "/images/3d/diamond-boulevard-night.jpg",
+]
