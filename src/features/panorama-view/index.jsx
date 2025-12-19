@@ -1,5 +1,5 @@
 "use client";
-import { memo, Suspense, useEffect, useState } from "react";
+import { memo, Suspense, useEffect, useRef, useState } from "react";
 import * as THREE from 'three';
 import { SRGBColorSpace } from "three";
 import { Canvas } from "@react-three/fiber";
@@ -18,6 +18,8 @@ import { PanoramaZoomMobile } from "../../components/molecules/panorama-zoom-mob
 export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = false }) => {
   const [showEffects, setShowEffects] = useState(false);
   const { sceneReady } = usePanorama();
+
+  const controlsRef = useRef();
 
   useEffect(() => {
     let timer;
@@ -49,7 +51,7 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
           depth: false,
         }}
       >
-        {lowPerformance ? <PanoramaZoomMobile /> : <PanoramaZoom />}
+        {lowPerformance ? <PanoramaZoomMobile controlsRef={controlsRef}/> : <PanoramaZoom />}
 
         <Suspense fallback={null}>
           <PanoramaBox texturePaths={scene} isActive={isActive} />
@@ -67,6 +69,7 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
         )}
 
         <OrbitControls
+        ref={controlsRef}
          enablePan={false}
           enableDamping
           dampingFactor={0.1}

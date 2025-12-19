@@ -3,7 +3,7 @@ import { usePinch, useWheel } from "@use-gesture/react";
 import { useSpring } from "@react-spring/three";
 import * as THREE from "three";
 
-export function PanoramaZoomMobile() {
+export function PanoramaZoomMobile({ controlsRef }) {
   const { camera, gl } = useThree();
 
   const [{ fovSpring }, api] = useSpring(() => ({
@@ -12,7 +12,12 @@ export function PanoramaZoomMobile() {
   }));
 
   usePinch(
-    ({ offset: [d] }) => {
+    ({ offset: [d], active }) => {
+      // 1. KHI ĐANG PINCH (active = true), KHÓA XOAY
+      if (controlsRef.current) {
+        controlsRef.current.enableRotate = !active;
+      }
+
       const val = 75 - d / 5;
       api.start({ fovSpring: THREE.MathUtils.clamp(val, 30, 100) });
     },
