@@ -1,17 +1,25 @@
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import * as THREE from "three";
 
 export function OptimizedHotspot({ text, bg = "#002d4d" }) {
+  const [fontLoaded, setFontLoaded] = useState(false);
+
+  useEffect(() => {
+    document.fonts.load("1em Aguda").then(() => {
+      setFontLoaded(true);
+    });
+  }, []);
+
   const texture = useMemo(() => {
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
     
     const lines = text.split(/<br\s*\/?>/i);
-    
     const fontSize = 80;
-    const fontStyle = `bold ${fontSize}px Aguda , Inter, Arial`;
-    ctx.font = fontStyle;
+    const fontStyle = `${fontSize}px Aguda, Inter, Arial`; 
     
+    ctx.font = fontStyle; 
+
     const lineHeights = fontSize * 1.2;
     let maxTextWidth = 0;
     lines.forEach(line => {
@@ -36,12 +44,12 @@ export function OptimizedHotspot({ text, bg = "#002d4d" }) {
     ctx.roundRect(0, 0, canvas.width, canvas.height, r);
     ctx.fill();
 
+    // Vẽ viền...
     ctx.lineWidth = 4;
     ctx.strokeStyle = "#ffffff";
-    ctx.beginPath();
-    ctx.roundRect(0, 0, canvas.width, canvas.height, r);
     ctx.stroke();
 
+    // Vẽ chữ
     ctx.shadowBlur = 0;
     ctx.fillStyle = "white";
     lines.forEach((line, index) => {
@@ -52,7 +60,7 @@ export function OptimizedHotspot({ text, bg = "#002d4d" }) {
     const tex = new THREE.CanvasTexture(canvas);
     tex.needsUpdate = true;
     return tex;
-  }, [text, bg]);
+  }, [text, bg, fontLoaded]); // Thêm fontLoaded vào dependency
 
   const aspect = texture.image ? texture.image.width / texture.image.height : 4;
 
