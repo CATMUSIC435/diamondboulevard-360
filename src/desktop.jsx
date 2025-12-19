@@ -55,7 +55,7 @@ export function Desktop() {
 
   return (
     <div className="w-full h-screen bg-black overflow-hidden relative select-none">
-      <GlobalCanvasLoader />
+      <GlobalCanvasLoader img="/images/screen.jpg"/>
       <div className="fixed top-4 left-4 z-[70]">
         <FullscreenButton />
       </div>

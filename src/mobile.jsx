@@ -36,7 +36,7 @@ export function Mobile() {
 
   return (
     <div className="w-full h-screen bg-black overflow-hidden relative select-none">
-      <GlobalCanvasLoader />
+      <GlobalCanvasLoader img="/images/screen-mobile.jpg"/>
       <div 
         className={`fixed inset-0 z-[100] bg-black transition-opacity duration-500 pointer-events-none flex items-center justify-center
         ${isTransitioning ? "opacity-100" : "opacity-0"}`}

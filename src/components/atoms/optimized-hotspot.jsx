@@ -9,7 +9,7 @@ export function OptimizedHotspot({ text, bg = "#002d4d" }) {
     const lines = text.split(/<br\s*\/?>/i);
     
     const fontSize = 80;
-    const fontStyle = `bold ${fontSize}px Inter, Arial`;
+    const fontStyle = `bold ${fontSize}px Aguda , Inter, Arial`;
     ctx.font = fontStyle;
     
     const lineHeights = fontSize * 1.2;
@@ -35,6 +35,12 @@ export function OptimizedHotspot({ text, bg = "#002d4d" }) {
     ctx.beginPath();
     ctx.roundRect(0, 0, canvas.width, canvas.height, r);
     ctx.fill();
+
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "#ffffff";
+    ctx.beginPath();
+    ctx.roundRect(0, 0, canvas.width, canvas.height, r);
+    ctx.stroke();
 
     ctx.shadowBlur = 0;
     ctx.fillStyle = "white";

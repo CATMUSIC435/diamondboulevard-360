@@ -44,7 +44,7 @@ export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "
     contentRef.current.scale.lerp(new Vector3(targetScale, targetScale, targetScale), 0.1);
 
     const pulse = 1 + Math.sin(state.clock.elapsedTime * 4) * 0.1;
-    const finalBaseScale = (inView ? baseScale : 0) * pulse; 
+    const finalBaseScale = (inView ? baseScale : 0) * pulse * 1.5; 
     baseRef.current.scale.lerp(new Vector3(finalBaseScale, finalBaseScale, finalBaseScale), 0.1);
 
     // 5. Cập nhật Opacity
@@ -66,13 +66,13 @@ export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "
     >
       <mesh ref={baseRef} scale={[baseScale, baseScale, baseScale]}>
         <sphereGeometry args={[1, 16, 16]} />
-        <meshBasicMaterial color={hovered ? "#fff" : "#002d4d"} transparent opacity={0.8} />
+        <meshBasicMaterial color={hovered ? "#002d4d" : "#fff"} transparent opacity={0.8} />
       </mesh>
 
       <Line
         ref={lineRef}
         points={[startPoint, endPoint]} 
-        color={hovered ? "red" : "#002d4d"}
+        color={hovered ? "#002d4d" : "#fff"}
         lineWidth={1.5 * baseScale}
         transparent
         opacity={0}

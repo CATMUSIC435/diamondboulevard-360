@@ -19,7 +19,7 @@ import { ImageCarousel } from "../../components/organism/image-carousel";
 import { memo } from "react";
 import { MY_IMAGES } from "../../constant";
 
-const MENU_ITEMS = [    
+const MENU_ITEMS_SMALL = [    
   {
     id: "Map",
     label: "Map",
@@ -54,7 +54,19 @@ const MENU_ITEMS = [
   },
 ];
 
-export const FloatingMenu = memo(() => {
+const MENU_ITEMS_LARGE = [     
+  {
+    id: "galery",
+    label: "Galery",
+    icon: <GalleryThumbnails size={20} />,
+    content: (
+      <ImageCarousel images={MY_IMAGES} />
+    ),
+  },
+];
+
+export const FloatingMenu = memo(({isLarge = false}) => {
+  const MENU_ITEMS = isLarge ? MENU_ITEMS_LARGE : MENU_ITEMS_SMALL;
   return (
     <div className="fixed bottom-4 left-[50%] -translate-x-1/2 z-[70] flex gap-2 rounded-full bg-black/20 backdrop-blur-xl border border-white/10 shadow-2xl select-none">
       {MENU_ITEMS.map((item) => (

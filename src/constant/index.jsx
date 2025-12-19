@@ -5,6 +5,616 @@ export const SCENE_KEYS = {
   v3: 'v3'
 };
 
+// export const SCENES = {
+//   v1: {
+//     view: [
+//       "/images/cube-map/nx.png",
+//       "/images/cube-map/px.png",
+//       "/images/cube-map/py.png",
+//       "/images/cube-map/ny.png",
+//       "/images/cube-map/pz.png",
+//       "/images/cube-map/nz.png"],
+//     hotspot: [
+//       {
+//         key: 1,
+//         position: [-10, -50, -50],
+//         title: '',
+//         imageUrl: "/images/360-image.png",
+//         key: SCENE_KEYS.v2
+//       },
+//       {
+//         key: 2,
+//         position: [60, -35, 90],
+//         title: '',
+//         imageUrl: "/images/360-image.png",
+//         key: SCENE_KEYS.v3
+//       }
+//     ],
+//     areas: [
+//       {
+//         key: 'A1',
+//         position: [-350, -55, -235],
+//         text: 'Trung cấp Kỹ thuật & Nghiệp vụ <br> Công đoàn Bình Dương',
+//         lineHeight: 50,
+//         line: 2,
+//         distance: 100
+//       },
+//       {
+//         key: 'A2',
+//         position: [-265, -50, -323.6067977499789],
+//         text: 'THCS Trần Đại Nghĩa',
+//         lineHeight: 90,
+//         line: 1,
+//         distance: 70
+//       },
+//       {
+//         key: 'A3',
+//         position: [-235.1141009169893, -45, -323.6067977499789],
+//         text: 'Cao Đẳng Việt Nam – Singapore CS2',
+//         lineHeight: 120,
+//         line: 1,
+//         distance: 65
+//       },
+//       {
+//         key: 'A4',
+//         position: [-183, -22, -323.6067977499789],
+//         text: 'MM MEGA MARIET',
+//         lineHeight: 160,
+//         line: 1,
+//         distance: 55
+//       },
+//       {
+//         key: 'A5',
+//         position: [-45, -105, -380.4226065180614],
+//         text: 'Ga C7 Metro TDM',
+//         lineHeight: 160,
+//         line: 1,
+//         distance: 65,
+//         bg: '#f47700'
+//       },
+//       {
+//         key: 'A6',
+//         position: [30, -85, -400],
+//         text: 'BVQT Comlumbia Asia',
+//         lineHeight: 100,
+//         line: 1,
+//         distance: 70
+//       },
+//       {
+//         key: 'A7',
+//         position: [100, -150, -400],
+//         text: 'Cao Đẳng Việt Nam – Singapore',
+//         lineHeight: 200,
+//         line: 1,
+//         distance: 70
+//       },
+//       {
+//         key: 'A8',
+//         position: [180, -45, -380.42260651806146],
+//         text: 'Đại học Kinh tế - Kỹ thuật Bình Dương',
+//         lineHeight: 160,
+//         line: 1,
+//         distance: 70
+//       },
+//       {
+//         key: 'B1',
+//         position: [-220, -120, 123.60679774997901],
+//         text: 'TIỂU HỌC HƯNG LỘC',
+//         lineHeight: 140,
+//         line: 1,
+//         distance: 40
+//       },
+//       {
+//         key: 'B2',
+//         position: [-380.4226065180614, -40, 123.60679774997901],
+//         text: 'THCS NGUYỄN TRUNG TRỰC',
+//         lineHeight: 120,
+//         line: 1,
+//         distance: 65
+//       },
+//       {
+//         key: 'B3',
+//         position: [-500, -105, 110],
+//         text: 'TRƯỜNG MẦM NON HOA MAI',
+//         lineHeight: 120,
+//         line: 1,
+//         distance: 80
+//       },
+//       {
+//         key: 'B4',
+//         position: [-380, -50, -50],
+//         text: 'CHỢ BÚNG',
+//         lineHeight: 80,
+//         line: 1,
+//         distance: 60
+//       },
+//       {
+//         key: 'B5',
+//         position: [-380.4226065180614, -42, -123.6067977499791],
+//         text: 'TIỂU HỌC LƯƠNG THẾ VINH',
+//         lineHeight: 130,
+//         line: 1,
+//         distance: 60
+//       },
+//       {
+//         key: 'B6',
+//         position: [-320.4226065180614, -35, -123.6067977499791],
+//         text: 'THCS TRỊNH HOÀI ĐỨC',
+//         lineHeight: 80,
+//         line: 1,
+//         distance: 50
+//       },
+//       {
+//         key: 'C1',
+//         position: [278, 0, 323.60679774997897],
+//         text: 'VINCOM PLAZA',
+//         lineHeight: 80,
+//         line: 1,
+//         distance: 65
+//       },
+//       {
+//         key: 'C2',
+//         position: [240, -180, 323.60679774997897],
+//         text: 'KCN VIỆT HƯƠNG',
+//         lineHeight: 200,
+//         line: 1,
+//         distance: 60,
+//         bg: '#f47700'
+//       },
+//       {
+//         key: 'C3',
+//         position: [200, -10, 323.60679774997897],
+//         text: 'KCN ĐỒNG AN 1',
+//         lineHeight: 110,
+//         line: 1,
+//         distance: 60
+//       },
+//       {
+//         key: 'C4',
+//         position: [140, -35, 380.4226065180614],
+//         text: 'AEON MALL',
+//         lineHeight: 60,
+//         line: 1,
+//         distance: 65,
+//         bg: '#f47700'
+//       },
+//       {
+//         key: 'C5',
+//         position: [123.60679774997898, -30, 380.4226065180614],
+//         text: 'KCN VSIP 1',
+//         lineHeight: 100,
+//         line: 1,
+//         distance: 65,
+//         bg: '#f47700'
+//       },
+//       {
+//         key: 'C6',
+//         position: [95, 0, 380.4226065180614],
+//         text: 'TRUNG TÂM TP.HCM ',
+//         lineHeight: 160,
+//         line: 1,
+//         distance: 60
+//       },
+//       {
+//         key: 'C7',
+//         position: [60, 0, 380.4226065180614],
+//         text: 'BVQT BECAMEX',
+//         lineHeight: 100,
+//         line: 1,
+//         distance: 60
+//       },
+//       {
+//         key: 'C8',
+//         position: [60, 0, 380.4226065180614],
+//         text: 'LOTTE MART',
+//         lineHeight: 40,
+//         line: 1,
+//         distance: 55
+//       },
+//       {
+//         key: 'C9',
+//         position: [50, -12, 380.4226065180614],
+//         text: 'THPT Nguyễn Trãi',
+//         lineHeight: 80,
+//         line: 1,
+//         distance: 65
+//       },
+//       {
+//         key: 'C10',
+//         position: [45, -12, 380.4226065180614],
+//         text: 'Trường THCS Nguyễn Văn Tiết',
+//         lineHeight: 135,
+//         line: 1,
+//         distance: 65
+//       },
+//       {
+//         key: 'C11',
+//         position: [2.4492935982947064e-14, -30, 400],
+//         text: 'SÂN GOLF SÔNG BÉ',
+//         lineHeight: 40,
+//         line: 1,
+//         distance: 65
+//       },
+//       {
+//         key: 'D1',
+//         position: [240, -42, -123.60679774997907],
+//         text: 'CHỢ THUẬN GIAO',
+//         lineHeight: 60,
+//         line: 1,
+//         distance: 35
+//       },
+//       {
+//         key: 'D2',
+//         position: [260, -35, -123.60679774997907],
+//         text: 'THPT TRẦN VĂN ƠN',
+//         lineHeight: 90,
+//         line: 1,
+//         distance: 40
+//       },
+//       {
+//         key: 'D3',
+//         position: [370, -28, 5],
+//         text: 'KDC VIETSING ',
+//         lineHeight: 90,
+//         line: 1,
+//         distance: 55
+//       },
+//       {
+//         key: 'D4',
+//         position: [320, -18, 30],
+//         text: 'CHỢ VIETSING',
+//         lineHeight: 100,
+//         line: 1,
+//         distance: 45
+//       }
+//     ],
+//     planes: [
+//       {
+//         key: 'CH-23',
+//         position: [0.6, -10, -0.2],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.2, 1.4],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-06.png"
+//         }
+//       },
+//       {
+//         key: 'CH-24',
+//         position: [-0.6, -10, -0.2],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.2, 1.4],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-05.png"
+//         }
+//       },
+//       {
+//         key: 'CH-22',
+//         position: [-2.1, -10, -0.9],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.4, 1],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-10.png"
+//         }
+//       },
+//       {
+//         key: 'CH-21',
+//         position: [-2, -10, -2.25],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1, 1.6],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-09.png"
+//         }
+//       },
+//       {
+//         key: 'CH-20',
+//         position: [-3.1, -10, -2.3],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.2, 1.4],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-08.png"
+//         }
+//       },
+//       {
+//         key: 'CH-19',
+//         position: [-4.2, -10, -2.3],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.2, 1.4],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-08.png"
+//         }
+//       },
+//       {
+//         key: 'CH-18',
+//         position: [-5.55, -10, -2.1],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.4, 1.6],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-11.png"
+//         }
+//       },
+//          {
+//         key: 'CH-01',
+//         position: [2.1, -10, -0.8],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.3, 1.2],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-02.png"
+//         }
+//       },
+//       {
+//         key: 'CH-02',
+//         position: [2.15, -10, -2.2],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.2, 1.5],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-03.png"
+//         }
+//       },
+//       {
+//         key: 'CH-03',
+//         position: [3.3, -10, -2.3],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.2, 1.3],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-04.png"
+//         }
+//       },
+//       {
+//         key: 'CH-04',
+//         position: [4.6, -10, -2],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.4, 1.6],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-11.png"
+//         }
+//       },
+//       {
+//         key: 'CH-10',
+//         position: [0.6, -10, 1.45],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.2, 1.35],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-06.png"
+//         }
+//       },
+//       {
+//         key: 'CH-09',
+//         position: [-0.6, -10, 1.45],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.2, 1.35],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-05.png"
+//         }
+//       },
+//       {
+//         key: 'CH-17',
+//         position: [-3.8, -10, -0.75],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.3, 1.1],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-08.png"
+//         }
+//       },
+//       {
+//         key: 'CH-16',
+//         position: [-3.75, -10, 0.4],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.3, 1.1],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-08.png"
+//         }
+//       },
+//       {
+//         key: 'CH-15',
+//         position: [-3.7, -10, 1.55],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.3, 1.1],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-08.png"
+//         }
+//       },
+//       {
+//         key: 'CH-14',
+//         position: [-3.65, -10, 2.55],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.3, 0.8],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-03.png"
+//         }
+//       },
+//       {
+//         key: 'CH-13',
+//         position: [-3.65, -10, 3.65],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.3, 1.25],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-07.png"
+//         }
+//       },
+//       {
+//         key: 'CH-12',
+//         position: [-2, -10, 3.05],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.3, 0.95],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-03.png"
+//         }
+//       },
+//       {
+//         key: 'CH-11',
+//         position: [-2.05, -10, 2.25],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.3, 0.6],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-01.png"
+//         }
+//       },
+//       {
+//         key: 'CH-05',
+//         position: [3.75, -10, -0.5],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.35, 1.3],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-05.png"
+//         }
+//       },
+//       {
+//         key: 'CH-06',
+//         position: [3.75, -10, 0.85],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.35, 1.3],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-06.png"
+//         }
+//       },
+//       {
+//         key: 'CH-07',
+//         position: [3.75, -10, 2.15],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.3, 1.3],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-06.png"
+//         }
+//       },
+//         {
+//         key: 'CH-08',
+//         position: [2.1, -10, 2.35],
+//         rotation: [-Math.PI / 2, 0.05, 0],
+//         scale: [1, 1, 1],
+//         args: [1.3, 1.3],
+//         color: "#ffffff",
+//         baseOpacity: 1,
+//         info: {
+//           img: "/images/planes/DH-03.png"
+//         }
+//       }
+//     ]
+//   },
+//   v2: {
+//     view: [
+//       "/images/cube-map-1/nx.png",
+//       "/images/cube-map-1/px.png",
+//       "/images/cube-map-1/py.png",
+//       "/images/cube-map-1/ny.png",
+//       "/images/cube-map-1/pz.png",
+//       "/images/cube-map-1/nz.png"
+//     ],
+//     hotspot: [
+//       {
+//         key: 3,
+//         position: [-10, 10, 40],
+//         title: '',
+//         imageUrl: "/images/360-image.png",
+//         key: SCENE_KEYS.v1
+//       },
+//       {
+//         key: 4,
+//         position: [25, 0, 80],
+//         title: '',
+//         imageUrl: "/images/360-image.png",
+//         key: SCENE_KEYS.v3
+//       }
+//     ],
+//     areas: []
+//   },
+//   v3: {
+//     view: [
+//       "/images/cube-map-2/nx.png",
+//       "/images/cube-map-2/px.png",
+//       "/images/cube-map-2/py.png",
+//       "/images/cube-map-2/ny.png",
+//       "/images/cube-map-2/pz.png",
+//       "/images/cube-map-2/nz.png"],
+//     hotspot: [
+//       {
+//         key: 5,
+//         position: [0, 15, 90],
+//         title: '',
+//         imageUrl: "/images/360-image.png",
+//         key: SCENE_KEYS.v1
+//       },
+//       {
+//         key: 6,
+//         position: [-20, 10, 100],
+//         title: '',
+//         imageUrl: "/images/360-image.png",
+//         key: SCENE_KEYS.v2
+//       }
+//     ],
+//     areas: []
+//   }
+// };
+
+
 export const SCENES = {
   v1: {
     view: [
@@ -24,12 +634,12 @@ export const SCENES = {
       },
       {
         key: 2,
-        position: [60, -35, 90],
+        position: [60, 0, 90],
         title: '',
         imageUrl: "/images/360-image.png",
         key: SCENE_KEYS.v3
       }
-    ],
+    ], 
     areas: [
       {
         key: 'A1',
@@ -65,20 +675,20 @@ export const SCENES = {
       },
       {
         key: 'A5',
-        position: [-45, -105, -380.4226065180614],
-        text: 'Ga C7 Metro TDM',
+        position: [30, -85, -400],
+        text: 'BVQT Comlumbia Asia',
         lineHeight: 160,
         line: 1,
-        distance: 65,
-        bg: '#f47700'
+        distance: 70
       },
       {
         key: 'A6',
-        position: [30, -85, -400],
-        text: 'BVQT Comlumbia Asia',
-        lineHeight: 100,
+        position: [25, -200, -400],
+        text: 'Ga C7 Metro TDM',
+        lineHeight: 210,
         line: 1,
-        distance: 70
+        distance: 65,
+        bg: '#f47700'
       },
       {
         key: 'A7',
@@ -196,20 +806,20 @@ export const SCENES = {
         distance: 60
       },
       {
-        key: 'C7',
-        position: [60, 0, 380.4226065180614],
-        text: 'BVQT BECAMEX',
-        lineHeight: 100,
-        line: 1,
-        distance: 60
-      },
-      {
         key: 'C8',
         position: [60, 0, 380.4226065180614],
         text: 'LOTTE MART',
         lineHeight: 40,
         line: 1,
         distance: 55
+      },
+      {
+        key: 'C10',
+        position: [45, -12, 380.4226065180614],
+        text: 'Trường THCS Nguyễn Văn Tiết',
+        lineHeight: 135,
+        line: 1,
+        distance: 65
       },
       {
         key: 'C9',
@@ -220,12 +830,12 @@ export const SCENES = {
         distance: 65
       },
       {
-        key: 'C10',
-        position: [45, -12, 380.4226065180614],
-        text: 'Trường THCS Nguyễn Văn Tiết',
-        lineHeight: 135,
+        key: 'C7',
+        position: [60, 0, 380.4226065180614],
+        text: 'BVQT BECAMEX',
+        lineHeight: 100,
         line: 1,
-        distance: 65
+        distance: 60
       },
       {
         key: 'C11',
@@ -267,7 +877,7 @@ export const SCENES = {
         line: 1,
         distance: 45
       }
-    ],
+    ],    
     planes: [
       {
         key: 'CH-23',
@@ -566,8 +1176,7 @@ export const SCENES = {
       "/images/cube-map-1/py.png",
       "/images/cube-map-1/ny.png",
       "/images/cube-map-1/pz.png",
-      "/images/cube-map-1/nz.png"
-    ],
+      "/images/cube-map-1/nz.png"],
     hotspot: [
       {
         key: 3,
@@ -613,7 +1222,6 @@ export const SCENES = {
     areas: []
   }
 };
-
 
 export const SCENEMOBILES = {
   v1: {
@@ -675,20 +1283,20 @@ export const SCENEMOBILES = {
       },
       {
         key: 'A5',
-        position: [-45, -105, -380.4226065180614],
-        text: 'Ga C7 Metro TDM',
+        position: [30, -85, -400],
+        text: 'BVQT Comlumbia Asia',
         lineHeight: 160,
         line: 1,
-        distance: 65,
-        bg: '#f47700'
+        distance: 70
       },
       {
         key: 'A6',
-        position: [30, -85, -400],
-        text: 'BVQT Comlumbia Asia',
-        lineHeight: 100,
+        position: [25, -200, -400],
+        text: 'Ga C7 Metro TDM',
+        lineHeight: 210,
         line: 1,
-        distance: 70
+        distance: 65,
+        bg: '#f47700'
       },
       {
         key: 'A7',
