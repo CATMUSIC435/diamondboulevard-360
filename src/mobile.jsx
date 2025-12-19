@@ -13,6 +13,8 @@ import { Home } from "lucide-react";
 import { SidebarProvider } from "./contexts/sidebar-context";
 import { InteractivePlane } from "./features/interactive-plane";
 import { SidebarUI } from "./components/molecules/sidebar-ui";
+import { CompassLogic, CompassUI } from "./components/molecules/compass-ui";
+import { CompassProvider } from "./contexts/compass-context";
 
 export function Mobile() {
   const [activeScene, setActiveScene] = useState(SCENE_KEYS.v1);
@@ -49,10 +51,11 @@ export function Mobile() {
       <div className="fixed top-4 left-4 z-[70]">
         <FullscreenButton />
       </div>
-
+ <CompassProvider>
       <SidebarProvider>
         <PanoramaProvider>
           <div className="w-full h-full relative">
+             <CompassUI />
             <div className="absolute inset-0 z-10">
               
               <PanoramaView 
@@ -74,6 +77,7 @@ export function Mobile() {
                   {currentSceneData.planes && (
                     <InteractivePlane planes={currentSceneData.planes} />
                   )}
+                  <CompassLogic />
                 </group>
               </PanoramaView>
             </div>
@@ -82,14 +86,15 @@ export function Mobile() {
           </div>
         </PanoramaProvider>
       </SidebarProvider>
+</CompassProvider>
 
       <div className="fixed top-1/2 left-2 -translate-y-1/2 z-50">
-        <Tabs value={activeScene} onValueChange={handleSceneChange}>
+        <Tabs value={activeScene} onValueChange={handleSceneChange} className="bg-transparent">
           <TabsList className="flex flex-col bg-transparent px-2 gap-2 shadow-2xl">
               <TabsTrigger
                 value={SCENE_KEYS.v1}
                 disabled={isTransitioning}
-                className="rounded-sm px-2 py-4 bg-black/40 border border-white/5 backdrop-blur-xl data-[state=active]:bg-indigo-600 data-[state=active]:text-white font-bold uppercase text-[10px] tracking-[0.2em] transition-all disabled:opacity-50"
+                className="rounded-full px-2 py-4 bg-black/40 border border-white/5 backdrop-blur-xl data-[state=active]:bg-indigo-600 data-[state=active]:text-white font-bold uppercase text-[10px] tracking-[0.2em] transition-all disabled:opacity-50"
               >
                 <Home size={16} /> 
               </TabsTrigger>

@@ -66,7 +66,7 @@ export const SCENE_KEYS = {
 //       {
 //         key: 'A5',
 //         position: [-45, -105, -380.4226065180614],
-//         text: 'Ga C7 Metro TDM',
+//         text: 'Ga C7 - Metro TPHCM - TDM',
 //         lineHeight: 160,
 //         line: 1,
 //         distance: 65,
@@ -644,238 +644,238 @@ export const SCENES = {
       {
         key: 'A1',
         position: [-350, -55, -235],
-        text: 'Trung cấp Kỹ thuật & Nghiệp vụ <br> Công đoàn Bình Dương',
-        lineHeight: 50,
+        text: 'Trung cấp Kỹ thuật & Nghiệp vụ <br> Công đoàn Bình Dương<br>5 phút',
+        lineHeight: 80,
         line: 2,
-        distance: 100
+        distance: 140
       },
       {
         key: 'A2',
         position: [-265, -50, -323.6067977499789],
-        text: 'THCS Trần Đại Nghĩa',
+        text: 'THCS Trần Đại Nghĩa<br>5 phút',
         lineHeight: 90,
         line: 1,
-        distance: 70
+        distance: 110
       },
       {
         key: 'A3',
         position: [-235.1141009169893, -45, -323.6067977499789],
-        text: 'Cao Đẳng Việt Nam – Singapore CS2',
+        text: 'Cao Đẳng Việt Nam – Singapore CS2<br>5 phút',
         lineHeight: 120,
         line: 1,
-        distance: 65
+        distance: 110
       },
       {
         key: 'A4',
         position: [-183, -22, -323.6067977499789],
-        text: 'MM MEGA MARIET',
+        text: 'MM MEGA MARIET<br>5 phút',
         lineHeight: 160,
         line: 1,
-        distance: 55
+        distance: 90
       },
       {
         key: 'A5',
         position: [30, -85, -400],
-        text: 'BVQT Comlumbia Asia',
+        text: 'BVQT Comlumbia Asia<br>2 phút',
         lineHeight: 160,
         line: 1,
-        distance: 70
+        distance: 120
       },
       {
         key: 'A6',
         position: [25, -200, -400],
-        text: 'Ga C7 Metro TDM',
+        text: 'Ga C7 - Metro TPHCM - TDM<br>1 phút',
         lineHeight: 210,
         line: 1,
-        distance: 65,
+        distance: 120,
         bg: '#f47700'
       },
       {
         key: 'A7',
         position: [100, -150, -400],
-        text: 'Cao Đẳng Việt Nam – Singapore',
-        lineHeight: 200,
+        text: 'Cao Đẳng Việt Nam – Singapore<br>1 phút',
+        lineHeight: 280,
         line: 1,
-        distance: 70
+        distance: 130
       },
       {
         key: 'A8',
         position: [180, -45, -380.42260651806146],
-        text: 'Đại học Kinh tế - Kỹ thuật Bình Dương',
-        lineHeight: 160,
+        text: 'Đại học Kinh tế - Kỹ thuật Bình Dương<br>5 phút',
+        lineHeight: 100,
         line: 1,
-        distance: 70
+        distance: 140
       },
       {
         key: 'B1',
         position: [-220, -120, 123.60679774997901],
-        text: 'TIỂU HỌC HƯNG LỘC',
+        text: 'TIỂU HỌC HƯNG LỘC<br>3 phút',
         lineHeight: 140,
         line: 1,
-        distance: 40
+        distance: 60
       },
       {
         key: 'B2',
         position: [-380.4226065180614, -40, 123.60679774997901],
-        text: 'THCS NGUYỄN TRUNG TRỰC',
+        text: 'THCS NGUYỄN TRUNG TRỰC<br>7 phút',
         lineHeight: 120,
         line: 1,
-        distance: 65
+        distance: 100
       },
       {
         key: 'B3',
         position: [-500, -105, 110],
-        text: 'TRƯỜNG MẦM NON HOA MAI',
+        text: 'TRƯỜNG MẦM NON HOA MAI 2<br>7 phút',
         lineHeight: 120,
         line: 1,
-        distance: 80
+        distance: 130
       },
       {
         key: 'B4',
         position: [-380, -50, -50],
-        text: 'CHỢ BÚNG',
+        text: 'CHỢ BÚNG<br>5 phút',
         lineHeight: 80,
         line: 1,
-        distance: 60
+        distance: 110
       },
       {
         key: 'B5',
         position: [-380.4226065180614, -42, -123.6067977499791],
-        text: 'TIỂU HỌC LƯƠNG THẾ VINH',
-        lineHeight: 130,
+        text: 'TIỂU HỌC LƯƠNG THẾ VINH<br>5 phút',
+        lineHeight: 180,
         line: 1,
-        distance: 60
+        distance: 110
       },
       {
         key: 'B6',
         position: [-320.4226065180614, -35, -123.6067977499791],
-        text: 'THCS TRỊNH HOÀI ĐỨC',
-        lineHeight: 80,
+        text: 'THCS TRỊNH HOÀI ĐỨC<br>5 phút',
+        lineHeight: 100,
         line: 1,
-        distance: 50
+        distance: 100
       },
       {
         key: 'C1',
         position: [278, 0, 323.60679774997897],
-        text: 'VINCOM PLAZA',
+        text: 'VINCOM PLAZA<br>15 phút',
         lineHeight: 80,
         line: 1,
-        distance: 65
+        distance: 120
       },
       {
         key: 'C2',
         position: [240, -180, 323.60679774997897],
-        text: 'KCN VIỆT HƯƠNG',
-        lineHeight: 200,
+        text: 'KCN VIỆT HƯƠNG<br>1 phút',
+        lineHeight: 220,
         line: 1,
-        distance: 60,
+        distance: 100,
         bg: '#f47700'
       },
       {
         key: 'C3',
         position: [200, -10, 323.60679774997897],
-        text: 'KCN ĐỒNG AN 1',
+        text: 'KCN ĐỒNG AN 1<br>10 phút',
         lineHeight: 110,
         line: 1,
-        distance: 60
+        distance: 100
       },
       {
         key: 'C4',
         position: [140, -35, 380.4226065180614],
-        text: 'AEON MALL',
+        text: 'AEON MALL<br>2 phút',
         lineHeight: 60,
         line: 1,
-        distance: 65,
+        distance: 100,
         bg: '#f47700'
       },
       {
         key: 'C5',
         position: [123.60679774997898, -30, 380.4226065180614],
-        text: 'KCN VSIP 1',
+        text: 'KCN VSIP 1<br>3 phút',
         lineHeight: 100,
         line: 1,
-        distance: 65,
+        distance: 100,
         bg: '#f47700'
       },
       {
         key: 'C6',
         position: [95, 0, 380.4226065180614],
-        text: 'TRUNG TÂM TP.HCM ',
-        lineHeight: 160,
+        text: 'TRUNG TÂM TP.HCM<br>30 phút',
+        lineHeight: 180,
         line: 1,
-        distance: 60
+        distance: 95
       },
       {
         key: 'C8',
         position: [60, 0, 380.4226065180614],
-        text: 'LOTTE MART',
+        text: 'LOTTE MART<br>5 phút',
         lineHeight: 40,
         line: 1,
-        distance: 55
+        distance: 90
       },
       {
         key: 'C10',
         position: [45, -12, 380.4226065180614],
-        text: 'Trường THCS Nguyễn Văn Tiết',
-        lineHeight: 135,
+        text: 'Trường THCS Nguyễn Văn Tiết<br>5 phút',
+        lineHeight: 150,
         line: 1,
-        distance: 65
+        distance: 100
       },
       {
         key: 'C9',
         position: [50, -12, 380.4226065180614],
-        text: 'THPT Nguyễn Trãi',
+        text: 'THPT Nguyễn Trãi<br>5 phút',
         lineHeight: 80,
         line: 1,
-        distance: 65
+        distance: 100
       },
       {
         key: 'C7',
         position: [60, 0, 380.4226065180614],
-        text: 'BVQT BECAMEX',
+        text: 'BVQT BECAMEX<br>5 phút',
         lineHeight: 100,
         line: 1,
-        distance: 60
+        distance: 100
       },
       {
         key: 'C11',
         position: [2.4492935982947064e-14, -30, 400],
-        text: 'SÂN GOLF SÔNG BÉ',
-        lineHeight: 40,
+        text: 'SÂN GOLF SÔNG BÉ<br>5 phút',
+        lineHeight: 60,
         line: 1,
-        distance: 65
+        distance: 100
       },
       {
         key: 'D1',
         position: [240, -42, -123.60679774997907],
-        text: 'CHỢ THUẬN GIAO',
+        text: 'CHỢ THUẬN GIAO<br>3 phút',
         lineHeight: 60,
         line: 1,
-        distance: 35
+        distance: 75
       },
       {
         key: 'D2',
         position: [260, -35, -123.60679774997907],
-        text: 'THPT TRẦN VĂN ƠN',
+        text: 'THPT TRẦN VĂN ƠN<br>3 phút',
         lineHeight: 90,
         line: 1,
-        distance: 40
+        distance: 80
       },
       {
         key: 'D3',
         position: [370, -28, 5],
-        text: 'KDC VIETSING ',
+        text: 'KDC VIETSING<br>5 phút',
         lineHeight: 90,
         line: 1,
-        distance: 55
+        distance: 90
       },
       {
         key: 'D4',
         position: [320, -18, 30],
-        text: 'CHỢ VIETSING',
+        text: 'CHỢ VIETSING<br>5 phút',
         lineHeight: 100,
         line: 1,
-        distance: 45
+        distance: 85
       }
     ],    
     planes: [
@@ -1252,240 +1252,240 @@ export const SCENEMOBILES = {
       {
         key: 'A1',
         position: [-350, -55, -235],
-        text: 'Trung cấp Kỹ thuật & Nghiệp vụ <br> Công đoàn Bình Dương',
-        lineHeight: 50,
+        text: 'Trung cấp Kỹ thuật & Nghiệp vụ <br> Công đoàn Bình Dương<br>5 phút',
+        lineHeight: 80,
         line: 2,
-        distance: 100
+        distance: 140
       },
       {
         key: 'A2',
         position: [-265, -50, -323.6067977499789],
-        text: 'THCS Trần Đại Nghĩa',
+        text: 'THCS Trần Đại Nghĩa<br>5 phút',
         lineHeight: 90,
         line: 1,
-        distance: 70
+        distance: 110
       },
       {
         key: 'A3',
         position: [-235.1141009169893, -45, -323.6067977499789],
-        text: 'Cao Đẳng Việt Nam – Singapore CS2',
+        text: 'Cao Đẳng Việt Nam – Singapore CS2<br>5 phút',
         lineHeight: 120,
         line: 1,
-        distance: 65
+        distance: 110
       },
       {
         key: 'A4',
         position: [-183, -22, -323.6067977499789],
-        text: 'MM MEGA MARIET',
+        text: 'MM MEGA MARIET<br>5 phút',
         lineHeight: 160,
         line: 1,
-        distance: 55
+        distance: 90
       },
       {
         key: 'A5',
         position: [30, -85, -400],
-        text: 'BVQT Comlumbia Asia',
+        text: 'BVQT Comlumbia Asia<br>2 phút',
         lineHeight: 160,
         line: 1,
-        distance: 70
+        distance: 120
       },
       {
         key: 'A6',
         position: [25, -200, -400],
-        text: 'Ga C7 Metro TDM',
+        text: 'Ga C7 - Metro TPHCM - TDM<br>1 phút',
         lineHeight: 210,
         line: 1,
-        distance: 65,
+        distance: 120,
         bg: '#f47700'
       },
       {
         key: 'A7',
         position: [100, -150, -400],
-        text: 'Cao Đẳng Việt Nam – Singapore',
-        lineHeight: 200,
+        text: 'Cao Đẳng Việt Nam – Singapore<br>1 phút',
+        lineHeight: 280,
         line: 1,
-        distance: 70
+        distance: 130
       },
       {
         key: 'A8',
         position: [180, -45, -380.42260651806146],
-        text: 'Đại học Kinh tế - Kỹ thuật Bình Dương',
-        lineHeight: 160,
+        text: 'Đại học Kinh tế - Kỹ thuật Bình Dương<br>5 phút',
+        lineHeight: 100,
         line: 1,
-        distance: 70
+        distance: 140
       },
       {
         key: 'B1',
         position: [-220, -120, 123.60679774997901],
-        text: 'TIỂU HỌC HƯNG LỘC',
+        text: 'TIỂU HỌC HƯNG LỘC<br>3 phút',
         lineHeight: 140,
         line: 1,
-        distance: 40
+        distance: 60
       },
       {
         key: 'B2',
         position: [-380.4226065180614, -40, 123.60679774997901],
-        text: 'THCS NGUYỄN TRUNG TRỰC',
+        text: 'THCS NGUYỄN TRUNG TRỰC<br>7 phút',
         lineHeight: 120,
         line: 1,
-        distance: 65
+        distance: 100
       },
       {
         key: 'B3',
         position: [-500, -105, 110],
-        text: 'TRƯỜNG MẦM NON HOA MAI',
+        text: 'TRƯỜNG MẦM NON HOA MAI 2<br>7 phút',
         lineHeight: 120,
         line: 1,
-        distance: 80
+        distance: 130
       },
       {
         key: 'B4',
         position: [-380, -50, -50],
-        text: 'CHỢ BÚNG',
+        text: 'CHỢ BÚNG<br>5 phút',
         lineHeight: 80,
         line: 1,
-        distance: 60
+        distance: 110
       },
       {
         key: 'B5',
         position: [-380.4226065180614, -42, -123.6067977499791],
-        text: 'TIỂU HỌC LƯƠNG THẾ VINH',
-        lineHeight: 130,
+        text: 'TIỂU HỌC LƯƠNG THẾ VINH<br>5 phút',
+        lineHeight: 180,
         line: 1,
-        distance: 60
+        distance: 110
       },
       {
         key: 'B6',
         position: [-320.4226065180614, -35, -123.6067977499791],
-        text: 'THCS TRỊNH HOÀI ĐỨC',
-        lineHeight: 80,
+        text: 'THCS TRỊNH HOÀI ĐỨC<br>5 phút',
+        lineHeight: 100,
         line: 1,
-        distance: 50
+        distance: 100
       },
       {
         key: 'C1',
         position: [278, 0, 323.60679774997897],
-        text: 'VINCOM PLAZA',
+        text: 'VINCOM PLAZA<br>15 phút',
         lineHeight: 80,
         line: 1,
-        distance: 65
+        distance: 120
       },
       {
         key: 'C2',
         position: [240, -180, 323.60679774997897],
-        text: 'KCN VIỆT HƯƠNG',
-        lineHeight: 200,
+        text: 'KCN VIỆT HƯƠNG<br>1 phút',
+        lineHeight: 220,
         line: 1,
-        distance: 60,
+        distance: 100,
         bg: '#f47700'
       },
       {
         key: 'C3',
         position: [200, -10, 323.60679774997897],
-        text: 'KCN ĐỒNG AN 1',
+        text: 'KCN ĐỒNG AN 1<br>10 phút',
         lineHeight: 110,
         line: 1,
-        distance: 60
+        distance: 100
       },
       {
         key: 'C4',
         position: [140, -35, 380.4226065180614],
-        text: 'AEON MALL',
+        text: 'AEON MALL<br>2 phút',
         lineHeight: 60,
         line: 1,
-        distance: 65,
+        distance: 100,
         bg: '#f47700'
       },
       {
         key: 'C5',
         position: [123.60679774997898, -30, 380.4226065180614],
-        text: 'KCN VSIP 1',
+        text: 'KCN VSIP 1<br>3 phút',
         lineHeight: 100,
         line: 1,
-        distance: 65,
+        distance: 100,
         bg: '#f47700'
       },
       {
         key: 'C6',
         position: [95, 0, 380.4226065180614],
-        text: 'TRUNG TÂM TP.HCM ',
-        lineHeight: 160,
+        text: 'TRUNG TÂM TP.HCM<br>30 phút',
+        lineHeight: 180,
         line: 1,
-        distance: 60
-      },
-      {
-        key: 'C7',
-        position: [60, 0, 380.4226065180614],
-        text: 'BVQT BECAMEX',
-        lineHeight: 100,
-        line: 1,
-        distance: 60
+        distance: 95
       },
       {
         key: 'C8',
         position: [60, 0, 380.4226065180614],
-        text: 'LOTTE MART',
+        text: 'LOTTE MART<br>5 phút',
         lineHeight: 40,
         line: 1,
-        distance: 55
-      },
-      {
-        key: 'C9',
-        position: [50, -12, 380.4226065180614],
-        text: 'THPT Nguyễn Trãi',
-        lineHeight: 80,
-        line: 1,
-        distance: 65
+        distance: 90
       },
       {
         key: 'C10',
         position: [45, -12, 380.4226065180614],
-        text: 'Trường THCS Nguyễn Văn Tiết',
-        lineHeight: 135,
+        text: 'Trường THCS Nguyễn Văn Tiết<br>5 phút',
+        lineHeight: 150,
         line: 1,
-        distance: 65
+        distance: 100
+      },
+      {
+        key: 'C9',
+        position: [50, -12, 380.4226065180614],
+        text: 'THPT Nguyễn Trãi<br>5 phút',
+        lineHeight: 80,
+        line: 1,
+        distance: 100
+      },
+      {
+        key: 'C7',
+        position: [60, 0, 380.4226065180614],
+        text: 'BVQT BECAMEX<br>5 phút',
+        lineHeight: 100,
+        line: 1,
+        distance: 100
       },
       {
         key: 'C11',
         position: [2.4492935982947064e-14, -30, 400],
-        text: 'SÂN GOLF SÔNG BÉ',
-        lineHeight: 40,
+        text: 'SÂN GOLF SÔNG BÉ<br>5 phút',
+        lineHeight: 60,
         line: 1,
-        distance: 65
+        distance: 100
       },
       {
         key: 'D1',
         position: [240, -42, -123.60679774997907],
-        text: 'CHỢ THUẬN GIAO',
+        text: 'CHỢ THUẬN GIAO<br>3 phút',
         lineHeight: 60,
         line: 1,
-        distance: 35
+        distance: 75
       },
       {
         key: 'D2',
         position: [260, -35, -123.60679774997907],
-        text: 'THPT TRẦN VĂN ƠN',
+        text: 'THPT TRẦN VĂN ƠN<br>3 phút',
         lineHeight: 90,
         line: 1,
-        distance: 40
+        distance: 80
       },
       {
         key: 'D3',
         position: [370, -28, 5],
-        text: 'KDC VIETSING ',
+        text: 'KDC VIETSING<br>5 phút',
         lineHeight: 90,
         line: 1,
-        distance: 55
+        distance: 90
       },
       {
         key: 'D4',
         position: [320, -18, 30],
-        text: 'CHỢ VIETSING',
+        text: 'CHỢ VIETSING<br>5 phút',
         lineHeight: 100,
         line: 1,
-        distance: 45
+        distance: 85
       }
-    ],    
+    ],     
     planes: [
       {
         key: 'CH-23',

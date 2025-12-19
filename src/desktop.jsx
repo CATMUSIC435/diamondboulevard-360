@@ -14,10 +14,11 @@ import { PanoramaHotspot } from "./features/panorama-hotspot";
 import { PanoramaProvider } from "./contexts/panorama-context";
 import { PointHotspot } from "./features/point-hotspot";
 import { Home } from "lucide-react";
-import InteractiveZone from "./components/molecules/interactive-zone";
 import { SidebarProvider } from "./contexts/sidebar-context";
 import { SidebarUI } from "./components/molecules/sidebar-ui";
 import { InteractivePlane } from "./features/interactive-plane";
+import { CompassLogic, CompassUI } from "./components/molecules/compass-ui";
+import { CompassProvider } from "./contexts/compass-context";
 
 function TexturePreloader() {
   useTexture(SCENES.v1.view.textures);
@@ -31,6 +32,7 @@ export function Desktop() {
   const sceneElements = useMemo(() => {
     return Object.entries(SCENES).map(([key]) => (
 
+        <CompassProvider>
       <SidebarProvider>
           <PanoramaProvider>
             <div
@@ -38,17 +40,20 @@ export function Desktop() {
               className={`absolute inset-0 transition-opacity duration-1000 ease-in-out
             ${activeScene === key ? "opacity-100 visible z-10" : "opacity-0 invisible z-0 pointer-events-none"}`}
             >
+              <CompassUI />
               <PanoramaView scene={SCENES[key].view} isActive={activeScene === key} >
                 <group>
                   <PointHotspot hotspot={SCENES[key].hotspot} setActiveScene={setActiveScene} />
                   {SCENES[key].areas.length ? <PanoramaHotspot areas={SCENES[key].areas} /> : null}
                   {SCENES[key]?.planes && <InteractivePlane planes={SCENES[key]?.planes} />}
+                  <CompassLogic />
                 </group>
               </PanoramaView>
               <SidebarUI />
             </div>
           </PanoramaProvider>
       </SidebarProvider>
+          </CompassProvider>
     ));
   }, [activeScene]);
 
@@ -56,7 +61,7 @@ export function Desktop() {
   return (
     <div className="w-full h-screen bg-black overflow-hidden relative select-none">
       <GlobalCanvasLoader img="/images/screen.jpg"/>
-      <div className="fixed top-4 left-4 z-[70]">
+      <div className="fixed top-12 left-4 z-[70]">
         <FullscreenButton />
       </div>
       <Suspense fallback={null}>
@@ -69,11 +74,11 @@ export function Desktop() {
       </div>
 
       <div className="fixed top-1/2 left-2 -translate-y-1/2 z-50">
-        <Tabs value={activeScene} onValueChange={setActiveScene}>
+        <Tabs value={activeScene} onValueChange={setActiveScene} className="bg-transparent">
           <TabsList className="flex flex-col bg-transparent px-2 gap-2 shadow-2xl">
             <TabsTrigger
               value={SCENE_KEYS.v1}
-              className="rounded-sm px-2 py-4 bg-black/20 backdrop-blur-xl data-[state=active]:bg-indigo-600 data-[state=active]:text-white font-bold uppercase text-[10px] tracking-[0.2em] transition-all"
+              className="rounded-full px-2 py-4 bg-black/20 backdrop-blur-xl data-[state=active]:bg-indigo-600 data-[state=active]:text-white font-bold uppercase text-[10px] tracking-[0.2em] transition-all"
             >
               <Home />
             </TabsTrigger>

@@ -58,7 +58,7 @@ export function OptimizedHotspot({ text, bg = "#002d4d" }) {
   const aspect = texture.image ? texture.image.width / texture.image.height : 4;
 
   return (
-    <sprite scale={[aspect * 16, 16, 5]}>
+    <sprite scale={[aspect * 16, 16, 5]} renderOrder={100}>
       <spriteMaterial map={texture} transparent={true} depthTest={false} />
     </sprite>
   );

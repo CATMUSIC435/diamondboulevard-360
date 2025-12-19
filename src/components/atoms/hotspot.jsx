@@ -73,7 +73,7 @@ export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "
         ref={lineRef}
         points={[startPoint, endPoint]} 
         color={hovered ? "#002d4d" : "#fff"}
-        lineWidth={1.5 * baseScale}
+        lineWidth={0.5 * baseScale}
         transparent
         opacity={0}
       />
