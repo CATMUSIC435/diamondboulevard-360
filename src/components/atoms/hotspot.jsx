@@ -3,6 +3,7 @@ import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { useState, useMemo, useRef } from "react";
 import { OptimizedHotspot } from "./optimized-hotspot";
+import { GlowRings } from "./glow-rings";
 
 export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "#002d4d" }) {
   const [hovered, setHover] = useState(false);
@@ -17,6 +18,8 @@ export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "
   const v2 = useMemo(() => new THREE.Vector3(), []);
 
   const baseScale = useMemo(() => distance / 60, [distance]);
+
+  const color = hovered ? "#3b82f6" : "#ffffff";
 
   useFrame((state) => {
     if (!groupRef.current || !contentRef.current || !lineRef.current || !baseRef.current) return;
@@ -60,6 +63,7 @@ export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "
   const startPoint = useMemo(() => new THREE.Vector3(0, 0, 0), []);
   const endPoint = useMemo(() => new THREE.Vector3(0, lineHeight, 0), [lineHeight]);
 
+
   return (
     <group
       ref={groupRef}
@@ -67,13 +71,36 @@ export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "
       onPointerOver={() => setHover(true)}
       onPointerOut={() => setHover(false)}
     >
-      <mesh ref={baseRef}>
-        <sphereGeometry args={[1, 16, 16]} />
-        <meshBasicMaterial
-          color={hovered ? "#3b82f6" : "#fff"}
-          transparent
-          opacity={0.8}
-        />
+<mesh ref={baseRef}>
+        <sphereGeometry args={[0.5, 16, 16]} />
+        <meshBasicMaterial color={color} transparent opacity={0.8} />
+
+        <GlowRings color={color} speed={2.5} scaleMax={8} />
+
+        <mesh scale={[1.3, 1.3, 1.3]}>
+          <sphereGeometry args={[0.5, 16, 16]} />
+          <shaderMaterial
+            transparent
+            blending={THREE.AdditiveBlending}
+            side={THREE.BackSide}
+            uniforms={{ glowColor: { value: new THREE.Color(color) } }}
+            vertexShader={`
+              varying float intensity;
+              void main() {
+                vec3 vNormal = normalize(normalMatrix * normal);
+                intensity = pow(0.7 - dot(vNormal, vec3(0,0,1.0)), 3.0);
+                gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+              }
+            `}
+            fragmentShader={`
+              uniform vec3 glowColor;
+              varying float intensity;
+              void main() {
+                gl_FragColor = vec4(glowColor, intensity);
+              }
+            `}
+          />
+        </mesh>
       </mesh>
 
       <Line
