@@ -58,7 +58,7 @@ usePinch(
       
       if (controlsRef.current) {
         const factor = THREE.MathUtils.mapLinear(currentFov, 30, 110, 0.2, 0.8);
-      controlsRef.current.rotateSpeed = factor;
+      controlsRef.current.rotateSpeed = -factor;
       }
     }
   });
