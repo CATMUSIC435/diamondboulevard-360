@@ -1,61 +1,72 @@
-import { Billboard, Image } from "@react-three/drei";
-import { useState, useRef } from "react";
+import { useTexture } from "@react-three/drei";
+import { useState, useRef, useLayoutEffect } from "react";
 import { useFrame } from "@react-three/fiber";
+import * as THREE from "three";
 
 export function HotspotDirection({ position, title, imageUrl, onClick }) {
   const [hovered, setHover] = useState(false);
-  const groupRef = useRef();
+  const spriteRef = useRef();
+  
+  const texture = useTexture(imageUrl);
 
-  const imgWidth = 10;
-  const imgHeight = 8;
+  useLayoutEffect(() => {
+    if (texture) {
+      texture.colorSpace = THREE.SRGBColorSpace;
+      // Khử răng cưa cho chính texture của Sprite
+      texture.anisotropy = 16;
+      texture.minFilter = THREE.LinearMipmapLinearFilter;
+      texture.generateMipmaps = true;
+      texture.needsUpdate = true;
+    }
+  }, [texture]);
 
   useFrame((state) => {
-    if (groupRef.current) {
-      groupRef.current.position.y = position[1] + Math.sin(state.clock.elapsedTime * 2) * 1;
+    if (spriteRef.current) {
+      // 1. Hiệu ứng bay nhảy: Thay vì cộng dồn position[1], 
+      // ta chỉ set giá trị sin vào vị trí tương đối.
+      spriteRef.current.position.y = Math.sin(state.clock.elapsedTime * 2) * 0.4;
+      
+      // 2. Xử lý scale mượt mà
+      const targetScale = hovered ? 14 : 12;
+      const s = THREE.MathUtils.lerp(spriteRef.current.scale.x, targetScale, 0.15);
+      spriteRef.current.scale.set(s, s * 0.83, 1);
+
+      // 3. QUAN TRỌNG: Ép ma trận cập nhật để dính chặt vào camera không có độ trễ
+      spriteRef.current.updateMatrixWorld();
     }
   });
 
   return (
-    <group 
-      ref={groupRef} 
-      position={position}
-      onClick={onClick}
-      onPointerOver={() => {
-        setHover(true);
-        document.body.style.cursor = 'pointer';
-      }}
-      onPointerOut={() => {
-        setHover(false);
-        document.body.style.cursor = 'auto';
-      }}
-    >
-      <mesh visible={false}>
-        <sphereGeometry args={[15, 16, 16]} />
+    // Group cha giữ vị trí tuyệt đối
+    <group position={position}>
+      
+      {/* Vùng click: Đặt tại tâm 0 của group cha (chính là position truyền vào) */}
+      <mesh 
+        onClick={onClick}
+        onPointerOver={() => {
+          setHover(true);
+          document.body.style.cursor = 'pointer';
+        }}
+        onPointerOut={() => {
+          setHover(false);
+          document.body.style.cursor = 'auto';
+        }}
+      >
+        <sphereGeometry args={[8, 16, 16]} />
+        <meshBasicMaterial transparent opacity={0} />
       </mesh>
 
-      <Billboard>
-        <mesh position={[0, 0, -0.05]}>
-          <planeGeometry args={[imgWidth + 1, imgHeight + 1]} />
-          <meshBasicMaterial 
-            color="white" 
-            transparent 
-            opacity={0} 
-          />
-        </mesh>
-
-        {/* 3. HÌNH ẢNH NHỎ GỌN */}
-        <Image 
-          url={imageUrl} 
-          transparent
-          // Bo góc một chút cho hiện đại
-          borderRadius={0.2}
+      {/* Sprite nằm bên trong group đã có tọa độ position */}
+      <sprite ref={spriteRef}>
+        <spriteMaterial 
+          map={texture} 
+          transparent={true}
           opacity={hovered ? 1 : 0.8}
-          // Scale nhỏ lại: Hover [15.4, 11], Bình thường [14, 10]
-          scale={hovered ? [imgWidth * 1.1, imgHeight * 1.1] : [imgWidth, imgHeight]}
-          position={[0, 0, 0.1]}
+          toneMapped={false}
+          // depthTest={false} // Bật cái này nếu muốn hotspot luôn hiện đè lên mọi thứ
+          sizeAttenuation={true} // Giúp hotspot nhỏ lại khi zoom xa (tự nhiên hơn)
         />
-
-      </Billboard>
+      </sprite>
     </group>
   );
 }
