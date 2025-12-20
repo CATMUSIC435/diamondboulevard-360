@@ -1,39 +1,22 @@
 import { useTexture } from "@react-three/drei";
-import { useLayoutEffect, memo } from "react";
-import { BackSide, SRGBColorSpace, LinearMipmapLinearFilter, LinearFilter } from "three";
-import { useThree } from "@react-three/fiber";
+import { useMemo } from "react";
+import { BackSide, SRGBColorSpace } from "three";
+import * as THREE from "three";
 
-export const PanoramaBox = memo(function PanoramaBox({ texturePaths, isActive }) {
+export function PanoramaBox({texturePaths, isActive}) {
   const textures = useTexture(texturePaths);
-  const { gl } = useThree();
 
-  useLayoutEffect(() => {
-    const maxAnisotropy = gl.capabilities.getMaxAnisotropy();
-
-    textures.forEach((tex) => {
-      if (tex.userData.isConfigured) return;
+  useMemo(() => {
+  textures.forEach((tex) => {
       tex.colorSpace = SRGBColorSpace;
-      
       tex.repeat.set(-1, 1);
       tex.offset.set(1, 0);
-
-      // Tăng độ nét khi nhìn nghiêng (Quan trọng nhất)
-      tex.anisotropy = maxAnisotropy; 
-
-      // Bộ lọc tuyến tính (giữ chi tiết tốt)
-      tex.magFilter = LinearFilter; 
-      
-      // Bộ lọc Mipmap (Khử răng cưa khi zoom xa/thu nhỏ)
-      tex.minFilter = LinearMipmapLinearFilter; 
-      tex.generateMipmaps = true; 
-
-      // Đánh dấu đã xử lý xong để không bao giờ chạy lại đoạn này nữa
-      tex.userData.isConfigured = true;
+      tex.anisotropy = 2; // Giảm xuống 2 cho mobile mượt hơn nữa
+      tex.minFilter = THREE.LinearFilter;
+      tex.magFilter = THREE.LinearFilter;
       tex.needsUpdate = true;
-    });
-  }, [textures, gl]);
-
-  if (!isActive) return null;
+  });
+  }, [textures]);
 
   return (
     <mesh>
@@ -41,14 +24,15 @@ export const PanoramaBox = memo(function PanoramaBox({ texturePaths, isActive })
 
       {textures.map((tex, i) => (
         <meshBasicMaterial
-          key={tex.uuid} // Dùng UUID thay vì index để React định danh chính xác
-          attach={`material-${i}`}
+          key={i}
           map={tex}
-          side={BackSide} // Render mặt trong
-          toneMapped={false} // Tắt tone mapping để màu tươi, không bị xám
-          color="#ffffff" // Màu trắng tinh khiết
+          side={BackSide}
+          toneMapped={false}
+          color="#f0f0f0"
+          attach={`material-${i}`}
+          opacity={isActive ? 1 : 0}
         />
       ))}
     </mesh>
   );
-});
+}
