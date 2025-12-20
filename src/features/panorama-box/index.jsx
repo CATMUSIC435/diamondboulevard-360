@@ -1,22 +1,31 @@
 import { useTexture } from "@react-three/drei";
 import { useMemo } from "react";
-import { BackSide, SRGBColorSpace } from "three";
-import * as THREE from "three";
+import { BackSide, SRGBColorSpace, LinearMipmapLinearFilter, LinearFilter } from "three";
+import { useThree } from "@react-three/fiber";
 
-export function PanoramaBox({texturePaths, isActive}) {
+export function PanoramaBox({ texturePaths, isActive }) {
   const textures = useTexture(texturePaths);
+  const { gl } = useThree();
 
   useMemo(() => {
-  textures.forEach((tex) => {
+    const maxAnisotropy = gl.capabilities.getMaxAnisotropy();
+
+    textures.forEach((tex) => {
       tex.colorSpace = SRGBColorSpace;
+      
       tex.repeat.set(-1, 1);
       tex.offset.set(1, 0);
-      tex.anisotropy = 2; // Giảm xuống 2 cho mobile mượt hơn nữa
-      tex.minFilter = THREE.LinearFilter;
-      tex.magFilter = THREE.LinearFilter;
+
+      tex.anisotropy = maxAnisotropy;
+      tex.magFilter = LinearFilter; 
+      tex.minFilter = LinearMipmapLinearFilter; 
+      
+      tex.generateMipmaps = true;
+      // -------------------------------
+
       tex.needsUpdate = true;
-  });
-  }, [textures]);
+    });
+  }, [textures, gl]);
 
   return (
     <mesh>
@@ -28,9 +37,11 @@ export function PanoramaBox({texturePaths, isActive}) {
           map={tex}
           side={BackSide}
           toneMapped={false}
-          color="#f0f0f0"
+          color="#ffffff" 
           attach={`material-${i}`}
+          transparent={true}
           opacity={isActive ? 1 : 0}
+          visible={isActive} 
         />
       ))}
     </mesh>
