@@ -11,12 +11,12 @@ export function PanoramaBox({texturePaths, isActive}) {
       tex.colorSpace = SRGBColorSpace;
       tex.repeat.set(-1, 1);
       tex.offset.set(1, 0);
-      tex.anisotropy = 2; // Giảm xuống 2 cho mobile mượt hơn nữa
+      tex.anisotropy = 2; 
       tex.minFilter = THREE.LinearFilter;
       tex.magFilter = THREE.LinearFilter;
       tex.needsUpdate = true;
   });
-  }, [textures]);
+  }, []);
 
   return (
     <mesh>
