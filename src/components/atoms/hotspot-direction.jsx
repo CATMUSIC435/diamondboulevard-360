@@ -1,72 +1,103 @@
-import { useTexture } from "@react-three/drei";
-import { useState, useRef, useLayoutEffect } from "react";
+import { useState, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import { Billboard } from "@react-three/drei";
 
-export function HotspotDirection({ position, title, imageUrl, onClick }) {
+export function HotspotDirection({ position, size = 1, onClick, color = "#00ffcc" }) {
   const [hovered, setHover] = useState(false);
-  const spriteRef = useRef();
-  
-  const texture = useTexture(imageUrl);
+  const ring1 = useRef();
+  const ring2 = useRef();
+  const ring3 = useRef();
+  const coreRef = useRef();
 
-  useLayoutEffect(() => {
-    if (texture) {
-      texture.colorSpace = THREE.SRGBColorSpace;
-      // Khử răng cưa cho chính texture của Sprite
-      texture.anisotropy = 16;
-      texture.minFilter = THREE.LinearMipmapLinearFilter;
-      texture.generateMipmaps = true;
-      texture.needsUpdate = true;
-    }
-  }, [texture]);
+  // Điều chỉnh các thông số dựa trên prop size
+  const BASE_RADIUS = 8 * size;
+  const RING_THICKNESS = 2 * size;  // Làm dày đường nháy theo size
+  const RING_EXPANSION = 2.5;       // Giữ nguyên tỉ lệ nở (nở theo radius)
+  const CLICK_ZONE = 18 * size;     // Vùng click tự động to theo size
+  const PULSE_SPEED = 2;
+
+  const coreColor = "#00aaff"; 
 
   useFrame((state) => {
-    if (spriteRef.current) {
-      // 1. Hiệu ứng bay nhảy: Thay vì cộng dồn position[1], 
-      // ta chỉ set giá trị sin vào vị trí tương đối.
-      spriteRef.current.position.y = Math.sin(state.clock.elapsedTime * 2) * 0.4;
-      
-      // 2. Xử lý scale mượt mà
-      const targetScale = hovered ? 14 : 12;
-      const s = THREE.MathUtils.lerp(spriteRef.current.scale.x, targetScale, 0.15);
-      spriteRef.current.scale.set(s, s * 0.83, 1);
+    const t = state.clock.getElapsedTime() * PULSE_SPEED;
 
-      // 3. QUAN TRỌNG: Ép ma trận cập nhật để dính chặt vào camera không có độ trễ
-      spriteRef.current.updateMatrixWorld();
+    if (coreRef.current) {
+      const s = 1 + Math.sin(t * 2.5) * 0.15;
+      coreRef.current.scale.set(s, s, s);
     }
+
+    const animateRing = (ref, delay) => {
+      if (ref.current) {
+        const progress = (t / 2 + delay) % 1;
+        // Scale vòng nháy dựa trên tỉ lệ progress
+        const s = 1 + progress * RING_EXPANSION;
+        ref.current.scale.set(s, s, s);
+        ref.current.material.opacity = (1 - progress) * 0.9;
+      }
+    };
+
+    animateRing(ring1, 0);
+    animateRing(ring2, 0.33);
+    animateRing(ring3, 0.66);
   });
 
   return (
-    // Group cha giữ vị trí tuyệt đối
     <group position={position}>
-      
-      {/* Vùng click: Đặt tại tâm 0 của group cha (chính là position truyền vào) */}
-      <mesh 
+      {/* Vùng click tàng hình: Tự động scale theo size */}
+      <mesh
         onClick={onClick}
         onPointerOver={() => {
           setHover(true);
-          document.body.style.cursor = 'pointer';
+          document.body.style.cursor = "pointer";
         }}
         onPointerOut={() => {
           setHover(false);
-          document.body.style.cursor = 'auto';
+          document.body.style.cursor = "auto";
         }}
       >
-        <sphereGeometry args={[8, 16, 16]} />
+        <sphereGeometry args={[CLICK_ZONE, 16, 16]} />
         <meshBasicMaterial transparent opacity={0} />
       </mesh>
 
-      {/* Sprite nằm bên trong group đã có tọa độ position */}
-      <sprite ref={spriteRef}>
-        <spriteMaterial 
-          map={texture} 
-          transparent={true}
-          opacity={hovered ? 1 : 0.8}
-          toneMapped={false}
-          // depthTest={false} // Bật cái này nếu muốn hotspot luôn hiện đè lên mọi thứ
-          sizeAttenuation={true} // Giúp hotspot nhỏ lại khi zoom xa (tự nhiên hơn)
-        />
-      </sprite>
+      <Billboard>
+        {/* Điểm trung tâm */}
+        <mesh ref={coreRef} scale={hovered ? 1.3 : 1}>
+          <circleGeometry args={[BASE_RADIUS, 32]} />
+          <meshBasicMaterial 
+            color={coreColor} 
+            transparent 
+            opacity={1} 
+            toneMapped={false} 
+          />
+        </mesh>
+
+        {/* Hào quang bám sát lõi */}
+        <mesh scale={[1.1, 1.1, 1]}>
+          <circleGeometry args={[BASE_RADIUS, 32]} />
+          <meshBasicMaterial 
+            color={color} 
+            transparent 
+            opacity={0.4} 
+            blending={THREE.AdditiveBlending} 
+            toneMapped={false} 
+          />
+        </mesh>
+
+        {/* 3 Đường nháy ĐẬM */}
+        {[ring1, ring2, ring3].map((ref, index) => (
+          <mesh key={index} ref={ref}>
+            <ringGeometry args={[BASE_RADIUS, BASE_RADIUS + RING_THICKNESS, 64]} />
+            <meshBasicMaterial 
+              color={color} 
+              transparent 
+              toneMapped={false} 
+              blending={THREE.AdditiveBlending} 
+              side={THREE.DoubleSide}
+            />
+          </mesh>
+        ))}
+      </Billboard>
     </group>
   );
 }

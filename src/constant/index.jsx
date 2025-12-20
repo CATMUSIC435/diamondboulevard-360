@@ -627,14 +627,14 @@ export const SCENES = {
     hotspot: [
       {
         key: 1,
-        position: [-10, -50, -50],
+        position: [-10, -200, -150],
         title: '',
         imageUrl: "/images/360-image.png",
         key: SCENE_KEYS.v2
       },
       {
         key: 2,
-        position: [60, 0, 90],
+        position: [200, -50, 300],
         title: '',
         imageUrl: "/images/360-image.png",
         key: SCENE_KEYS.v3
@@ -1180,14 +1180,15 @@ export const SCENES = {
     hotspot: [
       {
         key: 3,
-        position: [-10, 10, 40],
+        position: [-80, 40, 200],
         title: '',
         imageUrl: "/images/360-image.png",
-        key: SCENE_KEYS.v1
+        key: SCENE_KEYS.v1,
+        size: 0.7
       },
       {
         key: 4,
-        position: [25, 0, 80],
+        position: [200, -50, 400],
         title: '',
         imageUrl: "/images/360-image.png",
         key: SCENE_KEYS.v3
@@ -1206,17 +1207,19 @@ export const SCENES = {
     hotspot: [
       {
         key: 5,
-        position: [0, 15, 90],
+        position: [10, 60, 300],
         title: '',
         imageUrl: "/images/360-image.png",
-        key: SCENE_KEYS.v1
+        key: SCENE_KEYS.v1,
+        size: 0.8
       },
       {
         key: 6,
-        position: [-20, 10, 100],
+        position: [-40, 10, 300],
         title: '',
         imageUrl: "/images/360-image.png",
-        key: SCENE_KEYS.v2
+        key: SCENE_KEYS.v2,
+        size: 0.8
       }
     ],
     areas: []
@@ -1235,14 +1238,14 @@ export const SCENEMOBILES = {
     hotspot: [
       {
         key: 1,
-        position: [-10, -50, -50],
+        position: [-10, -200, -150],
         title: '',
         imageUrl: "/images/360-image.png",
         key: SCENE_KEYS.v2
       },
       {
         key: 2,
-        position: [60, 0, 90],
+        position: [200, -50, 300],
         title: '',
         imageUrl: "/images/360-image.png",
         key: SCENE_KEYS.v3
@@ -1485,7 +1488,7 @@ export const SCENEMOBILES = {
         line: 1,
         distance: 85
       }
-    ],     
+    ],    
     planes: [
       {
         key: 'CH-23',
@@ -1788,14 +1791,15 @@ export const SCENEMOBILES = {
     hotspot: [
       {
         key: 3,
-        position: [-10, 10, 40],
+        position: [-80, 40, 200],
         title: '',
         imageUrl: "/images/360-image.png",
-        key: SCENE_KEYS.v1
+        key: SCENE_KEYS.v1,
+        size: 0.7
       },
       {
         key: 4,
-        position: [25, 0, 80],
+        position: [200, -50, 400],
         title: '',
         imageUrl: "/images/360-image.png",
         key: SCENE_KEYS.v3
@@ -1814,17 +1818,19 @@ export const SCENEMOBILES = {
     hotspot: [
       {
         key: 5,
-        position: [0, 15, 90],
+        position: [10, 60, 300],
         title: '',
         imageUrl: "/images/360-image.png",
-        key: SCENE_KEYS.v1
+        key: SCENE_KEYS.v1,
+        size: 0.8
       },
       {
         key: 6,
-        position: [-20, 10, 100],
+        position: [-40, 10, 300],
         title: '',
         imageUrl: "/images/360-image.png",
-        key: SCENE_KEYS.v2
+        key: SCENE_KEYS.v2,
+        size: 0.8
       }
     ],
     areas: []
