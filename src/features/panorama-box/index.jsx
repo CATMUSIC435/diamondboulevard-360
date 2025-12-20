@@ -1,36 +1,39 @@
 import { useTexture } from "@react-three/drei";
+import { useLayoutEffect, memo } from "react";
+import { BackSide, SRGBColorSpace, LinearMipmapLinearFilter, LinearFilter } from "three";
 import { useThree } from "@react-three/fiber";
-import { useMemo } from "react";
-import { BackSide } from "three";
-import * as THREE from "three";
 
-export function PanoramaBox({texturePaths, isActive}) {
-const textures = useTexture(texturePaths);
+export const PanoramaBox = memo(function PanoramaBox({ texturePaths, isActive }) {
+  const textures = useTexture(texturePaths);
   const { gl } = useThree();
 
-  useMemo(() => {
-    // Lấy khả năng khử cực tối đa của thiết bị (thường là 16)
+  useLayoutEffect(() => {
     const maxAnisotropy = gl.capabilities.getMaxAnisotropy();
 
     textures.forEach((tex) => {
-      tex.colorSpace = THREE.SRGBColorSpace;
+      if (tex.userData.isConfigured) return;
+      tex.colorSpace = SRGBColorSpace;
+      
       tex.repeat.set(-1, 1);
       tex.offset.set(1, 0);
 
-      // --- TỐI ƯU KHỬ RĂNG CƯA TẠI ĐÂY ---
-      tex.anisotropy = maxAnisotropy; // Tăng từ 2 lên 16 để nét khi nhìn nghiêng
+      // Tăng độ nét khi nhìn nghiêng (Quan trọng nhất)
+      tex.anisotropy = maxAnisotropy; 
+
+      // Bộ lọc tuyến tính (giữ chi tiết tốt)
+      tex.magFilter = LinearFilter; 
       
-      // MagFilter dùng Linear là đủ nét
-      tex.magFilter = THREE.LinearFilter; 
-      
-      // Dùng Mipmap giúp khử răng cưa khi thu nhỏ/zoom xa cực tốt và mượt
-      tex.minFilter = THREE.LinearMipmapLinearFilter; 
+      // Bộ lọc Mipmap (Khử răng cưa khi zoom xa/thu nhỏ)
+      tex.minFilter = LinearMipmapLinearFilter; 
       tex.generateMipmaps = true; 
-      // ---------------------------------
-      
+
+      // Đánh dấu đã xử lý xong để không bao giờ chạy lại đoạn này nữa
+      tex.userData.isConfigured = true;
       tex.needsUpdate = true;
     });
   }, [textures, gl]);
+
+  if (!isActive) return null;
 
   return (
     <mesh>
@@ -38,16 +41,14 @@ const textures = useTexture(texturePaths);
 
       {textures.map((tex, i) => (
         <meshBasicMaterial
-          key={i}
-          map={tex}
-          side={BackSide}
-          toneMapped={false}
-          color="#f0f0f0"
+          key={tex.uuid} // Dùng UUID thay vì index để React định danh chính xác
           attach={`material-${i}`}
-          transparent={true}
-          opacity={isActive ? 1 : 0}
+          map={tex}
+          side={BackSide} // Render mặt trong
+          toneMapped={false} // Tắt tone mapping để màu tươi, không bị xám
+          color="#ffffff" // Màu trắng tinh khiết
         />
       ))}
     </mesh>
   );
-}
+});
