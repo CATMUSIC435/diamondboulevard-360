@@ -36,10 +36,10 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
       <Canvas
         frameloop={isActive ? "always" : "never"}
         camera={{
-          fov: 75,
+          fov: 20,
           near: 0.1,
           far: 3000,
-          position: [0, 0, 0.001],
+          position: [0.05, 99.97, 2.31],
         }}
         dpr={lowPerformance ? [1, 1.5] : [1, 2]}
         gl={{
@@ -77,7 +77,7 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
           rotateSpeed={lowPerformance ? -0.6 : -0.4}
           enableZoom={false}
           minDistance={0.01}
-          maxDistance={100}
+          maxDistance={500}
         />
       </Canvas>
     </div>
