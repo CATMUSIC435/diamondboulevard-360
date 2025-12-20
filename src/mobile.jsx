@@ -16,6 +16,7 @@ import { SidebarUI } from "./components/molecules/sidebar-ui";
 import { CompassLogic, CompassUI } from "./components/molecules/compass-ui";
 import { CompassProvider } from "./contexts/compass-context";
 import { FloatingMenu } from "./features/floating-menu/floating-menu";
+import { SceneTransitionOverlay } from "./components/molecules/scene-transition-overlay";
 
 export function Mobile() {
   const [activeScene, setActiveScene] = useState(SCENE_KEYS.v1);
@@ -25,13 +26,13 @@ export function Mobile() {
     if (nextScene === activeScene || isTransitioning) return;
 
     setIsTransitioning(true);
-    
+
     setTimeout(() => {
       setActiveScene(nextScene);
-      
+
       setTimeout(() => {
         setIsTransitioning(false);
-      }, 200);
+      }, 400);
     }, 400);
   }, [activeScene, isTransitioning]);
 
@@ -39,66 +40,59 @@ export function Mobile() {
 
   return (
     <div className="w-full h-screen bg-black overflow-hidden relative select-none">
-      <GlobalCanvasLoader img="/images/screen-mobile.jpg"/>
-      <div 
-        className={`fixed inset-0 z-[100] bg-gradient-to-r from-blue-500 to-orange-500 transition-all duration-300 ease-out shadow-[0_0_15px_rgba(249,115,22,0.5)] transition-opacity duration-500 pointer-events-none flex items-center justify-center
-        ${isTransitioning ? "opacity-100" : "opacity-0"}`}
-      >
-        <div className="text-white/50 text-xs tracking-widest uppercase animate-pulse">
-          Đang nạp bối cảnh...
-        </div>
-      </div>
+      <GlobalCanvasLoader img="/images/screen-mobile.jpg" />
+      <SceneTransitionOverlay isTransitioning={isTransitioning} />
 
       <div className="fixed top-12 md:top-8 left-3 md:left-4 z-[70]">
         <FullscreenButton />
       </div>
- <CompassProvider>
-      <SidebarProvider>
-        <PanoramaProvider>
-          <div className="w-full h-full relative">
-             <CompassUI />
-            <div className="absolute inset-0 z-10">
-              
-              <PanoramaView 
-                key={activeScene} 
-                scene={currentSceneData.view} 
-                isActive={true} 
-                lowPerformance={true}
-              >
-                <group>
-                  <PointHotspot 
-                    hotspot={currentSceneData.hotspot} 
-                    setActiveScene={handleSceneChange} 
-                  />
-                  
-                  {currentSceneData.areas?.length > 0 && (
-                    <PanoramaHotspot areas={currentSceneData.areas} />
-                  )}
-                  
-                  {currentSceneData.planes && (
-                    <InteractivePlane planes={currentSceneData.planes} />
-                  )}
-                  <CompassLogic />
-                </group>
-              </PanoramaView>
-            </div>
+      <CompassProvider>
+        <SidebarProvider>
+          <PanoramaProvider>
+            <div className="w-full h-full relative">
+              <CompassUI />
+              <div className="absolute inset-0 z-10">
 
-            <SidebarUI />
-          </div>
-        </PanoramaProvider>
-      </SidebarProvider>
-</CompassProvider>
+                <PanoramaView
+                  key={activeScene}
+                  scene={currentSceneData.view}
+                  isActive={true}
+                  lowPerformance={true}
+                >
+                  <group>
+                    <PointHotspot
+                      hotspot={currentSceneData.hotspot}
+                      setActiveScene={handleSceneChange}
+                    />
+
+                    {currentSceneData.areas?.length > 0 && (
+                      <PanoramaHotspot areas={currentSceneData.areas} />
+                    )}
+
+                    {currentSceneData.planes && (
+                      <InteractivePlane planes={currentSceneData.planes} />
+                    )}
+                    <CompassLogic />
+                  </group>
+                </PanoramaView>
+              </div>
+
+              <SidebarUI />
+            </div>
+          </PanoramaProvider>
+        </SidebarProvider>
+      </CompassProvider>
 
       <div className="fixed top-1/2 left-2 -translate-y-1/2 z-50">
         <Tabs value={activeScene} onValueChange={handleSceneChange} className="bg-transparent">
           <TabsList className="flex flex-col bg-transparent px-2 gap-2 shadow-2xl">
-              <TabsTrigger
-                value={SCENE_KEYS.v1}
-                disabled={isTransitioning}
-                className="rounded-full px-2 py-4 bg-black/40 border border-white/5 backdrop-blur-xl data-[state=active]:bg-indigo-600 data-[state=active]:text-white font-bold uppercase text-[10px] tracking-[0.2em] transition-all disabled:opacity-50"
-              >
-                <Home size={16} /> 
-              </TabsTrigger>
+            <TabsTrigger
+              value={SCENE_KEYS.v1}
+              disabled={isTransitioning}
+              className="rounded-full px-2 py-4 bg-black/40 border border-white/5 backdrop-blur-xl data-[state=active]:bg-indigo-600 data-[state=active]:text-white font-bold uppercase text-[10px] tracking-[0.2em] transition-all disabled:opacity-50"
+            >
+              <Home size={16} />
+            </TabsTrigger>
           </TabsList>
         </Tabs>
       </div>
