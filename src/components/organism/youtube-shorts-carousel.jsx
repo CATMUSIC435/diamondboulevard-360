@@ -70,9 +70,6 @@ export function YoutubeShortsCarousel() {
                     <div className="h-16 w-16 flex items-center justify-center rounded-full bg-white/20 border border-white/40 group-hover:scale-110 group-hover:bg-indigo-500 transition-all">
                       <Play fill="white" className="text-white ml-1" />
                     </div>
-                    <p className="mt-4 text-[10px] font-bold uppercase tracking-widest text-white/70">
-                      Click to Play
-                    </p>
                   </div>
                 )}
               </Card>

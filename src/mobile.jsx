@@ -15,6 +15,7 @@ import { InteractivePlane } from "./features/interactive-plane";
 import { SidebarUI } from "./components/molecules/sidebar-ui";
 import { CompassLogic, CompassUI } from "./components/molecules/compass-ui";
 import { CompassProvider } from "./contexts/compass-context";
+import { FloatingMenu } from "./features/floating-menu/floating-menu";
 
 export function Mobile() {
   const [activeScene, setActiveScene] = useState(SCENE_KEYS.v1);
@@ -101,6 +102,8 @@ export function Mobile() {
           </TabsList>
         </Tabs>
       </div>
+
+      <FloatingMenu isLarge={true} />
     </div>
   );
 }
