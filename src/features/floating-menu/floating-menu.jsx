@@ -11,7 +11,7 @@ import {
   // DialogTitle,
   DialogTrigger,
 } from "../../components/ui/dialog";
-import { Newspaper, Map, GalleryThumbnails, GalleryHorizontalIcon } from "lucide-react";
+import { Newspaper, Map, GalleryThumbnails, GalleryHorizontalIcon, MapIcon } from "lucide-react";
 import { Mapbox } from "../map-box";
 // import { WebFrame } from "../../components/organism/web-frame";
 import { YoutubeShortsCarousel } from "../../components/organism/youtube-shorts-carousel";
@@ -54,7 +54,15 @@ const MENU_ITEMS_SMALL = [
   },
 ];
 
-const MENU_ITEMS_LARGE = [     
+const MENU_ITEMS_LARGE = [  
+  {
+    id: "map",
+    label: "Map",
+    icon: <MapIcon size={20} />,
+    content: (
+      <ImageCarousel images={["/images/location.jpg"]} />
+    ),
+  },   
   {
     id: "galery",
     label: "Galery",

@@ -15,7 +15,7 @@ export function ImageCarousel({ images }) {
   )
 
   return (
-    <div className="flex justify-center w-full px-10">
+    <div className="flex justify-center w-full px-2">
       <Carousel
         plugins={[plugin.current]}
         className="w-full max-w-4xl"
