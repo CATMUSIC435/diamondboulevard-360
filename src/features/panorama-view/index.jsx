@@ -44,7 +44,7 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
         dpr={lowPerformance ? [1, 1.5] : [1, 2]}
         gl={{
           antialias: !lowPerformance,
-          toneMapping: THREE.ACESFilmicToneMapping,
+          // toneMapping: THREE.ACESFilmicToneMapping,
           powerPreference: "high-performance",
           outputColorSpace: SRGBColorSpace,
           toneMappingExposure: 1.1,

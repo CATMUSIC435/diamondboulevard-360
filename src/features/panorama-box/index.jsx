@@ -1,34 +1,22 @@
 import { useTexture } from "@react-three/drei";
 import { useMemo } from "react";
-import { BackSide, SRGBColorSpace, LinearMipmapLinearFilter, LinearFilter } from "three";
+import { BackSide, SRGBColorSpace } from "three";
 import * as THREE from "three";
-import { useThree } from "@react-three/fiber";
 
 export function PanoramaBox({texturePaths, isActive}) {
-const textures = useTexture(texturePaths);
-  const { gl } = useThree();
+  const textures = useTexture(texturePaths);
 
   useMemo(() => {
-    const maxAnisotropy = gl.capabilities.getMaxAnisotropy();
-
-    textures.forEach((tex) => {
+  textures.forEach((tex) => {
       tex.colorSpace = SRGBColorSpace;
-      
       tex.repeat.set(-1, 1);
       tex.offset.set(1, 0);
-
-      // --- Cấu hình tăng độ sắc nét ---
-      tex.anisotropy = maxAnisotropy;
-      
-      tex.magFilter = LinearFilter; 
-      
-      tex.minFilter = LinearMipmapLinearFilter; 
-      
-      tex.generateMipmaps = true;
-
+      tex.anisotropy = 2;
+      tex.minFilter = THREE.LinearFilter;
+      tex.magFilter = THREE.LinearFilter;
       tex.needsUpdate = true;
-    });
-  }, [textures, gl]);
+  });
+  }, [textures]);
 
   return (
     <mesh>
