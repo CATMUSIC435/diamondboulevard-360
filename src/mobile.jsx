@@ -31,7 +31,7 @@ export function Mobile() {
       
       setTimeout(() => {
         setIsTransitioning(false);
-      }, 600);
+      }, 200);
     }, 400);
   }, [activeScene, isTransitioning]);
 
@@ -41,7 +41,7 @@ export function Mobile() {
     <div className="w-full h-screen bg-black overflow-hidden relative select-none">
       <GlobalCanvasLoader img="/images/screen-mobile.jpg"/>
       <div 
-        className={`fixed inset-0 z-[100] bg-black transition-opacity duration-500 pointer-events-none flex items-center justify-center
+        className={`fixed inset-0 z-[100] bg-gradient-to-r from-blue-500 to-orange-500 transition-all duration-300 ease-out shadow-[0_0_15px_rgba(249,115,22,0.5)] transition-opacity duration-500 pointer-events-none flex items-center justify-center
         ${isTransitioning ? "opacity-100" : "opacity-0"}`}
       >
         <div className="text-white/50 text-xs tracking-widest uppercase animate-pulse">

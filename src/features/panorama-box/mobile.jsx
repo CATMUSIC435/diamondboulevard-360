@@ -1,57 +1,66 @@
 import { useTexture } from "@react-three/drei";
-import { useMemo, useEffect, useState } from "react";
-import { BackSide, SRGBColorSpace, MathUtils } from "three";
-import { useFrame } from "@react-three/fiber";
+import { useEffect, useState, useRef } from "react";
+import { BackSide, SRGBColorSpace, LinearFilter, MathUtils } from "three";
+import { useFrame, useThree } from "@react-three/fiber";
 
 export function PanoramaBoxMobile({ texturePaths, isActive }) {
+  // 1. Nạp texture (Drei useTexture đã tự động cache file)
   const textures = useTexture(texturePaths);
-  const [ready, setReady] = useState(false);
+  const { gl } = useThree();
+  
+  const [opacity, setOpacity] = useState(0);
+  const [isGPUReady, setIsGPUReady] = useState(false);
+  const uploadIndex = useRef(0);
+  const isStarted = useRef(false);
 
-  // 1. Cấu hình Texture
-  useMemo(() => {
-    textures.forEach((tex) => {
-      tex.colorSpace = SRGBColorSpace;
-      tex.repeat.set(-1, 1);
-      tex.offset.set(1, 0);
-      tex.anisotropy = 4; // Mobile nên để 4 hoặc 8 để tránh lag
-      tex.needsUpdate = true;
-    });
+  // 2. Cấu hình kỹ thuật cho Texture
+  useEffect(() => {
+    if (textures) {
+      textures.forEach((tex) => {
+        tex.colorSpace = SRGBColorSpace;
+        tex.repeat.set(-1, 1);
+        tex.offset.set(1, 0);
+        tex.anisotropy = 2; 
+        tex.minFilter = LinearFilter;
+        tex.generateMipmaps = false;
+      });
+    }
   }, [textures]);
 
-  // 2. Hiệu ứng Fade-in mượt mà sau khi thực sự sẵn sàng
-  const [opacity, setOpacity] = useState(0);
-  
-  useEffect(() => {
-    if (isActive) {
-      // Giả lập một khoảng nghỉ cực ngắn để GPU ổn định
-      const timer = setTimeout(() => setReady(true), 100);
-      return () => clearTimeout(timer);
-    } else {
-      setReady(false);
-      setOpacity(0);
-    }
-  }, [isActive]);
+  useFrame((state, delta) => {
+    if (!isGPUReady && textures) {
+      const shouldUpload = isActive || state.clock.getElapsedTime() > 1.0; 
 
-  useFrame(() => {
-    if (ready && opacity < 1) {
-      setOpacity(prev => MathUtils.lerp(prev, 1, 0.05));
+      if (shouldUpload && uploadIndex.current < textures.length) {
+        gl.initTexture(textures[uploadIndex.current]);
+        uploadIndex.current += 1;
+      } else if (uploadIndex.current >= textures.length) {
+        setIsGPUReady(true);
+      }
+    }
+
+    if (isActive && isGPUReady) {
+      setOpacity((prev) => MathUtils.lerp(prev, 1, 0.1));
+    } else {
+      if (opacity > 0) setOpacity((prev) => MathUtils.lerp(prev, 0, 0.2));
     }
   });
 
+  if (!isActive && !isGPUReady) return null;
+
   return (
-    <mesh>
+    <mesh visible={opacity > 0.01}>
       <boxGeometry args={[1000, 1000, 1000]} />
       {textures.map((tex, i) => (
         <meshBasicMaterial
           key={i}
           map={tex}
           side={BackSide}
-          toneMapped={false}
           attach={`material-${i}`}
           transparent={true}
-          opacity={opacity} // Fade in từ 0 lên 1
-          color="white"     // Đổi từ #f0f0f0 sang white để ảnh đúng màu
-          depthTest={isActive} // Tắt depth test cho scene ẩn để tiết kiệm tài nguyên
+          opacity={opacity}
+          toneMapped={false}
+          depthWrite={false}
         />
       ))}
     </mesh>

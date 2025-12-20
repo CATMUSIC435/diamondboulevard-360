@@ -8,7 +8,14 @@ export function SceneReady() {
 
   useEffect(() => {
     if (!active && progress === 100) {
-      setSceneReady(true);
+      
+      const timer = setTimeout(() => {
+        setSceneReady(true);
+      }, 500);
+
+      return () => clearTimeout(timer);
+    } else {
+      setSceneReady(false);
     }
   }, [active, progress, setSceneReady]);
 

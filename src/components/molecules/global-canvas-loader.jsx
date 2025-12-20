@@ -7,7 +7,7 @@ export function GlobalCanvasLoader({img = '/images/screen.jpg'}) {
 
   useEffect(() => {
     if (progress === 100) {
-      const timer = setTimeout(() => setShow(false), 1200);
+      const timer = setTimeout(() => setShow(false), 500);
       return () => clearTimeout(timer);
     }
   }, [progress]);
@@ -17,7 +17,7 @@ export function GlobalCanvasLoader({img = '/images/screen.jpg'}) {
   return (
     <div 
       className={`fixed inset-0 z-[100] flex items-center justify-center bg-[#050505] transition-all duration-1000 bg-cover bg-center ${
-        progress === 100 ? "opacity-0 scale-110 blur-xl" : "opacity-100 scale-100"
+        !show ? "opacity-0 scale-110 blur-xl" : "opacity-100 scale-100"
       }`}
       style={{backgroundImage: `url(${img})`}}
     >
@@ -34,7 +34,7 @@ export function GlobalCanvasLoader({img = '/images/screen.jpg'}) {
           
           <div className="text-center">
             <span className="text-5xl md:text-7xl font-medium text-white tracking-tighter block leading-none">
-              {Math.round(progress)}
+              {show ? Math.round(progress) - 1 : 100}
             </span>
             <span className="text-sm text-indigo-400 font-bold tracking-[0.4em] uppercase mt-2 block">
               Loading 360
