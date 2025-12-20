@@ -14,5 +14,10 @@ export const InteractivePlane = memo(({ planes }) => {
     ));
   }, [planes, sceneReady]);
 
-  return <group>{renderedPlanes}</group>;
+  return (
+    <group 
+      position={[0, -300, 0]} 
+      scale={[35, 1.5, 35]}
+    >{renderedPlanes}</group>
+  );
 });

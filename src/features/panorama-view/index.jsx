@@ -36,7 +36,7 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
       <Canvas
         frameloop={isActive ? "always" : "never"}
         camera={{
-          fov: 40,
+          fov: 20,
           near: 0.1,
           far: 3000,
           position: [0.05, 99.97, 2.31],

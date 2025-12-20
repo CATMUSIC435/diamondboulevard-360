@@ -12,8 +12,9 @@ function InteractiveZone({
   scale = [1, 1, 1],
   args = [1.2, 1.4],
   color = "#ffffff",
-  baseOpacity = 1,
-  info
+  baseOpacity = 0,
+  info,
+  fixedSize = true
 }) {
   const meshRef = useRef();
   const { openSidebar } = useSidebar();
