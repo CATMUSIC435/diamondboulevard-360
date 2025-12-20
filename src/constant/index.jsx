@@ -683,9 +683,9 @@ export const SCENES = {
       },
       {
         key: 'A6',
-        position: [25, -200, -400],
+        position: [-25, -120, -400],
         text: 'Ga C7 - Metro TPHCM - TDM<br>1 phút',
-        lineHeight: 210,
+        lineHeight: 140,
         line: 1,
         distance: 120,
         bg: '#f47700'
@@ -1291,9 +1291,9 @@ export const SCENEMOBILES = {
       },
       {
         key: 'A6',
-        position: [25, -200, -400],
+        position: [-25, -120, -400],
         text: 'Ga C7 - Metro TPHCM - TDM<br>1 phút',
-        lineHeight: 210,
+        lineHeight: 140,
         line: 1,
         distance: 120,
         bg: '#f47700'

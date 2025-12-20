@@ -1,12 +1,11 @@
 import { Line } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { useState, useMemo, useRef } from "react";
+import { useMemo, useRef } from "react";
 import { OptimizedHotspot } from "./optimized-hotspot";
 import { GlowRings } from "./glow-rings";
 
 export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "#002d4d" }) {
-  const [hovered, setHover] = useState(false);
 
   const groupRef = useRef();
   const contentRef = useRef();
@@ -19,7 +18,7 @@ export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "
 
   const baseScale = useMemo(() => distance / 60, [distance]);
 
-  const color = hovered ? "#3b82f6" : "#ffffff";
+  const color = "#ffffff";
 
   useFrame((state) => {
     if (!groupRef.current || !contentRef.current || !lineRef.current || !baseRef.current) return;
@@ -68,8 +67,6 @@ export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "
     <group
       ref={groupRef}
       position={position}
-      onPointerOver={() => setHover(true)}
-      onPointerOut={() => setHover(false)}
     >
 <mesh ref={baseRef}>
         <sphereGeometry args={[0.5, 16, 16]} />
@@ -106,7 +103,7 @@ export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "
       <Line
         ref={lineRef}
         points={[startPoint, endPoint]}
-        color={hovered ? "#3b82f6" : "#fff"}
+        color={"#fff"}
         lineWidth={0.5 * baseScale}
         transparent
         opacity={0}
