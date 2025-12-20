@@ -48,7 +48,7 @@ export function Mobile() {
         </div>
       </div>
 
-      <div className="fixed top-4 left-4 z-[70]">
+      <div className="fixed top-12 md:top-8 left-3 md:left-4 z-[70]">
         <FullscreenButton />
       </div>
  <CompassProvider>

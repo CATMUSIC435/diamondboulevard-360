@@ -6,9 +6,9 @@ export function SidebarUI() {
 
   return (
     <Sheet open={isOpen} onOpenChange={(val) => !val && closeSidebar()} className='text-black'>
-      <SheetContent side="right" className="bg-white backdrop-blur-2xl border-white/10 text-white w-[400px]">
+      <SheetContent side="right" className="bg-white backdrop-blur-2xl border-white/10 text-white w-[400px] text-black z-[200]">
         {data && (
-          <div className="space-y-6">
+          <div className="relative space-y-6">
             <SheetHeader>
               <SheetTitle className="text-2xl font-bold text-indigo-400">{data.title}</SheetTitle>
               <div className="h-1 w-10 bg-indigo-500" />

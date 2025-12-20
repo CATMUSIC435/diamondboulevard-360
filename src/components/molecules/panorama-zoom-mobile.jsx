@@ -9,33 +9,37 @@ export function PanoramaZoomMobile({ controlsRef }) {
   const [{ fovSpring }, api] = useSpring(() => ({
     fovSpring: 75,
     config: { 
-      mass: 1,       // Tăng khối lượng để tạo cảm giác nặng khi bắt đầu zoom
-      tension: 250,  // Giảm độ căng lò xo
-      friction: 25   // Tăng mạnh lực cản để zoom đầm và mượt hơn
+      mass: 1,
+      tension: 250,
+      friction: 25
     },
   }));
 
-  usePinch(
-    ({ offset: [d], active }) => {
-      if (controlsRef.current) {
-        controlsRef.current.enableRotate = !active;
-      }
-
-      const zoomSensitivity = 0.4; 
-    
-      const targetVal = 75 - d * zoomSensitivity;
-      
-      api.start({ 
-        fovSpring: THREE.MathUtils.clamp(targetVal, 5, 140),
-        immediate: false 
-      });
-    },
-    { 
-      target: gl.domElement,
-      eventOptions: { passive: false },
-      threshold: 2
+usePinch(
+  ({ offset: [d], active, memo }) => {
+    // 1. Tắt xoay khi đang zoom để tránh bị "nhảy" góc nhìn
+    if (controlsRef.current) {
+      controlsRef.current.enableRotate = !active;
     }
-  );
+
+    // 2. Điều chỉnh độ nhạy: 
+    // Mobile cần dải zoom rộng hơn một chút để cảm giác mượt
+    const zoomSensitivity = 0.5; 
+    
+    // 75 là FOV mặc định, d là khoảng cách thay đổi giữa 2 ngón tay
+    const targetVal = 75 - (d * zoomSensitivity);
+    
+    api.start({ 
+      fovSpring: THREE.MathUtils.clamp(targetVal, 30, 110), // Giới hạn FOV hợp lý cho Mobile
+      immediate: false 
+    });
+  },
+  { 
+    target: gl.domElement,
+    eventOptions: { passive: false },
+    pointer: { touch: true }
+  }
+);
 
   useWheel(
     ({ offset: [, y] }) => {
@@ -48,14 +52,13 @@ export function PanoramaZoomMobile({ controlsRef }) {
 
   useFrame(() => {
     const currentFov = fovSpring.get();
-    if (Math.abs(camera.fov - currentFov) > 0.01) {
+    if (Math.abs(camera.fov - currentFov) > 0.05) {
       camera.fov = currentFov;
       camera.updateProjectionMatrix();
       
       if (controlsRef.current) {
-        // Điều chỉnh tốc độ xoay tương ứng với dải zoom mới
-        const factor = THREE.MathUtils.mapLinear(currentFov, 20, 120, 0.1, 0.7);
-        controlsRef.current.rotateSpeed = -factor;
+        const factor = THREE.MathUtils.mapLinear(currentFov, 30, 110, 0.2, 0.8);
+      controlsRef.current.rotateSpeed = factor;
       }
     }
   });
