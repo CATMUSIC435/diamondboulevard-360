@@ -20,11 +20,6 @@ export default defineConfig({
     
     chunkSizeWarningLimit: 1500,
   },
-  optimizeDeps: {
-    include: ['three', '@react-three/fiber', '@react-three/drei','@mediapipe/hands',
-      '@mediapipe/camera_utils',
-      '@mediapipe/drawing_utils'],
-  },
   server: {
     headers: {
       "Cross-Origin-Embedder-Policy": "require-corp",
