@@ -7,19 +7,6 @@ export default defineConfig({
     react(),
     tailwindcss()
   ],
-  build: {
-    target: 'esnext',
-    
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      }
-    },
-    
-    chunkSizeWarningLimit: 1500,
-  },
   server: {
     headers: {
       "Cross-Origin-Embedder-Policy": "require-corp",
@@ -27,5 +14,5 @@ export default defineConfig({
     },
   },
 
-  assetsInclude: ['**/*.glb', '**/*.gltf', '**/*.hdr', '**/*.png', , '**/*.jpg', '**/**/*.png', '**/**/*.jpg' ],
+  assetsInclude: ['**/*.glb', '**/*.gltf', '**/*.hdr', '**/*.png', '**/*.jpg', '**/**/*.png', '**/**/*.jpg' ],
 })
