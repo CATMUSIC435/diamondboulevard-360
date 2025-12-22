@@ -230,7 +230,7 @@ export const SCENESLARGE = {
       {
         key: 'C11',
         position: [2.4492935982947064e-14, -30, 400],
-        text: 'SÂN GOLF SÔNG BÉ<br>5 phút',
+        text: 'SÂN GOLF SÔNG BÉ<br>2 phút',
         lineHeight: 60,
         line: 1,
         distance: 80
@@ -842,7 +842,7 @@ export const SCENES = {
       {
         key: 'C11',
         position: [2.4492935982947064e-14, -30, 400],
-        text: 'SÂN GOLF SÔNG BÉ<br>5 phút',
+        text: 'SÂN GOLF SÔNG BÉ<br>2 phút',
         lineHeight: 60,
         line: 1,
         distance: 100
@@ -1453,7 +1453,7 @@ export const SCENEMOBILES = {
       {
         key: 'C11',
         position: [2.4492935982947064e-14, -30, 400],
-        text: 'SÂN GOLF SÔNG BÉ<br>5 phút',
+        text: 'SÂN GOLF SÔNG BÉ<br>2 phút',
         lineHeight: 60,
         line: 1,
         distance: 100
