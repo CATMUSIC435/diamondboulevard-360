@@ -15,4 +15,4 @@ export const PanoramaHotspot = memo(({ areas }) => {
   }, [areas, sceneReady]);
 
   return <group>{renderedHotspots}</group>;
-});
+}); 

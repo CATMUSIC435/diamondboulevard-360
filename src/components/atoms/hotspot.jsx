@@ -72,7 +72,7 @@ export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "
         <sphereGeometry args={[0.5, 16, 16]} />
         <meshBasicMaterial color={color} transparent opacity={0.8} />
 
-        <GlowRings color={color} speed={2.5} scaleMax={8} />
+        <GlowRings color={color} speed={2.5} scaleMax={4} />
 
         <mesh scale={[1.3, 1.3, 1.3]}>
           <sphereGeometry args={[0.5, 16, 16]} />
@@ -109,7 +109,6 @@ export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "
         opacity={0}
       />
 
-      {/* Nội dung Hotspot (Text/UI) - Luôn phẳng với màn hình */}
       <group ref={contentRef} position={endPoint}>
         <OptimizedHotspot text={text} bg={bg} />
       </group>

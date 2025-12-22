@@ -16,7 +16,7 @@ export function PointHotspot({ hotspot, setActiveScene }) {
                         title={item.title}
                         imageUrl={item.imageUrl}
                         onClick={() => setActiveScene(item.key)}
-                        size={item.size ?? 1}
+                        size={item.size ?? 0.8}
                     />
                 )
             }

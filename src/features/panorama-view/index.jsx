@@ -4,13 +4,13 @@ import * as THREE from 'three';
 import { SRGBColorSpace } from "three";
 import { Canvas } from "@react-three/fiber";
 import { PanoramaBox } from "../panorama-box/index";
-import { OrbitControls } from "@react-three/drei";
+import { AdaptiveDpr, AdaptiveEvents, OrbitControls } from "@react-three/drei";
 import {
   EffectComposer,
   BrightnessContrast,
   HueSaturation,
+  Vignette,
 } from "@react-three/postprocessing";
-import { PanoramaZoom } from "../../components/molecules/panorama-zoom";
 import { usePanorama } from "../../contexts/panorama-context";
 import { SceneReady } from "../../hooks/scene-ready";
 import { PanoramaZoomMobile } from "../../components/molecules/panorama-zoom-mobile";
@@ -18,7 +18,6 @@ import { PanoramaZoomMobile } from "../../components/molecules/panorama-zoom-mob
 export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = false }) => {
   const [showEffects, setShowEffects] = useState(false);
   const { sceneReady } = usePanorama();
-
   const controlsRef = useRef();
 
   useEffect(() => {
@@ -44,16 +43,17 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
         dpr={lowPerformance ? [1, 1.5] : [1, 2]}
         gl={{
           antialias: !lowPerformance,
-          // toneMapping: THREE.ACESFilmicToneMapping,
+          toneMapping: THREE.ACESFilmicToneMapping,
           powerPreference: "high-performance",
           outputColorSpace: SRGBColorSpace,
-          toneMappingExposure: 1.1,
+          toneMappingExposure: 0.8,
           stencil: false,
           depth: false,
         }}
       >
-        {lowPerformance ? <PanoramaZoomMobile controlsRef={controlsRef}/> : <PanoramaZoom />}
-
+        {/* <Stats /> */}
+        
+        <PanoramaZoomMobile controlsRef={controlsRef}/>
         <Suspense fallback={null}>
           <PanoramaBox texturePaths={scene} isActive={isActive} />
           <SceneReady />
@@ -66,6 +66,7 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
             frameBufferType={THREE.HalfFloatType}>
             <BrightnessContrast contrast={0.05} />
             <HueSaturation saturation={0.15} />
+            <Vignette eskil={false} offset={0.1} darkness={0.5} />
           </EffectComposer>
         )}
 
@@ -73,12 +74,14 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
         ref={controlsRef}
          enablePan={false}
           enableDamping
-          dampingFactor={0.1}
+          dampingFactor={0.08}
           rotateSpeed={lowPerformance ? -0.6 : -0.4}
           enableZoom={false}
           minDistance={0.01}
           maxDistance={500}
         />
+        <AdaptiveDpr pixelated />
+        <AdaptiveEvents />
       </Canvas>
     </div>
   );

@@ -1,24 +1,24 @@
 import { useState, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { Billboard } from "@react-three/drei";
+import { Billboard, useCursor } from "@react-three/drei";
 
-export function HotspotDirection({ position, size = 1, onClick, color = "#00ffcc" }) {
+export function HotspotDirection({ position, size = 0.5, onClick, color = "#00ffcc" }) {
   const [hovered, setHover] = useState(false);
   const ring1 = useRef();
   const ring2 = useRef();
   const ring3 = useRef();
   const coreRef = useRef();
 
-  // Điều chỉnh các thông số dựa trên prop size
   const BASE_RADIUS = 8 * size;
-  const RING_THICKNESS = 2 * size;  // Làm dày đường nháy theo size
-  const RING_EXPANSION = 2.5;       // Giữ nguyên tỉ lệ nở (nở theo radius)
-  const CLICK_ZONE = 18 * size;     // Vùng click tự động to theo size
+  const RING_THICKNESS = 2 * size;
+  const RING_EXPANSION = 2;
+  const CLICK_ZONE = 12 * size;
   const PULSE_SPEED = 2;
 
   const coreColor = "#00aaff"; 
 
+  useCursor(hovered, /*'pointer', 'auto', document.body*/)
   useFrame((state) => {
     const t = state.clock.getElapsedTime() * PULSE_SPEED;
 
@@ -44,16 +44,13 @@ export function HotspotDirection({ position, size = 1, onClick, color = "#00ffcc
 
   return (
     <group position={position}>
-      {/* Vùng click tàng hình: Tự động scale theo size */}
       <mesh
         onClick={onClick}
         onPointerOver={() => {
           setHover(true);
-          document.body.style.cursor = "pointer";
         }}
         onPointerOut={() => {
           setHover(false);
-          document.body.style.cursor = "auto";
         }}
       >
         <sphereGeometry args={[CLICK_ZONE, 16, 16]} />
@@ -61,7 +58,6 @@ export function HotspotDirection({ position, size = 1, onClick, color = "#00ffcc
       </mesh>
 
       <Billboard>
-        {/* Điểm trung tâm */}
         <mesh ref={coreRef} scale={hovered ? 1.3 : 1}>
           <circleGeometry args={[BASE_RADIUS, 32]} />
           <meshBasicMaterial 
@@ -84,7 +80,6 @@ export function HotspotDirection({ position, size = 1, onClick, color = "#00ffcc
           />
         </mesh>
 
-        {/* 3 Đường nháy ĐẬM */}
         {[ring1, ring2, ring3].map((ref, index) => (
           <mesh key={index} ref={ref}>
             <ringGeometry args={[BASE_RADIUS, BASE_RADIUS + RING_THICKNESS, 64]} />
