@@ -12,50 +12,74 @@ export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "
   const lineRef = useRef();
   const baseRef = useRef();
 
-  // Re-use vectors to avoid garbage collection
   const v1 = useMemo(() => new THREE.Vector3(), []);
   const v2 = useMemo(() => new THREE.Vector3(), []);
+  const dirToSpot = useMemo(() => new THREE.Vector3(), []);
 
   const baseScale = useMemo(() => distance / 60, [distance]);
 
   const color = "#ffffff";
 
-  useFrame((state) => {
+  useFrame((state, delta) => {
     if (!groupRef.current || !contentRef.current || !lineRef.current || !baseRef.current) return;
 
-    contentRef.current.quaternion.copy(state.camera.quaternion);
-    baseRef.current.quaternion.copy(state.camera.quaternion);
+    // Billboarding mềm mại (slerp thay vì copy cứng)
+    contentRef.current.quaternion.slerp(state.camera.quaternion, 12 * delta);
+    baseRef.current.quaternion.slerp(state.camera.quaternion, 12 * delta);
 
     groupRef.current.getWorldPosition(v1);
     state.camera.getWorldDirection(v2);
-    const dirToSpot = v1.clone().sub(state.camera.position).normalize();
+    
+    // Tái sử dụng vector thay vì clone()
+    dirToSpot.copy(v1).sub(state.camera.position).normalize();
     const dot = v2.dot(dirToSpot);
 
-    const distortionCorrection = Math.max(0.5, dot);
+    const distortionCorrection = Math.max(0.6, dot);
 
     const fovRad = (state.camera.fov * Math.PI) / 180;
-    const threshold = Math.cos(fovRad / 2) * 0.75;
-    const inView = dot > threshold;
+    
+    // Logic bù đắp kích thước khi Camera Zoom (Thay đổi FOV)
+    // Dựa trên công thức Perspective: Projected Size tỉ lệ thuận với 1 / tan(fov/2)
+    // Lấy mốc FOV mặc định là 75 độ (tan(37.5) = 0.767)
+    const zoomScale = Math.tan(fovRad / 2) / 0.767326987;
+    groupRef.current.scale.setScalar(zoomScale);
+
+    // Nới góc nhìn ra để tránh bị ẩn sớm, dùng smoothstep để chuyển vùng mượt không bị khựng
+    const threshold = Math.cos(fovRad / 2) * 0.55; 
+    const inViewFactor = THREE.MathUtils.smoothstep(dot, threshold - 0.15, threshold + 0.15);
 
     const adjustedScale = baseScale * distortionCorrection;
-    const targetScale = inView ? adjustedScale : 0;
+    
+    // Hiệu ứng "pop" nhún nhẹ (nếu inViewFactor tiến tới 1, scale trồi lố qua 1 chút rồi rút lại nhè nhẹ)
+    const targetScale = adjustedScale * inViewFactor;
 
-    contentRef.current.scale.lerp(new THREE.Vector3(targetScale, targetScale, targetScale), 0.1);
-    const pulse = 1 + Math.sin(state.clock.elapsedTime * 4) * 0.1;
-    const finalBaseScale = (inView ? baseScale : 0) * pulse * 1.5;
-    baseRef.current.scale.lerp(new THREE.Vector3(finalBaseScale, finalBaseScale, finalBaseScale), 0.1);
+    // Dùng damp để nội suy mượt theo thời gian độc lập khung hình
+    const dampSpeed = inViewFactor > 0.5 ? 8 : 12; // Ganh scale nhanh hơn khi nở ra trồi lên
+    
+    contentRef.current.scale.x = THREE.MathUtils.damp(contentRef.current.scale.x, targetScale, dampSpeed, delta);
+    contentRef.current.scale.y = contentRef.current.scale.x;
+    contentRef.current.scale.z = contentRef.current.scale.x;
 
-    const targetLineOpacity = inView ? 0.6 : 0;
-    lineRef.current.material.opacity = THREE.MathUtils.lerp(
+    const pulse = 1 + Math.sin(state.clock.elapsedTime * 5) * 0.12;
+    const finalBaseScale = (baseScale * inViewFactor) * pulse * 1.5;
+    
+    baseRef.current.scale.x = THREE.MathUtils.damp(baseRef.current.scale.x, finalBaseScale, 8, delta);
+    baseRef.current.scale.y = baseRef.current.scale.x;
+    baseRef.current.scale.z = baseRef.current.scale.x;
+
+    const targetLineOpacity = inViewFactor * 0.6;
+    lineRef.current.material.opacity = THREE.MathUtils.damp(
       lineRef.current.material.opacity,
       targetLineOpacity,
-      0.1
+      8,
+      delta
     );
 
-    baseRef.current.material.opacity = THREE.MathUtils.lerp(
+    baseRef.current.material.opacity = THREE.MathUtils.damp(
       baseRef.current.material.opacity,
-      inView ? 0.8 : 0,
-      0.1
+      inViewFactor * 0.8,
+      8,
+      delta
     );
   }, -2);
 
