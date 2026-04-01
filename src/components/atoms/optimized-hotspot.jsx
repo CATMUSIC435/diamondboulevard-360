@@ -59,7 +59,7 @@ export function OptimizedHotspot({ text, bg = "#002d4d" }) {
 
   return (
     <sprite scale={[aspect * 16, 16, 5]} renderOrder={100}>
-      <spriteMaterial map={texture} transparent={true} depthTest={false} />
+      <spriteMaterial map={texture} transparent={true} depthTest={false} toneMapped={false} />
     </sprite>
   );
 }

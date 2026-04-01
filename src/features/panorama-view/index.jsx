@@ -15,25 +15,31 @@ import { usePanorama } from "../../contexts/panorama-context";
 import { SceneReady } from "../../hooks/scene-ready";
 import { PanoramaZoomMobile } from "../../components/molecules/panorama-zoom-mobile";
 
-export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = false }) => {
+// Import các Hotspot và tính năng nội khu
+import { PointHotspot } from "../point-hotspot";
+import { PanoramaHotspot } from "../panorama-hotspot";
+import { InteractivePlane } from "../interactive-plane";
+import { CompassLogic } from "../../components/molecules/compass-ui";
+
+export const PanoramaView = memo(({ scenesData, activeSceneKey, setActiveScene, lowPerformance = false }) => {
   const [showEffects, setShowEffects] = useState(false);
   const { sceneReady } = usePanorama();
   const controlsRef = useRef();
 
   useEffect(() => {
     let timer;
-    if (isActive) {
+    if (activeSceneKey) {
       timer = setTimeout(() => setShowEffects(true), 1000);
     } else {
       setShowEffects(false);
     }
     return () => clearTimeout(timer);
-  }, [isActive]);
+  }, [activeSceneKey]);
 
   return (
-    <div className="w-full h-screen bg-gray-400">
+    <div className="w-full h-screen bg-black">
       <Canvas
-        frameloop={isActive ? "always" : "never"}
+        frameloop="always" // Luôn re-render để duy trì hiệu ứng mượt
         camera={{
           fov: 20,
           near: 0.1,
@@ -51,15 +57,28 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
           depth: false,
         }}
       >
-        {/* <Stats /> */}
-        
         <PanoramaZoomMobile controlsRef={controlsRef}/>
         <Suspense fallback={null}>
-          <PanoramaBox texturePaths={scene} isActive={isActive} />
           <SceneReady />
-          {children && children}
+          {Object.entries(scenesData).map(([key, data]) => {
+            const isActive = key === activeSceneKey;
+            return (
+              <group key={key}>
+                <PanoramaBox texturePaths={data.view} isActive={isActive} />
+                {isActive && (
+                  <group>
+                    <PointHotspot hotspot={data.hotspot} setActiveScene={setActiveScene} />
+                    {data.areas?.length > 0 && <PanoramaHotspot areas={data.areas} />}
+                    {data?.planes && <InteractivePlane planes={data.planes} />}
+                    <CompassLogic />
+                  </group>
+                )}
+              </group>
+            );
+          })}
         </Suspense>
-        {isActive && !lowPerformance && showEffects && sceneReady && (
+
+        {!lowPerformance && showEffects && sceneReady && (
           <EffectComposer
             disableNormalPass
             multisampling={4}
@@ -71,8 +90,8 @@ export const PanoramaView = memo(({ scene, isActive, children, lowPerformance = 
         )}
 
         <OrbitControls
-        ref={controlsRef}
-         enablePan={false}
+          ref={controlsRef}
+          enablePan={false}
           enableDamping
           dampingFactor={0.08}
           rotateSpeed={lowPerformance ? -0.6 : -0.4}

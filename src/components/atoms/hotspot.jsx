@@ -70,7 +70,7 @@ export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "
     >
 <mesh ref={baseRef}>
         <sphereGeometry args={[0.5, 16, 16]} />
-        <meshBasicMaterial color={color} transparent opacity={0.8} />
+        <meshBasicMaterial color={color} transparent opacity={0.8} toneMapped={false} />
 
         <GlowRings color={color} speed={2.5} scaleMax={4} />
 
