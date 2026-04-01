@@ -1,7 +1,8 @@
 export function PostCard({ post }) {
   const image =
+    post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ??
     post.yoast_head_json?.["og_image"]?.[0]?.url ??
-    "/placeholder.jpg";
+    "/images/default-project.jpg";
 
   return (
     <div className="group relative h-full flex flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md transition-all duration-500 hover:bg-white/10 hover:border-orange-500/50">

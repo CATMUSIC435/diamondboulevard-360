@@ -12,7 +12,7 @@ export const useFetchPosts = (perPage = 8) => {
       setLoading(true);
       try {
         const response = await fetch(
-          `https://diamondboulevard.com.vn/wp-json/wp/v2/posts?per_page=${perPage}`,
+          `https://diamondboulevard.com.vn/wp-json/wp/v2/posts?per_page=${perPage}&_embed`,
           { signal: controller.signal }
         );
 
