@@ -57,7 +57,7 @@ export function Hotspot({ position, text, distance = 60, lineHeight = 50, bg = "
       inView ? 0.8 : 0,
       0.1
     );
-  });
+  }, -2);
 
   const startPoint = useMemo(() => new THREE.Vector3(0, 0, 0), []);
   const endPoint = useMemo(() => new THREE.Vector3(0, lineHeight, 0), [lineHeight]);

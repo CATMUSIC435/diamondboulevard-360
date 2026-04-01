@@ -41,10 +41,10 @@ export const PanoramaView = memo(({ scenesData, activeSceneKey, setActiveScene, 
       <Canvas
         frameloop="always" // Luôn re-render để duy trì hiệu ứng mượt
         camera={{
-          fov: 20,
+          fov: 75,
           near: 0.1,
           far: 3000,
-          position: [0.05, 99.97, 2.31],
+          position: [0.00005, 0.09997, 0.00231],
         }}
         dpr={lowPerformance ? [1, 1.5] : [1, 2]}
         gl={{

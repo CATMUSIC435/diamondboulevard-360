@@ -9,8 +9,8 @@ export const InteractivePlane = memo(({ planes }) => {
 
   const renderedPlanes = useMemo(() => {
     if (!sceneReady) return null;
-    return planes.map((plan) => (
-      <MemoizedInteractiveZone {...plan} />
+    return planes.map(({ key, ...plan }) => (
+      <MemoizedInteractiveZone key={key} {...plan} />
     ));
   }, [planes, sceneReady]);
 
