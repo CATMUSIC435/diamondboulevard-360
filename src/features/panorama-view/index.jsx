@@ -1,5 +1,5 @@
 "use client";
-import { memo, Suspense, useEffect, useRef, useState } from "react";
+import { memo, Suspense, useEffect, useRef, useState, useMemo } from "react";
 import * as THREE from 'three';
 import { SRGBColorSpace } from "three";
 import { Canvas } from "@react-three/fiber";
@@ -65,7 +65,8 @@ export const PanoramaView = memo(({ scenesData, activeSceneKey, setActiveScene, 
         />
         <Suspense fallback={null}>
           <SceneReady />
-          {Object.entries(scenesData).map(([key, data]) => {
+          {useMemo(() => {
+            return Object.entries(scenesData).map(([key, data]) => {
             const isActive = key === visibleSceneKey;
             return (
               <group key={key}>
@@ -80,7 +81,7 @@ export const PanoramaView = memo(({ scenesData, activeSceneKey, setActiveScene, 
                 )}
               </group>
             );
-          })}
+          }); }, [scenesData, visibleSceneKey, setActiveScene])}
         </Suspense>
 
         {!lowPerformance && showEffects && sceneReady && (
