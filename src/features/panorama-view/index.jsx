@@ -23,6 +23,7 @@ import { CompassLogic } from "../../components/molecules/compass-ui";
 
 export const PanoramaView = memo(({ scenesData, activeSceneKey, setActiveScene, lowPerformance = false }) => {
   const [showEffects, setShowEffects] = useState(false);
+  const [visibleSceneKey, setVisibleSceneKey] = useState(activeSceneKey);
   const { sceneReady } = usePanorama();
   const controlsRef = useRef();
 
@@ -57,11 +58,15 @@ export const PanoramaView = memo(({ scenesData, activeSceneKey, setActiveScene, 
           depth: false,
         }}
       >
-        <PanoramaZoomMobile controlsRef={controlsRef}/>
+        <PanoramaZoomMobile 
+          controlsRef={controlsRef} 
+          activeSceneKey={activeSceneKey} 
+          onZoomInDone={(key) => setVisibleSceneKey(key)}
+        />
         <Suspense fallback={null}>
           <SceneReady />
           {Object.entries(scenesData).map(([key, data]) => {
-            const isActive = key === activeSceneKey;
+            const isActive = key === visibleSceneKey;
             return (
               <group key={key}>
                 <PanoramaBox texturePaths={data.view} isActive={isActive} />
